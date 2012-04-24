@@ -35,6 +35,9 @@ trait Triangle3D[A, B] {
 
 object Triangle3D {
     def apply(points: Seq[Point3D[Double]]) = new DoubleTriangle3D(points)
+
+    def apply(p0: Point3D[Double], p1: Point3D[Double], p2: Point3D[Double]) =
+        new DoubleTriangle3D(Seq(p0, p1, p2))
 }
 
 /**
