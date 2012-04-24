@@ -1,4 +1,4 @@
-sciencelube
+scilube
 ===========
 
 Science libraries for Scala
