@@ -114,6 +114,6 @@
     <modules>
         <module>scilube-core</module>
         <module>scilube-gis</module>
-    <module>scilube-jfreechart</module>
-  </modules>
+        <module>scilube-jfreechart</module>
+    </modules>
 </project>

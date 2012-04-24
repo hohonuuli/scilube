@@ -33,7 +33,6 @@ object ASCGridWriter {
         val nodataString = fmt.format(nodataValue)
         for (j <- 0 until nrows ) {
             for (i <- 0 until ncols) {
-
                 val z = grid(i, j)
                 if (z.isNaN || z.isInfinity) {
                     writer.write(nodataString)
