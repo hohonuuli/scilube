@@ -100,7 +100,7 @@ object RugosityCalculator {
         println("Reading " + ingrid)
         val bathymetry = ASCGridReader.read(ingrid)
         println("Calculating Rugosity")
-        val rugosity = RugosityCalculator.apply(bathymetry)
+        val rugosity = RugosityCalculator(bathymetry)
         println("Writing " + outgrid)
         ASCGridWriter.write(outgrid, rugosity)
 
