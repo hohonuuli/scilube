@@ -1,22 +1,35 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>scilube</groupId>
-		<artifactId>scilube</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
-	<artifactId>scilube-core</artifactId>
-	<name>scilube-core</name>
-	<url>http://maven.apache.org</url>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.mbari</groupId>
-			<artifactId>mbarix4j</artifactId>
-			<version>1.9.0-SNAPSHOT</version>
-		</dependency>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>scilube</groupId>
+        <artifactId>scilube</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>scilube-core</artifactId>
+    <name>scilube-core</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.mbari</groupId>
+            <artifactId>mbarix4j</artifactId>
+            <version>1.9.0-SNAPSHOT</version>
+        </dependency>
+        <!-- FFT -->
+        <dependency>
+            <groupId>com.github.rwl</groupId>
+            <artifactId>jtransforms</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <!-- Complex Numbers -->
+        <dependency>
+            <groupId>com.github.non</groupId>
+            <artifactId>spire</artifactId>
+            <version>0.2.0</version>
+            <classifier>2.9.2</classifier>
+        </dependency>
     </dependencies>
 </project>

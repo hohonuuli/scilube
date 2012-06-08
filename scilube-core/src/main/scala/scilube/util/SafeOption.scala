@@ -1,4 +1,4 @@
-package scilube
+package scilube.util
 
 import org.slf4j.LoggerFactory
 
@@ -11,7 +11,7 @@ object SafeOption {
 
     private[this] val log = LoggerFactory.getLogger(getClass)
 
-    def apply[A](x: => A):Option[A] = {
+    def apply[A](x: => A): Option[A] = {
         try {
             Option(x)
         }
