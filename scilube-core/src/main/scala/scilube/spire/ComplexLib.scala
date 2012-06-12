@@ -2,6 +2,8 @@ package scilube.spire
 
 import scala.{math => M}
 import spire.math.Complex
+import scilube.Matlib
+import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 
 /**
  *
@@ -10,18 +12,17 @@ import spire.math.Complex
  */
 object ComplexLib {
 
+    implicit def doubleArrayToComplexArray(d: Array[Double]): Array[Complex[Double]] =
+        d.map(Complex(_, 0D))
+
+
     /**
      * Modulus of this Complex number
      * (the distance from the origin in polar coordinates).
      * @param c The complex number
      * @return |z| where z is this Complex number.
      */
-    def mod(c: Complex[Double]): Double = if (c.real != 0 || c.imag != 0) {
-        M.sqrt(c.real * c.real + c.imag + c.imag)
-    }
-    else {
-        0
-    }
+    def mod(c: Complex[Double]): Double = c.abs
 
     /**
      * Complex exponential
@@ -38,7 +39,7 @@ object ComplexLib {
      * @param c The complex number
      * @return log(z) where z is this Complex number.
      */
-    def log(c: Complex[Double]): Complex[Double] = Complex(scala.math.log(mod(c)), c.arg)
+    def log(c: Complex[Double]): Complex[Double] = Complex(scala.math.log(c.abs), c.arg)
 
     /**
      * Complex square root
@@ -51,6 +52,12 @@ object ComplexLib {
         val r = M.sqrt(mod(c))
         val theta = c.arg / 2
         Complex(r * M.cos(theta), r * M.sin(theta))
+        //        val m = c.abs
+        //        val s = Matlib.sign(c.imag)
+        //        val p = 1 / M.sqrt(2) * M.sqrt(m + c.real)
+        //        val q = s / M.sqrt(2) * M.sqrt((m - c.real))
+        //        Complex(p, q)
+
     }
 
     /**
@@ -100,12 +107,24 @@ object ComplexLib {
 
     def fft(data: Array[Complex[Double]]): Array[Complex[Double]] = {
         // 1d Array of complex values stored as values in seq, the real part then the imag part
-        def data2 = data.map(c => Array(c.real, c.imag)).flatten
-        // TODO Finish implemntation
+        val data2 = data.map(c => Array(c.real, c.imag)).flatten
+        val fft1d = new DoubleFFT_1D(data.size)
+        fft1d.complexForward(data2)
+        val f = for (i <- 0 until (data2.size - 1) by 2) yield {
+            Complex(data2(i), data2(i + 1))
+        }
+        f.toArray
+    }
 
-
-        null
-
+    def ifft(data: Array[Complex[Double]], scale: Boolean = true): Array[Complex[Double]] = {
+        // 1d Array of complex values stored as values in seq, the real part then the imag part
+        val data2 = data.map(c => Array(c.real, c.imag)).flatten
+        val fft1d = new DoubleFFT_1D(data.size)
+        fft1d.complexInverse(data2, scale)
+        val f = for (i <- 0 until (data2.size - 1) by 2) yield {
+            Complex(data2(i), data2(i + 1))
+        }
+        f.toArray
     }
 
 

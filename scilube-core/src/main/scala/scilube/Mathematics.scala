@@ -31,12 +31,19 @@ protected trait Mathematics {
 
 
     def fft(data: Array[Double]): Array[Complex[Double]] = {
-        // FIXME: real data array needs to be converted to real/imag array
+        // real data array needs to be converted to real/imag array
+        val complexData = Array.ofDim[Double](data.size * 2)
+        data.indices.foreach { i =>
+            complexData(i * 2) = data(i)
+        }
+
+        // Run FFT
         val fft1d = new DoubleFFT_1D(data.size)
-        val result = Array.ofDim[Double](data.size * 2)
-        fft1d.complexForward(result)
-        val f = for (i <- 0 until (result.size - 1) by 2) yield {
-            Complex(result(i), result(i + 1))
+        fft1d.complexForward(complexData)
+
+        // Convert real-imag packed array to an Array of Complex numbers
+        val f = for (i <- 0 until (complexData.size - 1) by 2) yield {
+            Complex(complexData(i), complexData(i + 1))
         }
         f.toArray
     }
@@ -88,6 +95,11 @@ protected trait Mathematics {
      */
     def near(data: Array[Double], key: Double, inclusive: Boolean = true) = JMatlib.near(data, key)
 
+    /**
+     * @param data The data array
+     * @return The product of the elements of '''data'''
+     */
+    def prod(data: Array[Double]): Double = data.fold(1D)((a, b) => a * b)
 
     def rem(x: Double, y: Double): Double = DoubleMath.rem(x, y)
 
@@ -97,5 +109,6 @@ protected trait Mathematics {
      * @return
      */
     def sign(x: Double) = DoubleMath.sign(x)
+
 
 }
