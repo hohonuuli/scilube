@@ -3,6 +3,8 @@ package scilube
 import _root_.spire.math.Complex
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
+import org.apache.commons.math3.analysis.solvers.BisectionSolver
+import org.apache.commons.math3.analysis.UnivariateFunction
 
 /**
  * Math functions.
@@ -49,6 +51,36 @@ protected trait Mathematics {
     }
 
     def fix(x: Double): Double = JMatlib.fix(x)
+
+    /**
+     * Single variable nonlinear zero finding
+     * @param fn The function whose zero we're searching for
+     * @param start A starting quess for the location of the zero
+     * @return
+     */
+    def fzero(fn: Double => Double, start: Double): Double = {
+        val solver = new BisectionSolver()
+        val ufn = new UnivariateFunction {
+            def value(p1: Double): Double = fn(p1)
+        }
+        solver.solve(10000, ufn, start)
+    }
+
+    /**
+     * Single variable nonlinear zero finding over an interval
+     * @param fn The function whose zero we're searching for
+     * @param min The interval minimum
+     * @param max The interval maximum
+     * @return
+     */
+    def fzero(fn: Double => Double, min: Double, max: Double): Double = {
+        val solver = new BisectionSolver()
+        val ufn = new UnivariateFunction {
+            def value(p1: Double): Double = fn(p1)
+        }
+        solver.solve(10000, ufn, min, max)
+    }
+
 
     /**
      * Linear interpolation
