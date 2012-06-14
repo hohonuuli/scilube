@@ -142,5 +142,41 @@ protected trait Mathematics {
      */
     def sign(x: Double) = DoubleMath.sign(x)
 
+    /**
+     * Same as Matlab's unique. FOr performance if you just need the unique values use {{{a.distinct}}}.
+     * This method also returns the order indices.
+     *
+     * @param a An array
+     * @param occurrence The default value is occurrence = "last", which returns the index of the
+     *                   last occurrence of each repeated value (or row) in A, while
+     *                   occurrence = 'first' returns the index of the first occurrence of each
+     *                   repeated value (or row) in A
+     * @return A tuple of (c, ia, ic). c is the same values as in A but with no repetitions. C will be sorted.
+     *         ia and ic are index arrays such that c = a(ia) and a = c(ic
+     */
+    def unique(a: Array[Double], occurrence: String = "last"): (Array[Double], Array[Int], Array[Int]) = {
+
+        val useFirst = occurrence match {
+            case "first" => true
+            case _ => false
+        }
+
+        val c = a.distinct.sorted
+
+        val ia = (for (i <- 0 until c.length) yield {
+            val v = c(i)
+            if (useFirst) {
+                a.indexOf(v)
+            }
+            else {
+                a.lastIndexOf(v)
+            }
+        }).toArray
+
+        val ic = (for (i <- 0 until a.length) yield c.indexOf(a(i)) ).toArray
+
+        (c, ia, ic)
+    }
+
 
 }

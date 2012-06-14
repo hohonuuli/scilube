@@ -110,6 +110,8 @@ protected trait Probabilities {
         q.toArray
     }
 
+
+
     /**
      * Is the cat dead or alive?
      * @param a
