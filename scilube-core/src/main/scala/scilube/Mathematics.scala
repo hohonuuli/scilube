@@ -21,17 +21,28 @@ protected trait Mathematics {
      * Coefficient</strong> or the <strong>Pearson product-moment correlation
      * coefficient</strong>
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x x values
+     * @param y y values
+     * @return correlation coefficient
      */
     def corr(x: Array[Double], y: Array[Double]) = Statlib.pearsonsCorrelation(x, y)
 
     def corrcoef(x: Array[Double], y: Array[Double]) = Statlib.correlationCoefficient(x, y)
 
+    /**
+     * Cumulative sum of elements
+     *
+     * @param data values
+     * @return An array containing the cumulative sum of data
+     */
     def cumsum(data: Array[Double]): Array[Double] = JMatlib.cumsum(data)
 
 
+    /**
+     * Discrete Fourier transform
+     * @param data values
+     * @return The fft of data
+     */
     def fft(data: Array[Double]): Array[Complex[Double]] = {
         // real data array needs to be converted to real/imag array
         val complexData = Array.ofDim[Double](data.size * 2)
@@ -50,13 +61,18 @@ protected trait Mathematics {
         f.toArray
     }
 
+    /**
+     * Round towards zero
+     * @param x The number
+     * @return The number rounded towars zero
+     */
     def fix(x: Double): Double = JMatlib.fix(x)
 
     /**
      * Single variable nonlinear zero finding
      * @param fn The function whose zero we're searching for
      * @param start A starting quess for the location of the zero
-     * @return
+     * @return The x value of zero for the fn
      */
     def fzero(fn: Double => Double, start: Double): Double = {
         val solver = new BisectionSolver()
@@ -71,7 +87,7 @@ protected trait Mathematics {
      * @param fn The function whose zero we're searching for
      * @param min The interval minimum
      * @param max The interval maximum
-     * @return
+     * @return The x value of zero for the fn
      */
     def fzero(fn: Double => Double, min: Double, max: Double): Double = {
         val solver = new BisectionSolver()
@@ -84,10 +100,10 @@ protected trait Mathematics {
 
     /**
      * Linear interpolation
-     * @param x
-     * @param y
-     * @param xi
-     * @return
+     * @param x array of x values
+     * @param y array of y values
+     * @param xi array of x values to interpolate to
+     * @return array of y values at xi
      *
      * @throws IllegalArgumentException
      */
@@ -111,6 +127,13 @@ protected trait Mathematics {
      */
     def logspace(d1: Double, d2: Double, n: Int) = JMatlib.logspace(d1, d2, n)
 
+    /**
+     * Modulus after divistion. THis just calls the `%` operator; it's included to make porting
+     * Matlab code more familiar.
+     * @param a a value
+     * @param b the other value
+     * @return the modulus
+     */
     def mod(a: Double, b: Double) = a % b
 
     /**
@@ -133,17 +156,22 @@ protected trait Mathematics {
      */
     def prod(data: Array[Double]): Double = data.fold(1D)((a, b) => a * b)
 
+    /**
+     * @param x a value
+     * @param y another value
+     * @return Remainder after division
+     */
     def rem(x: Double, y: Double): Double = DoubleMath.rem(x, y)
 
     /**
      * Signum function
-     * @param x
-     * @return
+     * @param x a value
+     * @return The sign of x (-1 or 1)
      */
     def sign(x: Double) = DoubleMath.sign(x)
 
     /**
-     * Same as Matlab's unique. FOr performance if you just need the unique values use {{{a.distinct}}}.
+     * Same as Matlab's unique. For performance, if you just need the unique values use {{{a.distinct}}}.
      * This method also returns the order indices.
      *
      * @param a An array

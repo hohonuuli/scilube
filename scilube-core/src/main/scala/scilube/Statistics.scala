@@ -17,14 +17,22 @@ protected trait Statistics {
 
     /**
      * Mean absolute deviation
-     * @param data
-     * @return
+     * @param data data
+     * @return array of mean absolute deviation
      */
     def mad(data: Array[Double]): Array[Double] = Statlib.deviationFromMean(data).map(abs(_))
 
-    def mean(data: Array[Double]) = Statlib.mean(data)
+    /**
+     * @param data data
+     * @return mean value of `data`
+     */
+    def mean(data: Array[Double]): Double = Statlib.mean(data)
 
-    def median(data: Array[Double]) = Statlib.median(data)
+    /**
+     * @param data data
+     * @return median value of `data`
+     */
+    def median(data: Array[Double]): Double = Statlib.median(data)
 
     /**
      * Standard deviation is a statistical measure of spread or variability.The
@@ -33,8 +41,8 @@ protected trait Statistics {
      *
      * <b>std</b> normalizes values by N, where N is the sample size. This the
      * <i>Population Standard Deviation</i>
-     * @param data
-     * @return
+     * @param data data
+     * @return standard deviation of data
      */
     def std(data: Array[Double]) = Statlib.populationStandardDeviation(data)
 
@@ -42,8 +50,8 @@ protected trait Statistics {
      * Population Variance (like Matlab's <i>var</i> function but var is a keyword in Scala so
      * I couldn't use it)
      *
-     * @param data
-     * @return
+     * @param data data
+     * @return variance of data
      */
     def variance(data: Array[Double]) = Statlib.populationVariance(data)
 

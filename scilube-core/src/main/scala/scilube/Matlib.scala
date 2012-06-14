@@ -2,6 +2,7 @@ package scilube
 
 import _root_.spire.math.Complex
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import probability.KDE
 import scala.math._
 import scala.util.Random
 import org.mbari.math.{DoubleMath, Statlib, Matlib => JMatlib}
@@ -16,6 +17,49 @@ object Matlib
         extends Mathematics
         with Probabilities
         with Statistics {
+
+    /**
+     * Calculate the relative cumulative density between 2 sample sets. Internally the CDF is
+     * calculated using the empirical CDF, `tocdf`
+     * @param y Samples from the comparison outcome space
+     * @param y0 Samples from a reference outcome space
+     * @param r The relative density at r
+     * @return The relative cumaltive density
+     * @see ‘‘Relative Distribution Methods in the Social Sciences’’ by Mark S. Handcock and
+     *      Martina Morris, Springer-Verlag, 1999,Springer-Verlag, ISBN 0387987789
+     */
+    def relativecdf(y: Array[Double], y0: Array[Double], r: Array[Double]): Array[Double] = {
+        val (c, x) = tocdf(y)
+        val (c0, x0) = tocdf(y0)
+        val q0 = quantile(y0, r)        // value of y0 at r
+        val f0 = interp1(x0, c0, q0)    // value of c0 at q0(r), i.e. probability density
+        val f = interp1(x, c, q0)       // value of c at q0(r)
+        (for (i <- 0 until f.size) yield f(i) / f0(i)).toArray
+    }
+
+    /**
+     * Calculate relative probability density between 2 sample sets. Internally the PDF is
+     * calculated using [[scilube.probability.KDE]].
+     *
+     * @param y Samples from the comparison outcome space
+     * @param y0 Samples from a reference outcome space
+     * @param r The proportion (e.g. probability of y / y0 values relative to q0(r) where
+     *          0 <- r(n) <= 1
+     * @return The relative density at r
+     * @see ‘‘Relative Distribution Methods in the Social Sciences’’ by Mark S. Handcock and
+     *      Martina Morris, Springer-Verlag, 1999,Springer-Verlag, ISBN 0387987789
+     */
+    def relativepdf(y: Array[Double], y0: Array[Double], r: Array[Double]): Array[Double] = {
+        val min_ = min(y.min, y0.min)
+        val max_ = max(y.max, y0.max)
+        val n = max(y.size, y0.size) * 2
+        val p = KDE(y, n, min_, max_)
+        val p0 = KDE(y0, n, min_, max_)
+        val q0 = quantile(y0, r) // Value of y0 at r
+        val f0 = interp1(p0.x, p0.pdf, q0) // value of f0 at q0(r) i.e. probability density
+        val f = interp1(p.x, p.pdf, q0) // value of f at q0(r)
+        (for (i <- 0 until f.size) yield f(i) / f0(i)).toArray
+    }
 
 
     /**

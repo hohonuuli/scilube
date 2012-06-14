@@ -2,6 +2,7 @@ package scilube
 
 import org.mbari.math.Statlib
 import math._
+import probability.KDE
 import scala.util.Random
 
 /**
@@ -30,7 +31,7 @@ protected trait Probabilities {
      * of ''n'' distinct objects is equal to the factorial of ''n''
      *
      * @param n The value for the factorial
-     * @return
+     * @return factorial of n
      */
     def factorial(n: BigInt, result: BigInt = 1): BigInt = if (n == 0) result
             else factorial(n - 1, n * result)
@@ -40,17 +41,18 @@ protected trait Probabilities {
      * @param data The data to bin
      * @param centers The bins where each value represents a center of a bin. They MUST
      *                be ordered or the data will not be valid.
-     * @param inclusive
-     * @return
+     * @param inclusive if true values outside of the centers are excluded from results. The default
+     *                  is `false`
+     * @return The histogram of data
      */
-    def hist(data: Array[Double], centers: Array[Double], inclusive: Boolean = true) = Statlib.hist(data, centers, inclusive)
+    def hist(data: Array[Double], centers: Array[Double], inclusive: Boolean = false) = Statlib.hist(data, centers, inclusive)
 
 
     /**
      * Bins elements using specified edges
-     * @param data
-     * @param edges
-     * @return
+     * @param data The data to bin
+     * @param edges array defining the edges of each bin
+     * @return The histogram of data
      */
     def histc(data: Array[Double], edges: Array[Double]) = Statlib.histc(data, edges)
 
@@ -112,13 +114,16 @@ protected trait Probabilities {
 
 
 
+
+
+
     /**
      * Is the cat dead or alive?
-     * @param a
-     * @param b
-     * @tparam A
-     * @tparam B
-     * @return
+     * @param a The alive cat
+     * @param b The deat bat
+     * @tparam A The type of the alive cat
+     * @tparam B The type of the dead cat
+     * @return A box ... is the cat dead or alive?
      */
     def Schrödinger[A, B](a: A, b: B): Either[A, B] =  new Random().nextBoolean() match {
         case true => Right(b)

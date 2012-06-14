@@ -40,7 +40,7 @@ Spire is referenced in this project using:
 mvn clean install
 </pre>
 
-_scilube can be included in other projects with:
+_scilube_ can be included in other projects with:
 <pre>
     &lt;dependency&gt;
         &lt;groupId&gt;scilube&lt;/groupId&gt;
