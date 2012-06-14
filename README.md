@@ -39,3 +39,13 @@ Spire is referenced in this project using:
 <pre>
 mvn clean install
 </pre>
+
+_scilube can be included in other projects with:
+<pre>
+    &lt;dependency&gt;
+        &lt;groupId&gt;scilube&lt;/groupId&gt;
+        &lt;artifactId&gt;scilube-core&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+        &lt;classifier&gt;2.9.2&lt;/classifier&gt;
+    &lt;/dependency&gt;
+</pre>
