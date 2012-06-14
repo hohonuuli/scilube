@@ -25,15 +25,17 @@
 
 Spire is referenced in this project using:
 <pre>
-    <dependency>
-        <groupId>com.github.non</groupId>
-        <artifactId>spire</artifactId>
-        <version>0.2.0</version>
-        <classifier>2.9.2</classifier>
-    </dependency>
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.github.non&lt;/groupId&gt;
+        &lt;artifactId&gt;spire&lt;/artifactId&gt;
+        &lt;version&gt;0.2.0&lt;/version&gt;
+        &lt;classifier&gt;2.9.2&lt;/classifier&gt;
+    &lt;/dependency&gt;
 </pre>
 
 **Second, build _scilube_**
   1. Check it out of git
   2. Use Maven to build
-  `mvn clean install`
+<pre>
+mvn clean install
+</pre>
