@@ -1,5 +1,7 @@
 package scilube
 
+import org.junit.Test
+
 /**
  *
  * @author Brian Schlining
@@ -7,6 +9,10 @@ package scilube
  */
 
 class ProbabilitiesTest {
+
+
+    @Test
+    def test(){}
 
 
 
