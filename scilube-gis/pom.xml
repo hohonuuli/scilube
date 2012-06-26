@@ -13,6 +13,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <geotoolkit.version>3.x-SNAPSHOT</geotoolkit.version>
     </properties>
+
+    <repositories>
+       <repository>
+           <id>geotoolkit-repository</id>
+           <url>maven.geotoolkit.org</url>
+       </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
