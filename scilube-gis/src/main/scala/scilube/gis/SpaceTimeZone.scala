@@ -11,7 +11,39 @@ import scilube.time.MomentInterval
  * @since 2011-05-12
  */
 trait SpaceTimeZone {
+
+    /**
+     * Checks that the zone contains the given 4D point
+     *
+     * @param point The point of interest
+     * @param numeric implicit conversion of the points coordiates to a numeric value
+     * @tparam A The points coordinate types
+     * @return true if the point falls with in the zone. false if it is outside the zone
+     */
     def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean
+
+    /**
+     * Compose zones.
+     * {{{
+     *     val a = // some SpaceTimeZone
+     *     val b = // some other SpaceTimeZone
+     *     val c = a and b
+     *
+     *     // true if both a and b contains the point
+     *     val contained = c.contains(point4D)
+     *
+     * }}}
+     * @param zone
+     * @tparam A
+     * @return
+     */
+    def and[A](zone: SpaceTimeZone): SpaceTimeZone = new SpaceTimeZone {
+
+        def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean =
+                SpaceTimeZone.this.contains(point) && zone.contains(point)
+
+    }
+
 }
 
 /**
@@ -22,17 +54,23 @@ class EnvelopeToSpaceTimeZone(envelope: Envelope) extends SpaceTimeZone {
     def contains[B](point: Point4D[B, Date])(implicit numeric: Numeric[B]): Boolean = envelope.contains(point)
 }
 
+
 /**
- * Wrapper that converts an [[scilube.geometry.Envelope]] and
- * [[scilube.time.MomentInterval]] to a SpaceTimeZone
- * @param envelope The rectangular spatial envelope
- * @param momentInterval The Moment interval defining the time bounds of the Zone
+ * Wrapper that converts a [[scilube.time.MomentInterval]] to a SpaceTimeZone. Thiz zone contains
+ * a point if it's time falls within
+ *
+ * @param momentInterval The moment
  */
-class RectangularSpaceTimeZone(val envelope: Envelope, val momentInterval: MomentInterval)
-        extends SpaceTimeZone {
-    def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean = {
-        envelope.contains(point) && momentInterval.contains(point.t)
-    }
+class MomentIntervalSpaceTimeZone(val momentInterval: MomentInterval) extends SpaceTimeZone {
+    /**
+     * Checks that the zone contains the given 4D point
+     *
+     * @param point The point of interest
+     * @param numeric implicit conversion of the points coordiates to a numeric value
+     * @tparam A The points coordinate types
+     * @return true if the point falls with in the zone. false if it is outside the zone
+     */
+    def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean = momentInterval.contains(point.t)
 }
 
 /**
@@ -43,15 +81,16 @@ object NoopSpaceTimeZone extends SpaceTimeZone {
 }
 
 /**
- * Contains implicit conversions
+ * Contains conversions
  */
 object SpaceTimeZone {
 
     def apply(envelope: Envelope) = new EnvelopeToSpaceTimeZone(envelope)
 
-    def apply(envelope: Envelope, momentInterval: MomentInterval) =
-        new RectangularSpaceTimeZone(envelope, momentInterval)
+    def apply(momentInterval: MomentInterval) = new MomentIntervalSpaceTimeZone(momentInterval)
 
-    def apply(envelope: Envelope, start: Date, end: Date) =
-        new RectangularSpaceTimeZone(envelope, MomentInterval(start, end))
+    def apply(envelope: Envelope, momentInterval: MomentInterval) = apply(envelope) and apply(momentInterval)
+
+    def apply(envelope: Envelope, start: Date, end: Date) = apply(envelope) and apply(MomentInterval(start, end))
+
 }
