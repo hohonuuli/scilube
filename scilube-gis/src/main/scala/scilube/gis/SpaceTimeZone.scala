@@ -50,7 +50,7 @@ trait SpaceTimeZone {
  * Wrapper that converts an [[scilube.geometry.Envelope]] to a
  * [[scilube.gis.SpaceTimeZone]]
  */
-class EnvelopeToSpaceTimeZone(envelope: Envelope) extends SpaceTimeZone {
+class EnvelopeSpaceTimeZone(val envelope: Envelope) extends SpaceTimeZone {
     def contains[B](point: Point4D[B, Date])(implicit numeric: Numeric[B]): Boolean = envelope.contains(point)
 }
 
@@ -85,12 +85,12 @@ object NoopSpaceTimeZone extends SpaceTimeZone {
  */
 object SpaceTimeZone {
 
-    def apply(envelope: Envelope) = new EnvelopeToSpaceTimeZone(envelope)
+    def apply(envelope: Envelope): EnvelopeSpaceTimeZone = new EnvelopeSpaceTimeZone(envelope)
 
-    def apply(momentInterval: MomentInterval) = new MomentIntervalSpaceTimeZone(momentInterval)
+    def apply(momentInterval: MomentInterval): MomentIntervalSpaceTimeZone = new MomentIntervalSpaceTimeZone(momentInterval)
 
-    def apply(envelope: Envelope, momentInterval: MomentInterval) = apply(envelope) and apply(momentInterval)
+    def apply(envelope: Envelope, momentInterval: MomentInterval): SpaceTimeZone = apply(envelope) and apply(momentInterval)
 
-    def apply(envelope: Envelope, start: Date, end: Date) = apply(envelope) and apply(MomentInterval(start, end))
+    def apply(envelope: Envelope, start: Date, end: Date): SpaceTimeZone = apply(envelope) and apply(MomentInterval(start, end))
 
 }

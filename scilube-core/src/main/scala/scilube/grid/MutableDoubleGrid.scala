@@ -136,4 +136,71 @@ object MutableDoubleGrid {
         normalizedGrid
     }
 
+    /**
+     * Dilates non-zero pixels in a grid
+     * @param grid The grid to buffer
+     * @param bufferSize The number of surrounding pixels to dilate by
+     * @param minAcceptableZ The minimum valu in a grid to buffer around
+     */
+    def dilate(grid: Grid[Double, Double, Double], bufferSize: Int, 
+            minAcceptableZ: Double = 1): Grid[Double, Double, Double] = {
+        
+        val nx = grid.x.size
+        val ny = grid.y.size
+        println("nx = " + nx + ", ny = " + ny)
+
+        // Create a new emtpy grid
+        val newGrid = new MutableDoubleGrid(grid.x, grid.y)
+        for (i0 <- 0 until nx;
+             j0 <- 0 until ny; 
+             if grid(i0, j0) >= minAcceptableZ) {
+
+            for (i1 <- -bufferSize to bufferSize; j1 <- -bufferSize to bufferSize) {
+                val i = i0 + i1
+                val j = j0 + j1
+                if (i >= 0 && i < nx && j >= 0 && j < ny) {
+                    newGrid(i, j) = newGrid(i, j) + grid(i, j)
+                }
+            }
+        }
+
+        newGrid
+
+    }
+
+    /**
+     * Dilates non-zero pixels in a grid. Instead of adding the values, like
+     * __dilate__ does. It just counts the number of times a pixels been 
+     * dilated.
+     *
+     * @param grid The grid to buffer
+     * @param bufferSize The number of surrounding pixels to dilate by
+     * @param minAcceptableZ The minimum valu in a grid to buffer around
+     */
+    def dilateByCount(grid: Grid[Double, Double, Double], bufferSize: Int, 
+            minAcceptableZ: Double = 1): Grid[Double, Double, Double] = {
+        
+        val nx = grid.x.size
+        val ny = grid.y.size
+        println("nx = " + nx + ", ny = " + ny)
+
+        // Create a new emtpy grid
+        val newGrid = new MutableDoubleGrid(grid.x, grid.y)
+        for (i0 <- 0 until nx;
+             j0 <- 0 until ny; 
+             if grid(i0, j0) >= minAcceptableZ) {
+
+            for (i1 <- -bufferSize to bufferSize; j1 <- -bufferSize to bufferSize) {
+                val i = i0 + i1
+                val j = j0 + j1
+                if (i >= 0 && i < nx && j >= 0 && j < ny) {
+                    newGrid(i, j) = newGrid(i, j) + 1
+                }
+            }
+        }
+
+        newGrid
+
+    }
+
 }
