@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>scilube</groupId>
     <artifactId>scilube</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1</version>
     <name>${project.artifactId}</name>
     <description>Science Libraries for Scala</description>
     <packaging>pom</packaging>
@@ -124,4 +124,11 @@
         <module>scilube-jfreechart</module>
         <module>scilube-3d</module>
   </modules>
+  <distributionManagement>
+        <repository>
+            <id>build-server.shore.mbari.org</id>
+            <name>build-server.shore.mbari.org</name>
+            <url>http://build-server.shore.mbari.org:8081/artifactory/libs-release-local</url>
+        </repository>
+    </distributionManagement>
 </project>
