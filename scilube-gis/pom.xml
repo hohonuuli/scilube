@@ -4,7 +4,7 @@
     <parent>
         <groupId>scilube</groupId>
         <artifactId>scilube</artifactId>
-        <version>0.1</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>scilube-gis</artifactId>
     <name>scilube-gis</name>

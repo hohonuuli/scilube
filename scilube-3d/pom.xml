@@ -5,11 +5,11 @@
     <parent>
         <groupId>scilube</groupId>
         <artifactId>scilube</artifactId>
-        <version>0.1</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>scilube</groupId>
     <artifactId>scilube-3d</artifactId>
-    <version>0.1</version>
+    <version>1.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <properties>
