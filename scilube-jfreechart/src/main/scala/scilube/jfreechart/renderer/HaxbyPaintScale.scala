@@ -34,7 +34,7 @@ class HaxbyPaintScale(@BeanProperty val lowerBound: Double, @BeanProperty val up
         val b = Matlib.interp1(pp, c3, mm)
 
         for (i <- 0 until m) yield {
-            new Color((r(i) * 255).toInt, (g(i) * 255).toInt, (b(i) * 255).toInt)
+            new Color(r(i).toInt, g(i).toInt, b(i).toInt)
         }
 
     }

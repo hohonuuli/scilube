@@ -180,7 +180,7 @@ protected trait Mathematics {
      *                   occurrence = 'first' returns the index of the first occurrence of each
      *                   repeated value (or row) in A
      * @return A tuple of (c, ia, ic). c is the same values as in A but with no repetitions. C will be sorted.
-     *         ia and ic are index arrays such that c = a(ia) and a = c(ic
+     *         ia and ic are index arrays such that c = a(ia) and a = c(ic)
      */
     def unique(a: Array[Double], occurrence: String = "last"): (Array[Double], Array[Int], Array[Int]) = {
 
