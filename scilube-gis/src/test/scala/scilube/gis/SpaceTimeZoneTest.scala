@@ -1,10 +1,9 @@
-package scala.gis
+package scilube.gis
 
 import java.util.Date
 import org.junit.Test
 import org.junit.Assert._
 import scilube.time.MomentInterval
-import scilube.gis.SpaceTimeZone
 import scilube.geometry.{Point4D, SpatialEnvelope}
 
 
