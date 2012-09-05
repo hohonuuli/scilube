@@ -9,7 +9,7 @@ import java.util.{Date}
 import org.slf4j.LoggerFactory
 
 import scala.Array
-import scilube.grid.{MutableDoubleGrid, Grid}
+import scilube.grid.{NumericGrid, ArrayGrid, Grid}
 
 
 /**
@@ -57,7 +57,7 @@ class GMTGridIO {
         val x = xVar.read().copyTo1DJavaArray().asInstanceOf[Array[Double]]
         val yVar = netcdf.findVariable("y")
         val y = yVar.read().copyTo1DJavaArray().asInstanceOf[Array[Double]]
-        val grid = new MutableDoubleGrid[Double, Double](x, y, Double.NaN)
+        val grid = ArrayGrid(x, y, Double.NaN)
         val zVar = netcdf.findVariable("z")
         val z = zVar.read().copyToNDJavaArray.asInstanceOf[Array[Array[Float]]]
         for (i <- 0 until x.size; j <- 0 until y.size) {
@@ -66,7 +66,7 @@ class GMTGridIO {
         grid
     }
 
-    def write[A <: Grid[Double, Double, Double]](file: File, data: A, zName: String) {
+    def write[A <: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double]](file: File, data: A, zName: String) {
         log.debug("Writing " + file)
         val nc = NetcdfFileWriteable.createNew(file.getCanonicalPath)
         nc.addGlobalAttribute("Conventions", "COARDS/CF-1.0")

@@ -4,7 +4,7 @@ package scilube.gis.simple
 import java.net.URL
 import org.mbari.util.{StringUtilities}
 import java.util.StringTokenizer
-import scilube.grid.{MutableDoubleGrid, MutableGrid}
+import scilube.grid.{ArrayGrid, MutableGrid}
 import java.io.{File, InputStreamReader, BufferedReader}
 
 
@@ -22,7 +22,7 @@ object ASCGridReader {
         val x = xllCorner to (xllCorner + (ncols * cellSize)) by cellSize
         val y = yllCorner to (yllCorner + (nrows * cellSize)) by cellSize
 
-        val grid = new MutableDoubleGrid(x, y, Double.NaN)
+        val grid = ArrayGrid(x, y, Double.NaN)
         for (j <- 0 until nrows) {
             val line = reader.readLine()
             val st = new StringTokenizer(line)

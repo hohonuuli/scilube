@@ -2,33 +2,23 @@ package scilube.grid
 
 import java.util.{Arrays => JArrays}
 
-
 /**
- * A Grid backed by a double array.
+ * An ArrayGrid backed by an Array[Array[Double]]
  *
- * Note: IN order to use the fill method the x and y axis should be sorted!! (either ascending
- * or descending order is OK)
  * @author Brian Schlining
- * @since 2011-05-12
+ * @since 2012-09-04
  */
-class MutableDoubleGrid[A: ClassManifest, B: ClassManifest](val x: Seq[A], val y: Seq[B], val array: Array[Array[Double]])
-        extends MutableGrid[A, B, Double] {
-
-    def this(x: Seq[A], y: Seq[B], defaultValue: Double = 0) = this(x, y, Array.tabulate(x.size, y.size) { (u, v) => defaultValue })
+class DoubleArrayGrid[A, B](x: IndexedSeq[A], y: IndexedSeq[B], z: Array[Array[Double]])
+        extends ArrayGrid[A, B, Double](x, y, z) with NumericGrid[A, B, Double] {
 
 
-    require(x.size == array.size, "x.size != array.size")
-    require(y.size == array(0).size, "ysize != array(0).size")
+    def this(x: IndexedSeq[A], y: IndexedSeq[B], defaultValue: Double = 0) = this(x, y, Array.tabulate(x.size, y.size) { (u, v) => defaultValue })
 
-    def z(i: Int, j: Int): Double = array(i)(j)
-
-    def z(i: Int, j: Int, k: Double) { array(i)(j) = k }
-
-    def +[C](grid: Grid[A, B, C])(implicit numeric: Numeric[C]): MutableDoubleGrid[A, B] = {
+    def +[C](grid: Grid[A, B, C])(implicit numeric: Numeric[C]): DoubleArrayGrid[A, B] = {
         // Check dimensions
         require(grid.x.size == x.size, "Unable to add grid with different X dimensions")
         require(grid.y.size == y.size, "Unable to add grid with different Y dimensions")
-        val newGrid = new MutableDoubleGrid[A, B](x, y, 0D)
+        val newGrid = new DoubleArrayGrid[A, B](x, y, 0D)
         for (i <- 0 until x.size; j <- 0 until y.size) {
             newGrid(i, j) = z(i, j) + numeric.toDouble(grid(i, j))
         }
@@ -41,12 +31,12 @@ class MutableDoubleGrid[A: ClassManifest, B: ClassManifest](val x: Seq[A], val y
      *
      * @param effort The grid to use as a normalizer. For example ROV effort
      */
-    def normalize(effort: Grid[A, B, Double]): Grid[A,  B, Double] = {
+    def normalize(effort: Grid[A, B, Double] with NumericGrid[A, B, Double]): DoubleArrayGrid[A,  B] = {
         // Check dimensions
         require(effort.x.size == x.size, "Unable to normalize grid with different X dimensions")
         require(effort.y.size == y.size, "Unable to normalize grid with different Y dimensions")
-        val normalizedEffort = MutableDoubleGrid.normalize(effort)
-        val normalizedGrid = new MutableDoubleGrid[A, B](x, y, 0D)
+        val normalizedEffort = DoubleArrayGrid.normalize(effort)
+        val normalizedGrid = new DoubleArrayGrid[A, B](x, y, 0D)
         for (xi <- 0 until x.size; yi <- 0 until y.size) {
             normalizedGrid(xi, yi) = if (effort(xi, yi) != 0) {
                 z(xi, yi) / normalizedEffort(xi, yi)
@@ -57,31 +47,15 @@ class MutableDoubleGrid[A: ClassManifest, B: ClassManifest](val x: Seq[A], val y
                 Double.NaN
             }
         }
-        MutableDoubleGrid.normalize(normalizedGrid)
+        DoubleArrayGrid.normalize(normalizedGrid)
 
     }
 
-    def normalize() = MutableDoubleGrid.normalize(this)
-
-    /**
-     * change values based on existing value
-     * @param tester Tests whether to modify value or not. if true the vlue at the
-     *  cell will be change by the 'changer'
-     * @param changer Function to remap an existing value to a new one
-     *
-     */
-    def changeValues(tester: (Double) => Boolean, changer: (Double) => Double) {
-        for (i <- 0 until x.size; j <- 0 until y.size) {
-            val v = z(i, j)
-            if (tester(v)) {
-                z(i, j, changer(v))
-            }
-        }
-    }
+    def normalize() = DoubleArrayGrid.normalize(this)
 
 }
 
-object MutableDoubleGrid {
+object DoubleArrayGrid {
 
     /**
      * Merges to grids together. Fills in missing values from the first grid with values
@@ -89,7 +63,7 @@ object MutableDoubleGrid {
      */
     def merge(grid1: Grid[Double, Double, Double], grid2: Grid[Double, Double, Double]) = {
 
-        val grid = new MutableDoubleGrid(grid1.x, grid1.y, Double.NaN);
+        val grid = new DoubleArrayGrid(grid1.x, grid1.y, Double.NaN);
 
         val jx2 = grid2.x toArray
         val jy2 = grid2.y toArray
@@ -127,9 +101,17 @@ object MutableDoubleGrid {
         grid
     }
 
-    def normalize[A: ClassManifest, B: ClassManifest](grid: Grid[A, B, Double]) = {
+    /**
+     * Normalizes a grid so that the sum of all it's values equals 1
+     *
+     * @param grid
+     * @tparam A
+     * @tparam B
+     * @return
+     */
+    def normalize[A, B](grid: Grid[A, B, Double] with NumericGrid[A, B, Double]): DoubleArrayGrid[A, B] = {
         val total = grid.sum()
-        val normalizedGrid = new MutableDoubleGrid(grid.x, grid.y, 0D)
+        val normalizedGrid = new DoubleArrayGrid(grid.x, grid.y, 0D)
         for (xi <- 0 until grid.x.size; yi <- 0 until grid.y.size) {
             normalizedGrid(xi, yi) = grid(xi, yi) / total
         }
@@ -142,17 +124,17 @@ object MutableDoubleGrid {
      * @param bufferSize The number of surrounding pixels to dilate by
      * @param minAcceptableZ The minimum valu in a grid to buffer around
      */
-    def dilate(grid: Grid[Double, Double, Double], bufferSize: Int, 
-            minAcceptableZ: Double = 1): Grid[Double, Double, Double] = {
-        
+    def dilate(grid: Grid[Double, Double, Double], bufferSize: Int,
+            minAcceptableZ: Double = 1): DoubleArrayGrid[Double, Double] = {
+
         val nx = grid.x.size
         val ny = grid.y.size
         println("nx = " + nx + ", ny = " + ny)
 
         // Create a new emtpy grid
-        val newGrid = new MutableDoubleGrid(grid.x, grid.y)
+        val newGrid = new DoubleArrayGrid(grid.x, grid.y)
         for (i0 <- 0 until nx;
-             j0 <- 0 until ny; 
+             j0 <- 0 until ny;
              if grid(i0, j0) >= minAcceptableZ) {
 
             for (i1 <- -bufferSize to bufferSize; j1 <- -bufferSize to bufferSize) {
@@ -170,24 +152,24 @@ object MutableDoubleGrid {
 
     /**
      * Dilates non-zero pixels in a grid. Instead of adding the values, like
-     * __dilate__ does. It just counts the number of times a pixels been 
+     * __dilate__ does. It just counts the number of times a pixels been
      * dilated.
      *
      * @param grid The grid to buffer
      * @param bufferSize The number of surrounding pixels to dilate by
      * @param minAcceptableZ The minimum valu in a grid to buffer around
      */
-    def dilateByCount(grid: Grid[Double, Double, Double], bufferSize: Int, 
-            minAcceptableZ: Double = 1): Grid[Double, Double, Double] = {
-        
+    def dilateByCount(grid: Grid[Double, Double, Double], bufferSize: Int,
+            minAcceptableZ: Double = 1): DoubleArrayGrid[Double, Double] = {
+
         val nx = grid.x.size
         val ny = grid.y.size
         println("nx = " + nx + ", ny = " + ny)
 
         // Create a new emtpy grid
-        val newGrid = new MutableDoubleGrid(grid.x, grid.y)
+        val newGrid = new DoubleArrayGrid(grid.x, grid.y)
         for (i0 <- 0 until nx;
-             j0 <- 0 until ny; 
+             j0 <- 0 until ny;
              if grid(i0, j0) >= minAcceptableZ) {
 
             for (i1 <- -bufferSize to bufferSize; j1 <- -bufferSize to bufferSize) {

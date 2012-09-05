@@ -1,6 +1,6 @@
 package scilube.gis.simple
 
-import scilube.grid.Grid
+import scilube.grid.{NumericGrid, Grid}
 import java.io.{FileWriter, BufferedWriter, File}
 
 /**
@@ -11,7 +11,8 @@ import java.io.{FileWriter, BufferedWriter, File}
 
 object ASCGridWriter {
 
-    def write(file: File, grid: Grid[Double, Double, Double], nodataValue: Double = -9999D) = {
+    def write(file: File, grid: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double],
+            nodataValue: Double = -9999D) = {
 
         val dx = grid.dx
         //val dy = grid.dy

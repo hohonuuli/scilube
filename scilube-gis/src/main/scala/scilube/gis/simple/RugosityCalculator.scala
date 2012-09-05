@@ -1,7 +1,7 @@
 package scilube.gis.simple
 
 import scala.math._
-import scilube.grid.{MutableDoubleGrid, Grid}
+import scilube.grid.{NumericGrid, ArrayGrid, Grid}
 import scilube.geometry.{Triangle3D, Point3D}
 import java.io.File
 
@@ -13,14 +13,15 @@ import java.io.File
  */
 object RugosityCalculator {
 
-    def apply(grid: Grid[Double, Double, Double]): Grid[Double, Double, Double] = {
+    def apply(grid: Grid[Double, Double, Double]):
+            ArrayGrid[Double, Double, Double] with NumericGrid[Double, Double, Double]= {
 
         val x = grid.x
         val y = grid.y
         val dx = x.init.zip(x.tail).map(a => abs(a._1 - a._2))
         val dy = y.init.zip(y.tail).map(a => abs(a._1 - a._2))
 
-        val rugosity = new MutableDoubleGrid(x, y, Double.NaN)
+        val rugosity = ArrayGrid(x, y, Double.NaN)
 
         val points = Array.ofDim[Point3D[Double]](x.size, y.size)
         for (i <- 0 until x.size; j <- 0 until y.size) {

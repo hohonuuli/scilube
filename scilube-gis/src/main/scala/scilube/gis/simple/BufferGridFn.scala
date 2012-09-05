@@ -1,8 +1,7 @@
 package scilube.gis.simple
 
 import java.io.File
-import java.net.URL
-import scilube.grid.MutableDoubleGrid
+import scilube.grid.{DoubleArrayGrid}
 
 
 object BufferGridFn {
@@ -20,7 +19,7 @@ object BufferGridFn {
         println("Reading " + ingrid)
         val data = ASCGridReader.read(ingrid)
         println("Dilating grid")
-        val rugosity = MutableDoubleGrid.dilateByCount(data, bufferSize)
+        val rugosity = DoubleArrayGrid.dilateByCount(data, bufferSize)
         println("Writing " + outgrid)
         ASCGridWriter.write(outgrid, rugosity)
 
