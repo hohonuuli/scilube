@@ -29,7 +29,7 @@ class FloatArrayGrid[A, B](x: IndexedSeq[A], y: IndexedSeq[B], z: Array[Array[Fl
      *
      * @param effort The grid to use as a normalizer. For example ROV effort
      */
-    def normalize(effort: Grid[A, B, Float] with NumericGrid[A, B, Float]): FloatArrayGrid[A,  B] = {
+    def normalize[C : Numeric](effort: Grid[A, B, C] with NumericGrid[A, B, C]): FloatArrayGrid[A,  B] = {
         // Check dimensions
         require(effort.x.size == x.size, "Unable to normalize grid with different X dimensions")
         require(effort.y.size == y.size, "Unable to normalize grid with different Y dimensions")
@@ -53,11 +53,12 @@ class FloatArrayGrid[A, B](x: IndexedSeq[A], y: IndexedSeq[B], z: Array[Array[Fl
 }
 
 object FloatArrayGrid {
-    def normalize[A, B](grid: Grid[A, B, Float] with NumericGrid[A, B, Float]): FloatArrayGrid[A, B] = {
+    def normalize[A, B, C : Numeric](grid: Grid[A, B, C] with NumericGrid[A, B, C]): FloatArrayGrid[A, B] = {
+        val numeric = implicitly[Numeric[C]]
         val total = grid.sum()
         val normalizedGrid = new FloatArrayGrid(grid.x, grid.y, 0F)
         for (xi <- 0 until grid.x.size; yi <- 0 until grid.y.size) {
-            normalizedGrid(xi, yi) = (grid(xi, yi) / total).toFloat
+            normalizedGrid(xi, yi) = (numeric.toDouble(grid(xi, yi)) / total).toFloat
         }
         normalizedGrid
     }

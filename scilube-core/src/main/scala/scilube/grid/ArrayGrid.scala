@@ -9,6 +9,9 @@ package scilube.grid
 class ArrayGrid[A, B, C](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: Array[Array[C]])
         extends Grid[A, B, C] with MutableGrid[A, B, C] {
 
+    require(x.size == array.size, "x.size != array.size")
+    require(y.size == array(0).size, "ysize != array(0).size")
+
     def z(i: Int, j: Int, k: C) { array(i)(j) = k }
 
     /**
@@ -19,6 +22,16 @@ class ArrayGrid[A, B, C](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: 
      */
     def z(i: Int, j: Int): C = array(i)(j)
 
+    def subgrid(i0: Int, i1: Int, j0: Int, j1:Int) = {
+        val a = Array.ofDim[C](i1 - i0 + 1, j1 - j0 + 1)
+        var xi = 0
+        var yi = 0
+        for (i <- i0 to i1; j <- j0 to j1) {
+            a(xi)(yi) = array(i)(j)
+        }
+        new ArrayGrid(x.slice(i0, i1 + 1), y.slice(j0, j1 + 1), a)
+    }
+
 }
 
 /**
@@ -28,8 +41,6 @@ class ArrayGrid[A, B, C](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: 
 object ArrayGrid {
 
     def apply(x: IndexedSeq[Double], y: IndexedSeq[Double], z: Array[Array[Double]]): DoubleArrayGrid[Double, Double] = {
-        require(x.size == z.size, "x.size != z.size")
-        require(y.size == z(0).size, "ysize != z(0).size")
         new DoubleArrayGrid(x, y, z)
     }
 
@@ -38,8 +49,6 @@ object ArrayGrid {
     }
 
     def apply(x: IndexedSeq[Double], y: IndexedSeq[Double], z: Array[Array[Float]]): FloatArrayGrid[Double, Double] = {
-        require(x.size == z.size, "x.size != z.size")
-        require(y.size == z(0).size, "ysize != z(0).size")
         new FloatArrayGrid(x, y, z)
     }
 

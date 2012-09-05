@@ -9,7 +9,8 @@ import java.util.{Arrays => JArrays}
  * @since 2012-09-04
  */
 class DoubleArrayGrid[A, B](x: IndexedSeq[A], y: IndexedSeq[B], z: Array[Array[Double]])
-        extends ArrayGrid[A, B, Double](x, y, z) with NumericGrid[A, B, Double] {
+        extends ArrayGrid[A, B, Double](x, y, z)
+        with NumericGrid[A, B, Double] {
 
 
     def this(x: IndexedSeq[A], y: IndexedSeq[B], defaultValue: Double = 0) = this(x, y, Array.tabulate(x.size, y.size) { (u, v) => defaultValue })
@@ -31,7 +32,7 @@ class DoubleArrayGrid[A, B](x: IndexedSeq[A], y: IndexedSeq[B], z: Array[Array[D
      *
      * @param effort The grid to use as a normalizer. For example ROV effort
      */
-    def normalize(effort: Grid[A, B, Double] with NumericGrid[A, B, Double]): DoubleArrayGrid[A,  B] = {
+    def normalize[C : Numeric](effort: Grid[A, B, C] with NumericGrid[A, B, C]): DoubleArrayGrid[A,  B] = {
         // Check dimensions
         require(effort.x.size == x.size, "Unable to normalize grid with different X dimensions")
         require(effort.y.size == y.size, "Unable to normalize grid with different Y dimensions")
@@ -109,11 +110,12 @@ object DoubleArrayGrid {
      * @tparam B
      * @return
      */
-    def normalize[A, B](grid: Grid[A, B, Double] with NumericGrid[A, B, Double]): DoubleArrayGrid[A, B] = {
+    def normalize[A, B, C : Numeric](grid: Grid[A, B, C] with NumericGrid[A, B, C]): DoubleArrayGrid[A, B] = {
+        val numeric = implicitly[Numeric[C]]
         val total = grid.sum()
         val normalizedGrid = new DoubleArrayGrid(grid.x, grid.y, 0D)
         for (xi <- 0 until grid.x.size; yi <- 0 until grid.y.size) {
-            normalizedGrid(xi, yi) = grid(xi, yi) / total
+            normalizedGrid(xi, yi) = numeric.toDouble(grid(xi, yi)) / total
         }
         normalizedGrid
     }

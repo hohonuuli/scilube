@@ -70,7 +70,7 @@ class MomentIntervalSpaceTimeZone(val momentInterval: MomentInterval) extends Sp
      * @tparam A The points coordinate types
      * @return true if the point falls with in the zone. false if it is outside the zone
      */
-    def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean = momentInterval.contains(point.t)
+    def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean = momentInterval.contains(point.w)
 }
 
 /**

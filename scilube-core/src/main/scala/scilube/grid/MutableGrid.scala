@@ -2,6 +2,7 @@ package scilube.grid
 
 /**
  * A Grid whos underlying values can be changed
+ *
  * @author Brian Schlining
  * @since 2012-04-23
  */
