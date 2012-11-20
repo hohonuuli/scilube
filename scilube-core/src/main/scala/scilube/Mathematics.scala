@@ -5,6 +5,7 @@ import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
+import scala.math.floor
 
 /**
  * Math functions.
@@ -36,7 +37,6 @@ protected trait Mathematics {
      * @return An array containing the cumulative sum of data
      */
     def cumsum(data: Array[Double]): Array[Double] = JMatlib.cumsum(data)
-
 
     /**
      * Discrete Fourier transform
@@ -97,6 +97,10 @@ protected trait Mathematics {
         solver.solve(10000, ufn, min, max)
     }
 
+    /**
+     * Greatest common denominator
+     */
+    def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
 
     /**
      * Linear interpolation
@@ -108,6 +112,19 @@ protected trait Mathematics {
      * @throws IllegalArgumentException
      */
     def interp1(x: Array[Double], y: Array[Double], xi: Array[Double]) = JMatlib.interpolate(x, y, xi)
+
+	/**
+	 * @return true if the number is a prime number. False otherwise
+	 */
+	def isprime[A : Numeric](n: A): Boolean = {
+ 		val numeric = implicitly[Numeric[A]]
+ 		val nd = numeric.toDouble(n)
+ 		if (nd % 1 == 0) {
+ 			val ni = floor(nd).toInt
+ 		  (2 until ni) forall { d => nd % d != 0 }
+ 		}
+ 		else false
+ 	 }
 
     /**
      * generates n linearly-spaced points between d1 and d2.

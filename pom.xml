@@ -24,10 +24,10 @@
     </properties>
 
     <repositories>
-       <repository>
-           <id>mbari-maven-repository</id>
-           <url>http://mbari-maven-repository.googlecode.com/svn/repository/</url>
-       </repository>
+        <repository>
+            <id>mbari-maven-repository</id>
+            <url>http://mbari-maven-repository.googlecode.com/svn/repository/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -76,7 +76,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -92,6 +92,13 @@
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <jvmArgs>
+                        <jvmArg>-Xss2m</jvmArg>
+                    </jvmArgs>
+                    <recompileMode>incremental</recompileMode>
+                    <useZincServer>true</useZincServer>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -115,7 +122,29 @@
                     <classifier>${scala.version}</classifier>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.scalastyle</groupId>
+                <artifactId>scalastyle-maven-plugin</artifactId>
+                <version>0.2.0</version>
+                <configuration>
+                    <verbose>false</verbose>
+                    <failOnViolation>true</failOnViolation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <failOnWarning>false</failOnWarning>
+                    <sourceDirectory>${basedir}/src/main/scala</sourceDirectory>
+                    <testSourceDirectory>${basedir}/src/test/scala</testSourceDirectory>
+                    <configLocation>src/main/config/scalastyle_config.xml</configLocation>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
     </build>
 
     <modules>
@@ -123,8 +152,8 @@
         <module>scilube-gis</module>
         <module>scilube-jfreechart</module>
         <module>scilube-3d</module>
-  </modules>
-  <distributionManagement>
+    </modules>
+    <distributionManagement>
         <repository>
             <id>build-server.shore.mbari.org</id>
             <name>build-server.shore.mbari.org</name>

@@ -6,7 +6,7 @@ package scilube.grid
  * @author Brian Schlining
  * @since 2012-09-04
  */
-class ArrayGrid[A, B, C](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: Array[Array[C]])
+class ArrayGrid[A, B, C : ClassManifest](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: Array[Array[C]])
         extends Grid[A, B, C] with MutableGrid[A, B, C] {
 
     require(x.size == array.size, "x.size != array.size")
@@ -22,6 +22,14 @@ class ArrayGrid[A, B, C](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: 
      */
     def z(i: Int, j: Int): C = array(i)(j)
 
+    /**
+     *
+     * @param i0 Starting x index
+     * @param i1 Ending x index (inclusive)
+     * @param j0 Starting y index
+     * @param j1 Ending y index (inclusive)
+     * @return
+     */
     def subgrid(i0: Int, i1: Int, j0: Int, j1:Int) = {
         val a = Array.ofDim[C](i1 - i0 + 1, j1 - j0 + 1)
         var xi = 0

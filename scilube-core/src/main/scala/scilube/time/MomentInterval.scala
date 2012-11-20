@@ -24,11 +24,15 @@ trait MomentInterval {
      *
      * @param date The date to test
      * @param toleranceMillisec A tolerance in millisecs. Comparisons will
-     *  be made using the momentintervals dates +/- this tolerance.
+     *  be made using the MomentIntervals dates +/- this tolerance.
      * @return true if the date is within the moment interval.
      *
      */
-    def contains(date: Date, toleranceMillisec: Long): Boolean
+    def contains(date: Date, toleranceMillisec: Long): Boolean = {
+        val startD = new Date(start.getTime - toleranceMillisec)
+        val endD = new Date(end.getTime + toleranceMillisec)
+        date.after(startD) && date.before(endD)
+    }
 
     /**
      * The start of the moment interval
@@ -80,11 +84,6 @@ class Moment(val date: Date) extends MomentInterval {
     def end: Date = date
     def start: Date = date
     def contains(d: Date): Boolean = d.equals(date)
-    def contains(d: Date, toleranceMillisec: Long) = {
-        val start = new Date(date.getTime - toleranceMillisec)
-        val end = new Date(date.getTime + toleranceMillisec)
-        d.after(start) && d.before(end)
-    }
     val duration = 0L
 }
 
@@ -95,10 +94,5 @@ class Interval(val start: Date, val end:Date) extends MomentInterval {
     require(start.before(end), "The start date was not before the end date!")
 
     def contains(date: Date): Boolean = date.after(start) && date.before(end)
-    def contains(d: Date, toleranceMillisec: Long) = {
-        val startD = new Date(start.getTime - toleranceMillisec)
-        val endD = new Date(end.getTime + toleranceMillisec)
-        d.after(startD) && d.before(endD)
-    }
     val duration = end.getTime - start.getTime
 }

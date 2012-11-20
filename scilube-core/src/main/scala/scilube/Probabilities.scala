@@ -31,6 +31,8 @@ protected trait Probabilities {
      * of ''n'' distinct objects is equal to the factorial of ''n''
      *
      * @param n The value for the factorial
+     * @param result The accumulator of the previous iteration of factorial. Normally
+     *      developers do not supply this value. Instead the default value of 1 is used.
      * @return factorial of n
      */
     def factorial(n: BigInt, result: BigInt = 1): BigInt = if (n == 0) result
