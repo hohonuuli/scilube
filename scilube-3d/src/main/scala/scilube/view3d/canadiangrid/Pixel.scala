@@ -1,6 +1,7 @@
 package scilube.view3d.canadiangrid
 
 import scala.math._
+import scilube.geometry.Point2D
 
 /**
  * Given a pixel within an image and a [[scilube.view3d.canadiangrid.Camera]] object, __Pixel__
@@ -11,20 +12,22 @@ import scala.math._
  * @param camera The camera whose capturing images
  * @param width The width of the image in pixels
  * @param height The height of the image in pixels
- * @param x The x coordinate of the pixel of interest
- * @param y The y coordinate of the pixel of interest
+ * @param x The x coordinate of the pixel of interest (0 index)
+ * @param y The y coordinate of the pixel of interest (0 index)
  *
  * @author Brian Schlining
  * @since 2012-12-06
  */
 
 class Pixel(val camera: Camera, val width: Int, val height: Int, val x: Int, val y: Int) {
+  require(x >= 0 && x < width, "x must be between 0 and " + (width - 1) + ". You supplied " + x)
+  require(y >= 0 && y < width, "y must be between 0 and " + (height - 1)  + ". You supplied " + x)
 
   /**
    * The vertical angle between the principal point and the pixel
    */
   val alpha: Double = {
-    val bp = camera.height / 2D
+    val bp = height / 2D
     val ip = bp - y
     atan(ip * tan(camera.alpha / 2D) / bp)
   }
@@ -53,6 +56,11 @@ class Pixel(val camera: Camera, val width: Int, val height: Int, val x: Int, val
    */
   val yDistance: Double = camera.height / tan(camera.theta - alpha)
 
+  /**
+   * Returns the xDistance and yDistance as a [[scilube.geometry.Point2D]]
+   */
+  lazy val point: Point2D[Double] = Point2D(xDistance, yDistance)
+
 }
 
 
@@ -68,8 +76,8 @@ object Pixel {
    */
   def imageCorners(camera: Camera, width: Int, height: Int): List[Pixel] =
     List(new Pixel(camera, width, height, 0, 0),
-      new Pixel(camera, width, height, 0, width),
-      new Pixel(camera, width, height, height, width),
-      new Pixel(camera, width, height, height, 0))
+      new Pixel(camera, width, height, width - 1, 0),
+      new Pixel(camera, width, height, width - 1, height - 1),
+      new Pixel(camera, width, height, 0, height - 1))
 
 }
