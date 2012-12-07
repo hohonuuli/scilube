@@ -2,6 +2,7 @@ package scilube
 
 import _root_.spire.math.Complex
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import geometry.Trigonometry
 import probability.KDE
 import scala.math._
 import scala.util.Random
@@ -16,7 +17,8 @@ import org.mbari.math.{DoubleMath, Statlib, Matlib => JMatlib}
 object Matlib
         extends Mathematics
         with Probabilities
-        with Statistics {
+        with Statistics
+        with Trigonometry {
 
     /**
      * Calculate the relative cumulative density between 2 sample sets. Internally the CDF is
