@@ -9,7 +9,6 @@
     </parent>
     <groupId>scilube</groupId>
     <artifactId>scilube-3d</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <properties>
@@ -27,9 +26,9 @@
 		    <version>0.1</version>
 		</dependency -->
         <dependency>
-            <groupId>scilube</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>scilube-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>matlube</groupId>
