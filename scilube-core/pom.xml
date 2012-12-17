@@ -26,10 +26,9 @@
         </dependency>
         <!-- Complex Numbers -->
         <dependency>
-            <groupId>com.github.non</groupId>
-            <artifactId>spire</artifactId>
-            <version>0.2.0</version>
-            <classifier>2.9.2</classifier>
+            <groupId>org.spire-math</groupId>
+            <artifactId>spire_${scala.version}</artifactId>
+            <version>0.3.0-M6</version>
         </dependency>
 
         <!-- Testing -->

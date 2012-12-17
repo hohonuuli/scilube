@@ -1,12 +1,14 @@
 package scilube.grid
 
+import scala.reflect.ClassTag
+
 /**
  * Mutable Grid implementation where the z values ae backed by Array[Array] data.
  *
  * @author Brian Schlining
  * @since 2012-09-04
  */
-class ArrayGrid[A, B, C : ClassManifest](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: Array[Array[C]])
+class ArrayGrid[A, B, C : ClassTag](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: Array[Array[C]])
         extends Grid[A, B, C] with MutableGrid[A, B, C] {
 
     require(x.size == array.size, "x.size != array.size")
