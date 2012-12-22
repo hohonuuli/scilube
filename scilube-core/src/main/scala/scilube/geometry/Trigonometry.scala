@@ -45,9 +45,3 @@ trait Trigonometry {
   def cot(radians: Double) = 1 / tan(radians)
 
 }
-
-object Trigonometry extends Trigonometry {
-
-
-
-}
