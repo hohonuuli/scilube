@@ -19,6 +19,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>scilube-core</artifactId>
             <version>${project.version}</version>
+            <classifier>${scala.version}</classifier>
         </dependency>
         <dependency>
             <groupId>org.mbari</groupId>
