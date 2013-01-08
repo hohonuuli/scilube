@@ -13,4 +13,3 @@ object Ocean extends Atmosphere
     with Waves {
 
 }
-
