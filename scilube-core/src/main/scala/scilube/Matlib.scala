@@ -7,6 +7,7 @@ import probability.KDE
 import scala.math._
 import scala.util.Random
 import org.mbari.math.{DoubleMath, Statlib, Matlib => JMatlib}
+import reflect.ClassTag
 
 
 /**
@@ -79,7 +80,7 @@ object Matlib
         val sumCounts = cumsum(binCounts).map(_ / bcSum)
         val c = subset(sumCounts, 0 until (sumCounts.size - 1))
         val (x, is, ix) = unique(data)
-        (subset(c, is), x)
+        (c, x)
     }
 
 
@@ -102,8 +103,8 @@ object Matlib
      * @tparam A The Type of the data array
      * @return An a subset of data (e.g. In Matlab
      */
-    def subset[A: ClassManifest](data: Array[A], idx: Seq[Int]): Array[A] = {
-        (for (i <- 0 until idx.size) yield data(i)).toArray
+    def subset[A: ClassTag](data: Array[A], idx: Seq[Int]): Array[A] = {
+        (for (i <- 0 until idx.size) yield data(idx(i))).toArray
     }
 
 
