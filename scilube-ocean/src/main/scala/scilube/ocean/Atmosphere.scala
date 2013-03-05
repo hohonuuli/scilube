@@ -1,4 +1,4 @@
-package scalasci.ocean
+package scilube.ocean
 
 import scala.math._
 

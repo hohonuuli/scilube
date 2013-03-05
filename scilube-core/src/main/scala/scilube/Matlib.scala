@@ -79,7 +79,7 @@ object Matlib
         val sumCounts = cumsum(binCounts).map(_ / bcSum)
         val c = subset(sumCounts, 0 until (sumCounts.size - 1))
         val (x, is, ix) = unique(data)
-        (subset(c, is), x)
+        (c, x)
     }
 
 
@@ -103,7 +103,7 @@ object Matlib
      * @return An a subset of data (e.g. In Matlab
      */
     def subset[A: ClassManifest](data: Array[A], idx: Seq[Int]): Array[A] = {
-        (for (i <- 0 until idx.size) yield data(i)).toArray
+        (for (i <- 0 until idx.size) yield data(idx(i))).toArray
     }
 
 

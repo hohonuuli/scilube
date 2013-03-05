@@ -1,5 +1,6 @@
 package scilube.ocean
 
+import java.util.Date
 import java.util.GregorianCalendar
 import org.mbari.solar.{SolarPosition => JSolarPosition}
 import scilube.Matlib
@@ -11,11 +12,9 @@ trait Time {
    * @param latitude Location of observation in decimal degrees (+N/-S)
    * @param longitude Locaiton of observation in decimal degrees (-W/+E)
    */
-  def solarPosition(date: Date, latitude: Double, longitude: Double) = {
+  def solarPosition(date: Date, latitude: Double, longitude: Double): SolarPosition = {
     val sp = new JSolarPosition(date.getTime, latitude, longitude)
-    SolarPosition(date, sp.getAltitude, sp.getAzimuth, sp.getDeclination, 
-        sp.getDistance, sp.getGreenwichHourAngle, sp.getLatitude, 
-        sp.getLongitude, sp.getZenith)
+    SolarPosition(sp)
   }
 
   /**
@@ -23,9 +22,9 @@ trait Time {
    * @param longitude The longitude in decimal degrees (-W/+E)
    * @return GMT time of local apparent noon in decimal hours
    */
-  def noon(date: Date, longitude: Double) = {
-    val sp = solarPosition(date, latitude, longitude)
-    val gha = sp.getGreenwichHourAngle
+  def noon(date: Date, longitude: Double): Double = {
+    val sp = solarPosition(date, 0, longitude)
+    val gha = sp.greenwichHourAngle
     val hour1 = 12 + -longitude/15 // approximate time of local area noon 
     if (gha > 180) {
       hour1 - (gha - Matlib.TAU) / 15 + -longitude / 15
@@ -54,7 +53,21 @@ case class SolarPosition protected (date: Date,
     azimuth: Double, 
     declination: Double,
     distance: Double,
-    greenwichHourAngle: Double
+    greenwichHourAngle: Double,
     latitude: Double,
     longitude: Double, 
     zenith: Double)
+
+
+object SolarPosition {
+  /** 
+   * Factory method
+   *
+   * @param sp The Java SolarPosition object to convert to a Scala SolarPosition
+   */
+  def apply(sp: JSolarPosition): SolarPosition = {
+    SolarPosition(new Date(sp.getTime), sp.getAltitude, sp.getAzimuth, sp.getDeclination, 
+        sp.getDistance, sp.getGreenwichHourAngle, sp.getLatitude, 
+        sp.getLongitude, sp.getZenith)
+  }
+}

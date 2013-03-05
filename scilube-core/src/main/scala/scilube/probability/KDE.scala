@@ -84,7 +84,7 @@ object KDE {
             Matlib.fzero(fixedPoint(_: Double, N, I, a2), 0)
         }
         catch {
-            case _ => .28 * pow(N, -2 / 5D)
+            case _: Exception => .28 * pow(N, -2 / 5D)
         }
 
         // smooth the discrete cosine transform of initial data using t_star
