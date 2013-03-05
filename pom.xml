@@ -29,6 +29,14 @@
             <id>mbari-maven-repository</id>
             <url>http://mbari-maven-repository.googlecode.com/svn/repository/</url>
         </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+           <id>geotoolkit-repository</id>
+           <url>http://maven.geotoolkit.org</url>
+       </repository>
     </repositories>
 
     <dependencies>

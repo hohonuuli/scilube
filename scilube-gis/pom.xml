@@ -15,13 +15,6 @@
         <!-- geotoolkit.version>3.x-SNAPSHOT</geotoolkit.version -->
     </properties>
 
-    <repositories>
-       <repository>
-           <id>geotoolkit-repository</id>
-           <url>maven.geotoolkit.org</url>
-       </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -70,6 +63,17 @@
             <groupId>org.geotoolkit</groupId>
             <artifactId>geotk-coverageio-netcdf</artifactId>
             <version>${geotoolkit.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>edu.ucar</groupId>
+                    <artifactId>netcdf</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>edu.ucar</groupId>
+            <artifactId>netcdf</artifactId>
+            <version>4.3.7</version>
         </dependency>
     </dependencies>
 </project>
