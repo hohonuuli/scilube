@@ -31,6 +31,14 @@
             <id>mbari-maven-repository</id>
             <url>http://mbari-maven-repository.googlecode.com/svn/repository/</url>
         </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+           <id>geotoolkit-repository</id>
+           <url>http://maven.geotoolkit.org</url>
+       </repository>
     </repositories>
 
     <dependencies>
@@ -153,8 +161,9 @@
         <module>scilube-gis</module>
         <module>scilube-jfreechart</module>
         <module>scilube-3d</module>
-    <module>scilube-ocean</module>
-  </modules>
+        <module>scilube-ocean</module>
+        <module>scilube-imglib2</module>
+    </modules>
     <distributionManagement>
         <repository>
             <id>build-server.shore.mbari.org</id>
