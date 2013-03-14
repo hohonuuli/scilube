@@ -37,14 +37,12 @@ val (cdfData, x) = tocdf(wdata)
 
 ```
 
-
 **Building _scilube_**
   1. Check it out of git
   2. Use Maven to build.
 <pre>
 mvn clean install
 </pre>
-
 
 _scilube_ can be included in other projects with:
 <pre>
