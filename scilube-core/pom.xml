@@ -30,12 +30,20 @@
             <artifactId>spire_${scala.version}</artifactId>
             <version>0.3.0-M7</version>
         </dependency>
+        <!--
+            Slick for db access
+        -->
+        <dependency>
+            <groupId>com.typesafe.slick</groupId>
+            <artifactId>slick_2.10</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
         <!-- Testing -->
         <dependency>
-        	<groupId>org.apache.commons</groupId>
-        	<artifactId>commons-math3</artifactId>
-        	<version>3.0</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.0</version>
         </dependency>
     </dependencies>
 </project>

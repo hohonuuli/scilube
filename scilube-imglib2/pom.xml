@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>scilube</groupId>
+        <artifactId>scilube</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>scilube</groupId>
+    <artifactId>scilube-imglib2</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>scilube-imglib2</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <bioformats.version>4.5-SNAPSHOT</bioformats.version>
+        <imagelib.version>2.0.0-SNAPSHOT</imagelib.version>
+        <jai.version>1.1.3</jai.version>
+    </properties>
+    <dependencies>
+
+        <!--
+            Core dependencies
+        -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>scilube-core</artifactId>
+            <version>${project.version}</version>
+            <classifier>${scala.version}</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mbari</groupId>
+            <artifactId>mbarix4j</artifactId>
+            <version>${mbarix4j.version}</version>
+        </dependency>
+        <!--
+            imglib2
+
+            THIS IS NOT IN A MAVEN REPO. BUILD WITH:
+            git clone https://github.com/imagej/imglib.git
+            cd imglib
+            mvn install
+        -->
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2</artifactId>
+            <version>${imagelib.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-algorithms</artifactId>
+            <version>${imagelib.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-algorithms-gpl</artifactId>
+            <version>${imagelib.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-ij</artifactId>
+            <version>${imagelib.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-io</artifactId>
+            <version>${imagelib.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <!-- loci has runtime dependencies to 3 different loggers -->
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-ops</artifactId>
+            <version>${imagelib.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-realtransform</artifactId>
+            <version>${imagelib.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--
+            loci_tools
+
+            THIS IS NOT IN A MAVEN REPO. BUILD WITH:
+            git clone https://github.com/openmicroscopy/bioformats.git
+            cd bioformats
+            Edit poms to use slf4j 1.7.2 instead of 1.5.10
+            mvn install -Dmaven.test.skip=true
+        -->
+        <dependency>
+            <groupId>loci</groupId>
+            <artifactId>bio-formats</artifactId>
+            <version>${bioformats.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>loci</groupId>
+            <artifactId>ome-io</artifactId>
+            <version>${bioformats.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>loci</groupId>
+            <artifactId>loci-legacy</artifactId>
+            <version>${bioformats.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!--
+            Java Advanced Imaging
+        -->
+        <dependency>
+            <groupId>javax.media</groupId>
+            <artifactId>jai_core</artifactId>
+            <version>${jai.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.media</groupId>
+            <artifactId>jai-codec</artifactId>
+            <version>${jai.version}</version>
+        </dependency>
+    </dependencies>
+</project>

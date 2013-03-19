@@ -8,7 +8,7 @@ import scilube.Matlib
 trait Time {
 
   /**
-   * @param millis Time of observation
+   * @param date Time of observation
    * @param latitude Location of observation in decimal degrees (+N/-S)
    * @param longitude Locaiton of observation in decimal degrees (-W/+E)
    */

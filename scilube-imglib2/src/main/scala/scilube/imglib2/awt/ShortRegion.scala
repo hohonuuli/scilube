@@ -74,7 +74,6 @@ class ShortRegion protected(val label: Int, val points: ListBuffer[Point3D[Int]]
     /**
      * Calculates a rectangular envelope that contains all pixels
      * @return An Envelope
-     * TODO replace Envelope with scilube's envelope
      */
     def envelope(): Envelope = {
         assert(points.size > 2, "At least 3 points are required to calculate an envelope")
