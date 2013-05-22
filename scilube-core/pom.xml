@@ -27,16 +27,16 @@
         <!-- Complex Numbers -->
         <dependency>
             <groupId>org.spire-math</groupId>
-            <artifactId>spire_${scala.version}</artifactId>
-            <version>0.3.0-M7</version>
+            <artifactId>spire_${scala.short.version}</artifactId>
+            <version>${spire.version}</version>
         </dependency>
         <!--
             Slick for db access
         -->
         <dependency>
             <groupId>com.typesafe.slick</groupId>
-            <artifactId>slick_2.10</artifactId>
-            <version>1.0.0</version>
+            <artifactId>slick_${scala.short.version}</artifactId>
+            <version>${slick.version}</version>
         </dependency>
 
         <!-- Testing -->

@@ -1,9 +1,10 @@
 package scilube.spire
 
-import spire.math.Complex
+import spire.implicits._
+import org.apache.commons.math3.complex.{Complex => AComplex}
 import org.junit.Assert._
 import org.junit.Test
-import org.apache.commons.math3.complex.{Complex => AComplex}
+import spire.math.Complex
 
 /**
  * Use Apache Commons 3 Complex class to provide '''truth'''

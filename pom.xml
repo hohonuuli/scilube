@@ -21,9 +21,14 @@
         <maven.compiler.target>1.5</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <logback.version>1.0.9</logback.version>
-        <mbarix4j.version>1.9.1-SNAPSHOT</mbarix4j.version>
-        <scala.version>2.10.0</scala.version>
+        <mbarix4j.version>1.9.3-SNAPSHOT</mbarix4j.version>
+        <scala.version>2.10.1</scala.version>
+        <scala.short.version>2.10</scala.short.version>
+        <scalatest.version>2.0.M5b</scalatest.version>
         <slf4j.version>1.7.2</slf4j.version>
+        <slick.version>1.0.0</slick.version>
+        <spire.version>0.4.0</spire.version>
+
     </properties>
 
     <repositories>
@@ -36,9 +41,9 @@
             <url>https://oss.sonatype.org/content/repositories/releases/</url>
         </repository>
         <repository>
-           <id>geotoolkit-repository</id>
-           <url>http://maven.geotoolkit.org</url>
-       </repository>
+            <id>geotoolkit-repository</id>
+            <url>http://maven.geotoolkit.org</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -71,16 +76,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-          <groupId>org.scalatest</groupId>
-          <artifactId>scalatest_${scala.version}</artifactId>
-          <version>2.0.M5</version>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.short.version}</artifactId>
+            <version>${scalatest.version}</version>
         </dependency>
 
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
@@ -110,14 +113,11 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
                     <useFile>false</useFile>
                     <disableXmlReport>true</disableXmlReport>
-                    <!-- If you have classpath issue like NoDefClassError,... -->
-                    <!-- useManifestOnlyJar>false</useManifestOnlyJar -->
                     <includes>
                         <include>**/*Test.*</include>
                         <include>**/*Suite.*</include>
@@ -128,30 +128,21 @@
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <classifier>${scala.version}</classifier>
+                    <classifier>${scala.short.version}</classifier>
                 </configuration>
             </plugin>
-            <!-- plugin>
-                <groupId>org.scalastyle</groupId>
-                <artifactId>scalastyle-maven-plugin</artifactId>
-                <version>0.2.0</version>
-                <configuration>
-                    <verbose>false</verbose>
-                    <failOnViolation>true</failOnViolation>
-                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                    <failOnWarning>false</failOnWarning>
-                    <sourceDirectory>${basedir}/src/main/scala</sourceDirectory>
-                    <testSourceDirectory>${basedir}/src/test/scala</testSourceDirectory>
-                    <configLocation>src/main/config/scalastyle_config.xml</configLocation>
-                </configuration>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>attach-sources</id>
                         <goals>
-                            <goal>check</goal>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin -->
+            </plugin>
+
         </plugins>
 
     </build>

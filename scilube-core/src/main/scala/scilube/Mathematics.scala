@@ -2,9 +2,9 @@ package scilube
 
 import _root_.spire.math.Complex
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
-import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
+import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
 import scala.math.floor
 
 /**
@@ -61,6 +61,9 @@ protected trait Mathematics {
    * @return The fft of data
    */
   def fft(data: Array[Double]): Array[Complex[Double]] = {
+
+    import _root_.spire.implicits._
+
     // real data array needs to be converted to real/imag array
     val complexData = Array.ofDim[Double](data.size * 2)
     data.indices.foreach { i =>
@@ -182,7 +185,7 @@ protected trait Mathematics {
    * @return The index of the array value nearest the value. -1 will be returned if the
    *  key is outside the array values
    */
-  def near(data: Array[Double], key: Double, inclusive: Boolean = true) = JMatlib.near(data, key)
+  def near(data: Array[Double], key: Double, inclusive: Boolean = true): Int = JMatlib.near(data, key, inclusive)
 
   /**
    * @param data The data array

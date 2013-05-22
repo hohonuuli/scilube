@@ -19,7 +19,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>scilube-core</artifactId>
             <version>${project.version}</version>
-            <classifier>${scala.version}</classifier>
+            <classifier>${scala.short.version}</classifier>
         </dependency>
         <!--
             JFreeChart
@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.mbari</groupId>
             <artifactId>mbarix4j</artifactId>
-            <version>1.9.0-SNAPSHOT</version>
+            <version>${mbarix4j.version}</version>
         </dependency>
 
     </dependencies>

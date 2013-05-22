@@ -23,7 +23,7 @@ class DoubleArrayGrid[A, B](x: IndexedSeq[A], y: IndexedSeq[B], z: Array[Array[D
         for (i <- 0 until x.size; j <- 0 until y.size) {
             newGrid(i, j) = z(i, j) + numeric.toDouble(grid(i, j))
         }
-        return newGrid
+        newGrid
     }
 
     /**
@@ -66,8 +66,8 @@ object DoubleArrayGrid {
 
         val grid = new DoubleArrayGrid(grid1.x, grid1.y, Double.NaN);
 
-        val jx2 = grid2.x toArray
-        val jy2 = grid2.y toArray
+        val jx2 = grid2.x.toArray
+        val jy2 = grid2.y.toArray
 
         val minX = grid2.x(0)
         val maxX = grid2.x(grid2.x.size - 1)

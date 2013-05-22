@@ -1,13 +1,12 @@
 package scilube.probability
 
-import scala.math._
-import org.mbari.math.Statlib
-import spire.math.Complex
-import scilube.spire.ComplexLib
-import scilube.Matlib
-import org.apache.commons.math3.analysis.solvers.BisectionSolver
-import org.apache.commons.math3.analysis.UnivariateFunction
 import edu.emory.mathcs.jtransforms.dct.DoubleDCT_1D
+import org.mbari.math.Statlib
+import scala.math._
+import scilube.Matlib
+import scilube.spire.ComplexLib
+import spire.implicits._
+import spire.math.Complex
 
 /**
  * Kernel Density Estimator for one-dimensional data. This is a port of kde.m at

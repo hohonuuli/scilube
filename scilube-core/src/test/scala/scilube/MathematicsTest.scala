@@ -1,8 +1,9 @@
 package scilube
 
+import _root_.spire.implicits._
 import _root_.spire.math.Complex
-import org.junit.Test
 import org.junit.Assert._
+import org.junit.Test
 
 /**
  *

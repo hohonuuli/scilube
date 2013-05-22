@@ -1,9 +1,9 @@
 package scilube.spire
 
-import scala.{math => M}
-import spire.math.Complex
-import scilube.Matlib
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import scala.{math => M}
+import spire.implicits._
+import spire.math.Complex
 
 /**
  *

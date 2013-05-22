@@ -97,11 +97,13 @@ protected trait Probabilities {
             val xx = x(1) +: x :+ x(n - 1)
             val i = if (method == 2) {
                 // This method is from Hjort's "Computer intensive statistical methods" page 102
-                p.map( _ * (n + 1) + 1 )
+                //p.map( _ * (n + 1) + 1 )
+                p.map( _ * (n + 1))
             }
             else {
                 // Method 1
-                p.map( _ * n + 1.5)
+                //p.map( _ * n + 1.5)
+                p.map( _ * n + 0.5)
             }
             val iu = i.map(ceil(_).toInt)
             val il = i.map(floor(_).toInt)

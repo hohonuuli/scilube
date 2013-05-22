@@ -3,7 +3,8 @@ package scilube.grid
 import scala.reflect.ClassTag
 
 /**
- * Mutable Grid implementation where the z values ae backed by Array[Array] data.
+ * Mutable Grid implementation where the z values ae backed by Array[Array] data. ArrayGrids use
+ * image coordinate system, (i.e. origin is upper left)
  *
  * @author Brian Schlining
  * @since 2012-09-04

@@ -28,7 +28,6 @@ class PackageTest {
             assertEquals(expectedEasting(i), easting, tolerance)
             assertEquals(expectedNorthing(i), northing, tolerance)
         }
-
     }
 
 }
