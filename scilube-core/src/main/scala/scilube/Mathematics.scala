@@ -19,7 +19,7 @@ protected trait Mathematics {
 
 
   /**
-   * Add to arrays together
+   * Element by element addition
    * @param a THe first array
    * @param b The second array
    * @return An array that is the element by element summation of a to b
@@ -27,11 +27,7 @@ protected trait Mathematics {
   def add(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
         " and " + b.length + " ")
-    val t = Array.ofDim[Double](a.length)
-    for (i <- 0 until a.length) {
-      t(i) = a(i) + b(i)
-    }
-    t
+    (for (i <- 0 until a.length) yield a(i) + b(i)).toArray
   }
 
   /**
@@ -54,6 +50,27 @@ protected trait Mathematics {
    * @return An array containing the cumulative sum of data
    */
   def cumsum(data: Array[Double]): Array[Double] = JMatlib.cumsum(data)
+
+  def diff(x: Array[Double]): Array[Double] = if (x.size < 2) Array.empty[Double]
+  else {
+    JMatlib.diff(x);
+    /*(for (i <- 0 until x.size - 1) yield {
+      val j = i + 1
+      x(j) - x(i)
+    }).toArray */
+  }
+
+  /**
+   * Element by element division
+   * @param a THe first array
+   * @param b The second array
+   * @return An array that is the element by element summation of a to b
+   */
+  def divide(a: Array[Double], b: Array[Double]): Array[Double] = {
+    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
+        " and " + b.length + " ")
+    (for (i <- 0 until a.length) yield a(i) / b(i)).toArray
+  }
 
   /**
    * Discrete Fourier transform
@@ -173,6 +190,19 @@ protected trait Mathematics {
    */
   def mod(a: Double, b: Double) = a % b
 
+
+  /**
+   * Element by element multiplication
+   * @param a THe first array
+   * @param b The second array
+   * @return An array that is the element by element summation of a to b
+   */
+  def multiply(a: Array[Double], b: Array[Double]): Array[Double] = {
+    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
+        " and " + b.length + " ")
+    (for (i <- 0 until a.length) yield a(i) * b(i)).toArray
+  }
+
   /**
    * Find the index of the array nearest to the value. The values array can
    * contain only unique values. If it doesn't the first occurence of a value
@@ -206,6 +236,20 @@ protected trait Mathematics {
    * @return The sign of x (-1 or 1)
    */
   def sign(x: Double) = DoubleMath.sign(x)
+
+  /**
+   * Element by element subtraction
+   * @param a THe first array
+   * @param b The second array
+   * @return An array that is the element by element summation of a to b
+   */
+  def subtract(a: Array[Double], b: Array[Double]): Array[Double] = {
+    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
+        " and " + b.length + " ")
+    (for (i <- 0 until a.length) yield a(i) - b(i)).toArray
+  }
+
+  def sum(x: Array[Double]) = JMatlib.sum(x);
 
   /**
    * Same as Matlab's unique. For performance, if you just need the unique values use {{{a.distinct}}}.

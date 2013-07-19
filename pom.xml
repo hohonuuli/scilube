@@ -154,7 +154,8 @@
         <module>scilube-3d</module>
         <module>scilube-ocean</module>
         <module>scilube-imglib2</module>
-    </modules>
+    <module>scilube-net</module>
+  </modules>
     <distributionManagement>
         <repository>
             <id>build-server.shore.mbari.org</id>

@@ -13,4 +13,38 @@
  */
 package object scilube {
 
+  /**
+   * Adds function to support simple math with scalar values
+   * @param a
+   */
+  implicit class RichArray(a: Array[Double]) {
+
+    def +[T: Numeric](s: T): Array[Double] = {
+      val numeric = implicitly[Numeric[T]]
+      val sd = numeric.toDouble(s)
+      (for (i <- 0 until a.size) yield a(i) + sd).toArray
+    }
+
+    def -[T: Numeric](s: T): Array[Double] = {
+      val numeric = implicitly[Numeric[T]]
+      val sd = numeric.toDouble(s)
+      (for (i <- 0 until a.size) yield a(i) - sd).toArray
+    }
+
+    def *[T: Numeric](s: T): Array[Double] = {
+      val numeric = implicitly[Numeric[T]]
+      val sd = numeric.toDouble(s)
+      (for (i <- 0 until a.size) yield a(i) * sd).toArray
+    }
+
+    def /[T: Numeric](s: T): Array[Double] = {
+      val numeric = implicitly[Numeric[T]]
+      val sd = numeric.toDouble(s)
+      (for (i <- 0 until a.size) yield a(i) / sd).toArray
+    }
+
+    def subset(idx: Seq[Int]): Array[Double] = Matlib.subset(a, idx)
+
+  }
+
 }

@@ -44,6 +44,15 @@ class MatlibTest {
   }
 
   @Test
+  def testTrapz() {
+    val x = Array[Double](1, 2, 4, 8, 16)
+    val y = Array[Double](2, 3, 2, 4, 8)
+    val a = Matlib.trapz(x, y)
+    val e = 67.5
+    assertEquals(a, e, tolerance)
+  }
+
+  @Test
   def testTocdf() {
     def expected = Array[Double](0,
       0.010752688172043,
@@ -90,7 +99,7 @@ class MatlibTest {
       0.989247311827957,
       1.0)
 
-    val (actual, x) = Matlib.tocdf(wdata)
+    val (actual, _) = Matlib.tocdf(wdata)
     assertEquals(expected.size, actual.size)
     for (i <- 0 until actual.size) {
       assertEquals(expected(i), actual(i), tolerance)

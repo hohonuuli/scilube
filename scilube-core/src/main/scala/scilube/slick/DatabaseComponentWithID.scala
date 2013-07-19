@@ -18,7 +18,7 @@ trait DatabaseComponentWithID { this: DatabaseProfile =>
     def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
 
     // -- helpers
-    protected def autoInc = * returning id
+    protected def autoInc = * returning id // FIXME: Can't map id into insert projection
 
     // -- operations on rows
     def delete(id: Long)(implicit session: Session): Boolean = this.filter(_.id === id).delete > 0
