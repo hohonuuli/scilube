@@ -20,15 +20,14 @@
         <maven.compiler.source>1.5</maven.compiler.source>
         <maven.compiler.target>1.5</maven.compiler.target>
         <encoding>UTF-8</encoding>
-        <logback.version>1.0.9</logback.version>
+        <logback.version>1.0.13</logback.version>
         <mbarix4j.version>1.9.3-SNAPSHOT</mbarix4j.version>
-        <scala.version>2.10.1</scala.version>
+        <scala.version>2.10.3</scala.version>
         <scala.short.version>2.10</scala.short.version>
         <scalatest.version>2.0.M5b</scalatest.version>
-        <slf4j.version>1.7.2</slf4j.version>
+        <slf4j.version>1.7.5</slf4j.version>
         <slick.version>1.0.0</slick.version>
-        <spire.version>0.4.0</spire.version>
-
+        <spire.version>0.6.0</spire.version>
     </properties>
 
     <repositories>
@@ -88,7 +87,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>3.1.3</version>
+                <version>3.1.6</version>
                 <executions>
                     <execution>
                         <goals>

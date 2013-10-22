@@ -9,17 +9,16 @@ import org.slf4j.LoggerFactory
  */
 object SafeOption {
 
-    private[this] val log = LoggerFactory.getLogger(getClass)
+  private[this] val log = LoggerFactory.getLogger(getClass)
 
-    def apply[A](x: => A): Option[A] = {
-        try {
-            Option(x)
-        }
-        catch {
-            case e: Exception => {
-                log.debug("An exception occurred; we've handled it but thought we'd log it too.", e)
-                None
-            }
-        }
+  def apply[A](x: => A): Option[A] = {
+    try {
+      Option(x)
+    } catch {
+      case e: Exception => {
+        log.debug("An exception occurred; we've handled it but thought we'd log it too.", e)
+        None
+      }
     }
+  }
 }

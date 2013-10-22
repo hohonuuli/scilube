@@ -4,8 +4,7 @@ import geometry.Trigonometry
 import probability.KDE
 import scala.math._
 import reflect.ClassTag
-import org.mbari.math.{Matlib => JMatlib}
-
+import org.mbari.math.{ Matlib => JMatlib }
 
 /**
  *
@@ -31,9 +30,9 @@ object Matlib
   def relativecdf(y: Array[Double], y0: Array[Double], r: Array[Double]): Array[Double] = {
     val (c, x) = tocdf(y)
     val (c0, x0) = tocdf(y0)
-    val q0 = quantile(y0, r)        // value of y0 at r
-    val f0 = interp1(x0, c0, q0)    // value of c0 at q0(r), i.e. probability density
-    val f = interp1(x, c, q0)       // value of c at q0(r)
+    val q0 = quantile(y0, r) // value of y0 at r
+    val f0 = interp1(x0, c0, q0) // value of c0 at q0(r), i.e. probability density
+    val f = interp1(x, c, q0) // value of c at q0(r)
     (for (i <- 0 until f.size) yield f(i) / f0(i)).toArray
   }
 
@@ -61,7 +60,6 @@ object Matlib
     (for (i <- 0 until f.size) yield f(i) / f0(i)).toArray
   }
 
-
   /**
    * Trapezoidal integration
    * @param x
@@ -69,13 +67,12 @@ object Matlib
    * @return
    */
   def trapz(x: Array[Double], y: Array[Double]): Double = {
-//    val dx = diff(x)
-//    val dy = diff(y) / 2
-//    val yy = add(y.subset(0 until y.size - 1), dy)
-//    sum(multiply(dx, yy))
+    //    val dx = diff(x)
+    //    val dy = diff(y) / 2
+    //    val yy = add(y.subset(0 until y.size - 1), dy)
+    //    sum(multiply(dx, yy))
     JMatlib.trapz(x, y) // Java loops tend to be faster
   }
-
 
   /**
    * Emperical cumulative density function. This makes no assumptions about the data
@@ -94,7 +91,6 @@ object Matlib
     val (x, _, _) = unique(data)
     (c, x)
   }
-
 
   /**
    * Extract a subset of an Array. Example:
@@ -118,7 +114,5 @@ object Matlib
   def subset[A: ClassTag](data: Array[A], idx: Seq[Int]): Array[A] = {
     (for (i <- 0 until idx.size) yield data(idx(i))).toArray
   }
-
-
 
 }

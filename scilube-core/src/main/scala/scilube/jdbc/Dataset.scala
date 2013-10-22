@@ -7,10 +7,10 @@ package scilube.jdbc
 
 trait Dataset {
 
-    def columnNames: Array[String]
+  def columnNames: Array[String]
 
-    def data(columnName: String): Array[Any]
+  def data(columnName: String): Array[Any]
 
-    def rowCount: Int
-    def columnCount: Int
+  def rowCount: Int
+  def columnCount: Int
 }

@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat
+import java.util.{Date, TimeZone}
+
 /**
  * '''scilube-core''' - Science libraries for Scala.
  *
@@ -46,5 +49,7 @@ package object scilube {
     def subset(idx: Seq[Int]): Array[Double] = Matlib.subset(a, idx)
 
   }
+
+
 
 }

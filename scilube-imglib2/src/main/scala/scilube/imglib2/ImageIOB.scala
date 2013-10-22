@@ -1,18 +1,18 @@
 package scilube.imglib2
 
-import javax.imageio.ImageIO
-import org.mbari.awt.image.ImageUtilities
-import java.awt.image.BufferedImage
-import java.net.URL
-import java.io.File
-import ij.{IJ, ImagePlus}
 import ij.process.ImageProcessor
-import net.imglib2.io.ImgOpener
-import org.mbari.net.URLUtilities
-import net.imglib2.img.display.imagej.ImageJFunctions
-import net.imglib2.img.ImgPlus
-import net.imglib2.`type`.numeric.integer.UnsignedByteType
+import ij.{IJ, ImagePlus}
+import java.awt.image.BufferedImage
+import java.io.File
+import java.net.URL
+import javax.imageio.ImageIO
 import javax.media.jai.JAI
+import net.imglib2.`type`.numeric.integer.UnsignedByteType
+import net.imglib2.img.display.imagej.ImageJFunctions
+import net.imglib2.io.ImgOpener
+import net.imglib2.meta.ImgPlus
+import org.mbari.awt.image.ImageUtilities
+import org.mbari.net.URLUtilities
 
 /**
  *

@@ -1,6 +1,7 @@
 package scilube
 
-import java.sql.ResultSet
+import java.sql.{ResultSet, Timestamp}
+import java.util.Date
 import collection.mutable.ArrayBuffer
 
 /**
@@ -16,7 +17,7 @@ package object jdbc {
      * Convert a result set to a sequence of objects. Maps each row in the result set to the provided
      * type.
      *
-     * @param rowMapper Maps the result set to a single object. Do not call resultSet.next in this
+     * @param rowMapper Maps each row of a result set to an object. Do not call resultSet.next in this
      *      function!! The rowMapper should handle errors internally and always return something
      * @tparam A The type to be returned
      * @return A sequence of objects
@@ -31,5 +32,16 @@ package object jdbc {
     }
 
   }
+
+  /**
+   * Timestamps do not have a default ordering so we have to create one so that 
+   * they can be sorted
+   */
+  implicit val timestampOrdering = new Ordering[Timestamp] {
+    def compare(x: Timestamp, y: Timestamp): Int = x.getTime.compareTo(y.getTime)
+  }
+
+  implicit def timestampAsDate(t: Timestamp): Date = new Date(t.getTime)
+  implicit def dateAsTimestamp(d: Date): Timestamp = new Timestamp(d.getTime)
 
 }

@@ -1,8 +1,8 @@
 package scilub.imglib2
 
-import net.imglib2.img.ImgPlus
+
 import net.imglib2.{IterableRealInterval, Interval, RealInterval, EuclideanSpace}
-import net.imglib2.meta.{ImageMetadata, CalibratedSpace, Sourced, Named}
+import net.imglib2.meta._
 
 /**
  * Utility for dumping out information about imglib2 classes
@@ -26,8 +26,8 @@ object DebugInspector {
         if (obj.isInstanceOf[EuclideanSpace]) {
             euclidianSpaceToString(obj.asInstanceOf[EuclideanSpace], sb)
         }
-        if (obj.isInstanceOf[CalibratedSpace]) {
-            calibrationSpaceToString(obj.asInstanceOf[CalibratedSpace], sb)
+        if (obj.isInstanceOf[CalibratedSpace[_]]) {
+            calibrationSpaceToString(obj.asInstanceOf[CalibratedSpace[_]], sb)
         }
         if (obj.isInstanceOf[RealInterval]) {
             realIntervalToString(obj.asInstanceOf[RealInterval], sb)
@@ -68,11 +68,11 @@ object DebugInspector {
         sb.append("Source\n\tsource = ").append(obj.getSource).append('\n')
     }
 
-    private def calibrationSpaceToString(obj: CalibratedSpace, sb: StringBuilder) {
+    private def calibrationSpaceToString(obj: CalibratedSpace[_], sb: StringBuilder) {
         sb.append("CalibratedSpace").append('\n')
         for (i <- 0 until obj.numDimensions()) {
             sb.append("\taxis = ").append(obj.axis(i)).append('\n')
-            sb.append("\tcalibration = ").append(obj.calibration(i)).append('\n')
+            //sb.append("\tcalibration = ").append(obj.calibration(i)).append('\n')
         }
     }
 

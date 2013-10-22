@@ -15,7 +15,6 @@ trait NumericGrid[A, B, C] {
   //private[this] val xCoords = this.x.toArray[A]
   //private[this] val yCoords = this.x.toArray[B]
 
-
   /**
    * @return The minimum value found in the grid
    */
@@ -23,14 +22,15 @@ trait NumericGrid[A, B, C] {
     //val numeric = implicitly[Numeric[C]]
     var m = z(0, 0)
     val isMNaN = numeric.toDouble(m).isNaN
-    for {xi <- 0 until x.size
-         yi <- 0 until y.size} {
+    for {
+      xi <- 0 until x.size
+      yi <- 0 until y.size
+    } {
       val v = z(xi, yi)
       val isVNaN = numeric.toDouble(v).isNaN
       if (isMNaN && !isVNaN) {
         m = v
-      }
-      else if (!numeric.toDouble(v).isNaN) {
+      } else if (!numeric.toDouble(v).isNaN) {
         m = numeric.min(m, v)
       }
     }
@@ -43,14 +43,15 @@ trait NumericGrid[A, B, C] {
   def max(implicit numeric: Numeric[C]): C = {
     var m = z(0, 0)
     val isMNaN = numeric.toDouble(m).isNaN
-    for {xi <- 0 until x.size
-         yi <- 0 until y.size} {
+    for {
+      xi <- 0 until x.size
+      yi <- 0 until y.size
+    } {
       val v = z(xi, yi)
       val isVNaN = numeric.toDouble(v).isNaN
       if (isMNaN && !isVNaN) {
         m = v
-      }
-      else if (!isVNaN) {
+      } else if (!isVNaN) {
         m = numeric.max(m, v)
       }
     }
@@ -73,8 +74,10 @@ trait NumericGrid[A, B, C] {
    */
   def sum()(implicit numeric: Numeric[C]): Double = {
     var total: Double = 0
-    for {xi <- 0 until x.size
-         yi <- 0 until y.size} {
+    for {
+      xi <- 0 until x.size
+      yi <- 0 until y.size
+    } {
       val v = numeric.toDouble(z(xi, yi))
       if (!v.isNaN) {
         total = total + v
@@ -122,6 +125,5 @@ trait NumericGrid[A, B, C] {
     }
     totals
   }
-
 
 }

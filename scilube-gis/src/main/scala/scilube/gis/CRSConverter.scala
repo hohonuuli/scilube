@@ -1,11 +1,9 @@
 package scilube.gis
 
-
 import org.geotoolkit.referencing.CRS
 import org.geotoolkit.geometry.DirectPosition2D
 import org.opengis.referencing.crs.CoordinateReferenceSystem
-import scilube.geometry.{DoublePoint2D, Point2D}
-
+import scilube.geometry.{ DoublePoint2D, Point2D }
 
 /**
  * @param sourceCRS The  source coordinate system (e.g. {{{
@@ -18,21 +16,20 @@ import scilube.geometry.{DoublePoint2D, Point2D}
  */
 class CRSConverter(val sourceCRS: CoordinateReferenceSystem, val targetCRS: CoordinateReferenceSystem) {
 
-    private val mathTransform = CRS.findMathTransform(sourceCRS, targetCRS)
+  private val mathTransform = CRS.findMathTransform(sourceCRS, targetCRS)
 
-    /**
-     * Convert the point to the new coordinate system
-     */
-    def convert(point: Point2D[Double]): DirectPosition2D = {
-        val sourcePoint = new DirectPosition2D(sourceCRS)
-        sourcePoint.setLocation(point)
-        val targetPoint = new DirectPosition2D(targetCRS)
-        mathTransform.transform(sourcePoint, targetPoint).asInstanceOf[DirectPosition2D]
-    }
+  /**
+   * Convert the point to the new coordinate system
+   */
+  def convert(point: Point2D[Double]): DirectPosition2D = {
+    val sourcePoint = new DirectPosition2D(sourceCRS)
+    sourcePoint.setLocation(point)
+    val targetPoint = new DirectPosition2D(targetCRS)
+    mathTransform.transform(sourcePoint, targetPoint).asInstanceOf[DirectPosition2D]
+  }
 
-    def convert[A](x: A, y: A)(implicit numeric: Numeric[A]): DirectPosition2D = {
-        convert(new DoublePoint2D(numeric.toDouble(x), numeric.toDouble(y)))
-    }
-
+  def convert[A](x: A, y: A)(implicit numeric: Numeric[A]): DirectPosition2D = {
+    convert(new DoublePoint2D(numeric.toDouble(x), numeric.toDouble(y)))
+  }
 
 }

@@ -39,7 +39,6 @@
             <version>${slick.version}</version>
         </dependency>
 
-        <!-- Testing -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>

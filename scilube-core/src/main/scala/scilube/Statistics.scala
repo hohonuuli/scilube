@@ -22,6 +22,7 @@ protected trait Statistics {
      */
     def mad(data: Array[Double]): Array[Double] = Statlib.deviationFromMean(data).map(abs(_))
 
+
     /**
      * @param data data
      * @return mean value of `data`
@@ -33,6 +34,7 @@ protected trait Statistics {
      * @return median value of `data`
      */
     def median(data: Array[Double]): Double = Statlib.median(data)
+
 
     /**
      * Standard deviation is a statistical measure of spread or variability.The
