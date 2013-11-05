@@ -31,11 +31,11 @@
             <version>${project.version}</version>
             <classifier>${scala.short.version}</classifier>
         </dependency>
-        <dependency>
+<!--         <dependency>
             <groupId>matlube</groupId>
             <artifactId>matlube-ejml</artifactId>
             <version>1.0-SNAPSHOT</version>
             <classifier>2.9.2</classifier>
-        </dependency>
+        </dependency> -->
   </dependencies>
 </project>
