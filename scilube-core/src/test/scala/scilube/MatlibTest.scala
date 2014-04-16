@@ -125,4 +125,15 @@ class MatlibTest {
 
   }
 
+  @Test
+  def testFind() {
+    val d = Array[Double](0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val actual1 = Matlib.find(d, (v: Double) => v < 1).toArray
+    val expected1 = Array(0)
+    assertArrayEquals(expected1, actual1)
+
+    val actual2 = Matlib.find(d, (v: Double) => v % 2 == 0).toArray
+    val expected2 = Array(0, 2, 4, 6, 8)
+    assertArrayEquals(expected2, actual2)
+  }
 }

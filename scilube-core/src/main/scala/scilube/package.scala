@@ -48,6 +48,8 @@ package object scilube {
 
     def subset(idx: Seq[Int]): Array[Double] = Matlib.subset(a, idx)
 
+    def find(fn: Double => Boolean): Array[Int] = Matlib.find(a, fn).toArray
+
   }
 
 

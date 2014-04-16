@@ -1,10 +1,11 @@
 package scilube
 
-import geometry.Trigonometry
-import probability.KDE
+import scilube.geometry.Trigonometry
+import scala.reflect.ClassTag
+import scilube.probability.KDE
 import scala.math._
-import reflect.ClassTag
-import org.mbari.math.{ Matlib => JMatlib }
+import org.mbari.math.{Matlib => JMatlib}
+;
 
 /**
  *
@@ -114,5 +115,9 @@ object Matlib
   def subset[A: ClassTag](data: Array[A], idx: Seq[Int]): Array[A] = {
     (for (i <- 0 until idx.size) yield data(idx(i))).toArray
   }
+
+  def find[A](data: Array[A], predicate: A => Boolean): Seq[Int] =
+    data.zipWithIndex.filter(i => predicate(i._1)).map(_._2)
+
 
 }

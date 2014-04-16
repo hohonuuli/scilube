@@ -5,7 +5,7 @@ import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
 import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
-import scala.math.floor
+import scala.math.{floor, sqrt}
 
 /**
  * Math functions.
@@ -70,6 +70,19 @@ protected trait Mathematics {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
         " and " + b.length + " ")
     (for (i <- 0 until a.length) yield a(i) / b(i)).toArray
+  }
+
+  /**
+   * Calculates the dot product between 2 arrays (The dot is the project of b onto a).
+   * a and b must be the same size
+   * @param a The first array
+   * @param b THe second array (b will be projected onto a)
+   * @return The dot product. (b projected onto a)
+   */
+  def dot(a: Array[Double], b: Array[Double]): Double = {
+    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
+        " and " + b.length + " ")
+    (for (i <- 0 until a.length) yield a(i) * b(i)).sum
   }
 
   /**
@@ -216,6 +229,14 @@ protected trait Mathematics {
    *  key is outside the array values
    */
   def near(data: Array[Double], key: Double, inclusive: Boolean = true): Int = JMatlib.near(data, key, inclusive)
+
+
+  /**
+   * Compute the norm. Treats the array as a vector of values.
+   * @param x The array
+   * @return The norm (aka magnitude) of the array.
+   */
+  def norm(x: Array[Double]): Double = sqrt(x.map(v => v * v).sum)
 
   /**
    * @param data The data array
