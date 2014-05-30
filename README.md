@@ -3,7 +3,7 @@
 **Science libraries for Scala**
 
 
-Scilube is bult against Scala 2.10.0. It provides modules for doing numerical analysis (ala Matlab).
+Scilube is bult against Scala 2.10.4. It provides modules for doing numerical analysis (ala Matlab).
 This is *NOT* a Matrix library. Instead, Scilube provides functions for working with Double Arrays.
 To get started:
 
