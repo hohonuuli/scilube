@@ -16,18 +16,22 @@
         </license>
     </licenses>
 
+    <prerequisites>
+       <maven>3.0.4</maven>
+    </prerequisites>
+
     <properties>
-        <maven.compiler.source>1.5</maven.compiler.source>
-        <maven.compiler.target>1.5</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <encoding>UTF-8</encoding>
-        <logback.version>1.0.13</logback.version>
+        <logback.version>1.1.2</logback.version>
         <mbarix4j.version>1.9.3-SNAPSHOT</mbarix4j.version>
-        <scala.version>2.10.3</scala.version>
-        <scala.short.version>2.10</scala.short.version>
-        <scalatest.version>2.0.M5b</scalatest.version>
-        <slf4j.version>1.7.5</slf4j.version>
+        <scala.version>2.11.1</scala.version>
+        <scala.short.version>2.11</scala.short.version>
+        <scalatest.version>2.2.0-RC1</scalatest.version>
+        <slf4j.version>1.7.7</slf4j.version>
         <slick.version>1.0.0</slick.version>
-        <spire.version>0.6.0</spire.version>
+        <spire.version>0.7.5</spire.version>
     </properties>
 
     <repositories>
@@ -49,6 +53,12 @@
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
             <version>${scala.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -96,7 +106,6 @@
                         </goals>
                         <configuration>
                             <args>
-                                <arg>-make:transitive</arg>
                                 <arg>-dependencyfile</arg>
                                 <arg>${project.build.directory}/.scala_dependencies</arg>
                             </args>
@@ -113,7 +122,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.6</version>
+                <version>2.16</version>
                 <configuration>
                     <useFile>false</useFile>
                     <disableXmlReport>true</disableXmlReport>

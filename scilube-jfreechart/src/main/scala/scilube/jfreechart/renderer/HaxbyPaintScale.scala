@@ -1,6 +1,6 @@
 package scilube.jfreechart.renderer
 
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 import org.jfree.chart.renderer.PaintScale
 import java.awt.{ Paint, Color }
 import scala.math._

@@ -1,7 +1,7 @@
 package scilube.imglib2.examples
 
 import org.mbari.net.URLUtilities
-import net.imglib2.io.ImgOpener
+import ij.io.Opener
 import net.imglib2.img.array.ArrayImgFactory
 import net.imglib2.`type`.numeric.real.FloatType
 import net.imglib2.`type`.Type
@@ -20,13 +20,11 @@ object Example2a extends App {
     // open with ImgOpener using an ArrayImgFactory
     val url = getClass.getResource("/DrosophilaWing.tif")
     val file = URLUtilities.toFile(url)
-    val img = new ImgOpener().openImg(file.getAbsolutePath,
-      new ArrayImgFactory[FloatType],
-      new FloatType())
+    val img = new Opener().openImage(file.getAbsolutePath)
 
-    val duplicate = copyImage(img)
+    //val duplicate = copyImage(img)
 
-    ImageJFunctions.show(duplicate)
+    //ImageJFunctions.show(duplicate)
   }
 
   def copyImage[T <: Type[T]](input: Img[T]): Img[T] = {

@@ -1,7 +1,7 @@
 package scilube.imglib2.examples
 
 import org.mbari.net.URLUtilities
-import net.imglib2.io.ImgOpener
+import ij.io.Opener
 import net.imglib2.img.array.ArrayImgFactory
 import net.imglib2.`type`.numeric.real.FloatType
 import net.imglib2.img.{ImgFactory, Img}
@@ -22,15 +22,13 @@ object Example2b extends App {
     // open with ImgOpener using an ArrayImgFactory
     val url = getClass.getResource("/DrosophilaWing.tif")
     val file = URLUtilities.toFile(url)
-    val img = new ImgOpener().openImg(file.getAbsolutePath,
-      new ArrayImgFactory[FloatType],
-      new FloatType())
+    val img = new Opener().openImage(file.getAbsolutePath)
 
     // copy the image into a CellImg with a cellsize of 20x20
-    val duplicate = copyImageCorrect(img, new CellImgFactory[FloatType](20));
+    //val duplicate = copyImageCorrect(img, new CellImgFactory[FloatType](20));
 
-    ImageJFunctions.show(img)
-    ImageJFunctions.show(duplicate)
+    //ImageJFunctions.show(img)
+    //ImageJFunctions.show(duplicate)
 
   }
 

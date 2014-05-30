@@ -13,8 +13,10 @@
 <name>scilube-imglib2</name>
 <url>http://maven.apache.org</url>
 <properties>
-    <bioformats.version>4.5-SNAPSHOT</bioformats.version>
-    <imagelib.version>2.0.0-beta-21</imagelib.version>
+  <!--   <bioformats.version>4.5-SNAPSHOT</bioformats.version>
+    <imagelib.version>2.0.0-beta-21</imagelib.version> -->
+    <bioformats.version>5.0.0-beta1</bioformats.version>
+    <imagelib.version>2.0.0-beta-26</imagelib.version>
     <jai.version>1.1.3</jai.version>
 </properties>
 <dependencies>
@@ -66,13 +68,12 @@
             <version>${imagelib.version}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
+<!--         <dependency>
             <groupId>net.imglib2</groupId>
             <artifactId>imglib2-io</artifactId>
             <version>${imagelib.version}</version>
             <scope>compile</scope>
             <exclusions>
-                <!-- loci has runtime dependencies to 3 different loggers -->
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
@@ -86,7 +87,7 @@
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>net.imglib2</groupId>
             <artifactId>imglib2-ops</artifactId>
