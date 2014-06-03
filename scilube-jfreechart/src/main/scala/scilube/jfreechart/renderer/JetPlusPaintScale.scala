@@ -1,6 +1,6 @@
 package scilube.jfreechart.renderer
 
-import reflect.BeanProperty
+import scala.beans.BeanProperty
 import java.awt.{ Color, Paint }
 import java.lang.{ Double => JDouble }
 import scala.math._

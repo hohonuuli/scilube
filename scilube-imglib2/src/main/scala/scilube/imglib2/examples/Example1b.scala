@@ -4,7 +4,7 @@ import net.imglib2.`type`.numeric.RealType
 import net.imglib2.`type`.NativeType
 import java.io.File
 import net.imglib2.img.array.ArrayImgFactory
-import net.imglib2.io.ImgOpener
+import ij.io.Opener
 import net.imglib2.img.Img
 import net.imglib2.img.display.imagej.ImageJFunctions
 import net.imglib2.img.cell.CellImgFactory
@@ -24,13 +24,9 @@ object Example1b extends App {
     val file = URLUtilities.toFile(url)
     val imgFactory = new ArrayImgFactory[T]
     // Return type will be defined by the opener
-    val image: Img[T] = new ImgOpener().openImg(file.getAbsolutePath, imgFactory)
-    ImageJFunctions.show(image)
+    val image = new Opener().openImage(file.getAbsolutePath)
+    //ImageJFunctions.show(image)
 
-    // Open as float independant of the type of the image.
-    val imageFloat = new ImgOpener().openImg(file.getAbsolutePath,
-      new CellImgFactory[FloatType](10), new FloatType())
-    ImageJFunctions.show(imageFloat)
   }
 
   new ImageJ()

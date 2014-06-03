@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>scilube</groupId>
-        <artifactId>scilube</artifactId>
+        <artifactId>scilube_2.10</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>scilube-core</artifactId>
-    <name>scilube-core</name>
+    <artifactId>scilube-core_${scala.short.version}</artifactId>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,19 +30,11 @@
             <artifactId>spire_${scala.short.version}</artifactId>
             <version>${spire.version}</version>
         </dependency>
-        <!--
-            Slick for db access
-        -->
-        <dependency>
-            <groupId>com.typesafe.slick</groupId>
-            <artifactId>slick_${scala.short.version}</artifactId>
-            <version>${slick.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
-            <version>3.0</version>
+            <version>3.3</version>
         </dependency>
     </dependencies>
 </project>

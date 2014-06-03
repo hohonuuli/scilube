@@ -9,7 +9,7 @@ import javax.imageio.ImageIO
 import javax.media.jai.JAI
 import net.imglib2.`type`.numeric.integer.UnsignedByteType
 import net.imglib2.img.display.imagej.ImageJFunctions
-import net.imglib2.io.ImgOpener
+import ij.io.Opener
 import net.imglib2.meta.ImgPlus
 import org.mbari.awt.image.ImageUtilities
 import org.mbari.net.URLUtilities
@@ -27,12 +27,13 @@ class ImageIOB extends ImageIOTrait {
         url.getProtocol match {
             // Use imglib2 to read local files.
             case "file" => {
-                val io = new ImgOpener
-                val imgPlus = io.openImg(URLUtilities.toFile(url).getAbsolutePath)
-                imgPlus.numDimensions() match {
-                    case 2 => ImageJFunctions.wrapUnsignedShort(imgPlus, "") // B&W
-                    case 3 => ImageJFunctions.wrapUnsignedByte(imgPlus.asInstanceOf[ImgPlus[UnsignedByteType]], "") // Color
-                }
+                val io = new Opener
+                val imgPlus = io.openImage(URLUtilities.toFile(url).getAbsolutePath)
+                // imgPlus.numDimensions() match {
+                //     case 2 => ImageJFunctions.wrapUnsignedShort(imgPlus, "") // B&W
+                //     case 3 => ImageJFunctions.wrapUnsignedByte(imgPlus.asInstanceOf[ImgPlus[UnsignedByteType]], "") // Color
+                // }
+                imgPlus
             }
             case _ => new ImagePlus(url.toExternalForm, readAsBufferedImage(url))
         }
