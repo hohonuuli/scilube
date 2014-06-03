@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>scilube</groupId>
-        <artifactId>scilube</artifactId>
+        <artifactId>scilube_2.11</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>scilube</groupId>
-    <artifactId>scilube-net</artifactId>
-    <name>scilube-net</name>
+    <artifactId>scilube-net_${scala.short.version}</artifactId>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
