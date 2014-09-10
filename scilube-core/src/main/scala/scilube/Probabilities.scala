@@ -124,7 +124,7 @@ protected trait Probabilities {
     /**
      * Is the cat dead or alive?
      * @param a The alive cat
-     * @param b The deat bat
+     * @param b The dead cat
      * @tparam A The type of the alive cat
      * @tparam B The type of the dead cat
      * @return A box ... is the cat dead or alive?

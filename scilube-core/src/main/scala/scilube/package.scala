@@ -12,7 +12,7 @@ import java.util.{Date, TimeZone}
  *
  * A large portion of the functionality of this package can be accessed using a single object,
  * [[scilube.Matlib]]. The usage will be obvious to anyone who's worked in Matlab. Many functions,
- * rather than accepting 2D matrices take 1-D `Array[Double]` instead.
+ * rather than accepting 2D matrices, take 1-D `Array[Double]` instead.
  */
 package object scilube {
 

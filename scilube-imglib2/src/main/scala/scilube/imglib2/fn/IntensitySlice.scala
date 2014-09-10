@@ -7,7 +7,7 @@ import scilube.imglib2.extendImageProcessor
  * Extract regions from an image by ''slicing'' it. Simply put, you:
  * - Specify bottom and top intensities
  * - Extract a binary image where pixels with intensity values outside your range are set to
- *   black (0), pixels out your range are set to white.
+ *   black (0), pixels in your range are set to white.
  * @author Brian Schlining
  * @since 2012-03-14
  */

@@ -76,7 +76,7 @@ protected trait Mathematics {
    * Calculates the dot product between 2 arrays (The dot is the project of b onto a).
    * a and b must be the same size
    * @param a The first array
-   * @param b THe second array (b will be projected onto a)
+   * @param b The second array (b will be projected onto a)
    * @return The dot product. (b projected onto a)
    */
   def dot(a: Array[Double], b: Array[Double]): Double = {
