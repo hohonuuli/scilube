@@ -35,6 +35,7 @@ protected trait Probabilities {
      *      developers do not supply this value. Instead the default value of 1 is used.
      * @return factorial of n
      */
+    
     def factorial(n: BigInt, result: BigInt = 1): BigInt = if (n == 0) result
             else factorial(n - 1, n * result)
 
