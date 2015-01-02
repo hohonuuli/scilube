@@ -3,7 +3,7 @@ package scilube.grid
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
 /**
  *
@@ -12,7 +12,7 @@ import org.scalatest.matchers.ShouldMatchers
  */
 
 @RunWith(classOf[JUnitRunner])
-class GridSearcherTest extends FunSpec with ShouldMatchers {
+class GridSearcherTest extends FunSpec with Matchers {
 
   describe("A Grid Searcher") {
     it("should find indices of a pixel containing a point") {

@@ -4,13 +4,14 @@ import _root_.spire.implicits._
 import _root_.spire.math.Complex
 import org.junit.Assert._
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 
 /**
  *
  * @author Brian Schlining
  * @since 2012-06-11
  */
-
 class MathematicsTest {
 
   private[this] val math = new Mathematics {}

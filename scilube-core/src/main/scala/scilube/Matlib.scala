@@ -1,11 +1,9 @@
 package scilube
 
-import scilube.geometry.Trigonometry
 import scala.reflect.ClassTag
 import scilube.probability.KDE
 import scala.math._
 import org.mbari.math.{Matlib => JMatlib}
-;
 
 /**
  *

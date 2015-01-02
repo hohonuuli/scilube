@@ -3,7 +3,7 @@ package scilube.gis.simple
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 import scilube.Matlib._
 
 /**
@@ -12,7 +12,7 @@ import scilube.Matlib._
  * @since 2013-05-21
  */
 @RunWith(classOf[JUnitRunner])
-class ASCGridReaderTest extends FunSpec with ShouldMatchers {
+class ASCGridReaderTest extends FunSpec with Matchers {
 
   val url = getClass.getResource("/mockup.asc")
   val tolerance = 0.00000001
@@ -42,9 +42,9 @@ class ASCGridReaderTest extends FunSpec with ShouldMatchers {
 
     it ("should read the z values correctly") {
       val grid = ASCGridReader.read(url)
-      grid.z(0, 0) should be (110.0 plusOrMinus tolerance)
-      grid.z(1, 1) should be (101.0 plusOrMinus tolerance)
-      grid.z(2, 8) should be (32.0 plusOrMinus tolerance)
+      grid.z(0, 0) should be (110.0 +- tolerance)
+      grid.z(1, 1) should be (101.0 +- tolerance)
+      grid.z(2, 8) should be (32.0 +- tolerance)
     }
   }
 

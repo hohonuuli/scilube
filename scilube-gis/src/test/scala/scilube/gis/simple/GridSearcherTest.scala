@@ -3,7 +3,7 @@ package scilube.gis.simple
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 import scilube.grid.GridSearcher
 
 /**
@@ -12,7 +12,7 @@ import scilube.grid.GridSearcher
  * @since 2013-05-21
  */
 @RunWith(classOf[JUnitRunner])
-class GridSearcherTest extends FunSpec with ShouldMatchers {
+class GridSearcherTest extends FunSpec with Matchers {
 
   val url = getClass.getResource("/mockup.asc")
   val tolerance = 0.00000001

@@ -1,4 +1,4 @@
-package org.mbari.dsg.analysis.chart
+package scilube.jfreechart.chart
 
 import java.lang.{Double => JDouble, Long => JLong}
 import java.util.Date

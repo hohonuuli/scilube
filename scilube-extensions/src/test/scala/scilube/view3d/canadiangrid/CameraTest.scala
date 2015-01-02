@@ -4,7 +4,7 @@ import scala.math._
 import org.scalatest.junit.JUnitRunner
 import org.junit.runner.RunWith
 import org.scalatest.{FunSpec, FunSuite}
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
 /**
  *
@@ -12,7 +12,7 @@ import org.scalatest.matchers.ShouldMatchers
  * @since 2012-12-06
  */
 @RunWith(classOf[JUnitRunner])
-class CameraTest extends FunSpec with ShouldMatchers {
+class CameraTest extends FunSpec with Matchers {
 
   private[this] val percentError = 0.03
 
@@ -38,43 +38,43 @@ class CameraTest extends FunSpec with ShouldMatchers {
     it("Should correctly calculate planeDistance") {
       val expected = 138.3085
       val range = expected * percentError
-      camera.planeDistance should be (expected plusOrMinus range)
+      camera.planeDistance should be (expected +- range)
     }
 
     it("Should correctly calculate lensDistance") {
       val expected = 177.9698
       val range = expected * percentError
-      camera.lensDistance should be (expected plusOrMinus range)
+      camera.lensDistance should be (expected +- range)
     }
 
     it("Should correctly calculate nearViewEdgeDistance") {
       val expected = 76.1151
       val range = expected * percentError
-      camera.nearViewEdgeDistance should be (expected plusOrMinus range)
+      camera.nearViewEdgeDistance should be (expected +- range)
     }
 
     it("Should correctly calculate farFarEdgeDistance") {
       val expected = 274.4476
       val range = expected * percentError
-      camera.farViewEdgeDistance should be (expected plusOrMinus range)
+      camera.farViewEdgeDistance should be (expected +- range)
     }
 
     it("Should correctly calculate nearViewEgdeDistance") {
       val expected = 76.1151
       val range = expected * percentError
-      camera.nearViewEdgeDistance should be (expected plusOrMinus range)
+      camera.nearViewEdgeDistance should be (expected +- range)
     }
 
     it("Should correctly calculate viewWidth") {
       val expected = 136.6324
       val range = expected * percentError
-      camera.viewWidth should be (expected plusOrMinus range)
+      camera.viewWidth should be (expected +- range)
     }
 
     it("Should correctly calculate viewHeight") {
       val expected = 198.3325
       val range = expected * percentError
-      camera.viewHeight should be (expected plusOrMinus range)
+      camera.viewHeight should be (expected +- range)
     }
 
   }

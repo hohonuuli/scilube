@@ -1,4 +1,4 @@
-package scilube.geometry
+package scilube
 
 import org.mbari.math.DoubleMath
 import scala.math._
