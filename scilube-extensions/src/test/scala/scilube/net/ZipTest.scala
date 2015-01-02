@@ -5,10 +5,10 @@ import java.util.Date
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSpec
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.Matchers
 
 @RunWith(classOf[JUnitRunner])
-class ZipTest extends FunSpec with ShouldMatchers {
+class ZipTest extends FunSpec with Matchers {
 
   describe("A Zip object") {
     it("should zip a file up") {

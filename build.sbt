@@ -3,6 +3,17 @@ organization in ThisBuild := "scilube"
 
 name := "scilube-parent"
 
+version in ThisBuild := "2.0-SNAPSHOT"
+
+scalaVersion in ThisBuild := "2.11.4"
+
+crossScalaVersions in ThisBuild := Seq("2.11.4", "2.10.3")
+
+scalacOptions in ThisBuild ++= Seq("-deprecation", "-feature", "-unchecked")
+
+javacOptions in ThisBuild ++= Seq("-target", "1.6", "-source","1.6")
+
+// DEFINE NESTED PROJECTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 lazy val root = project.in(file("."))
     .aggregate(core, extensions, ocean, imglib2, jfreechart, gis)
 
@@ -18,21 +29,35 @@ lazy val jfreechart = project in file("scilube-jfreechart") dependsOn(core, exte
 
 lazy val gis = project in file("scilube-gis") dependsOn(core, extensions)
 
-version in ThisBuild := "2.0-SNAPSHOT"
-
-scalaVersion in ThisBuild := "2.11.4"
-
-crossScalaVersions in ThisBuild := Seq("2.11.4", "2.10.3")
-
-scalacOptions += "-deprecation"
-
 // DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Add Testing libs
+libraryDependencies in ThisBuild ++= Seq(
+    "junit" % "junit" % "4.11" % "test",
+    "org.scalatest" %% "scalatest" % "2.2.2" % "test",
+    "com.novocode" % "junit-interface" % "0.11" % "test"
+)
+
+// Add SLF4J and Logback libs
+libraryDependencies in ThisBuild ++= {
+  val slf4jVersion = "1.7.7"
+  val logbackVersion = "1.1.2"
+  Seq(
+    "org.slf4j" % "slf4j-api" % slf4jVersion,
+    "org.slf4j" % "log4j-over-slf4j" % slf4jVersion,
+    "ch.qos.logback" % "logback-classic" % logbackVersion,
+    "ch.qos.logback" % "logback-core" % logbackVersion)
+}
 
 updateOptions in ThisBuild := updateOptions.value.withCachedResolution(true) 
 
 publishMavenStyle in ThisBuild := true
 
 publishTo in ThisBuild := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
+
+resolvers in ThisBuild ++= Seq(Resolver.mavenLocal,
+  "com.springsource.repository.bundles.external" at "http://repository.springsource.com/maven/bundles/external",
+  "imagej.snapshots" at "http://maven.imagej.net/content/repositories/snapshots",
+  "imagej.releases" at "http://maven.imagej.net/content/repositories/releases")
 
 // OTHER SETTINGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Adds commands for dependency reporting
@@ -96,3 +121,4 @@ pomExtra in ThisBuild := (
     </developer>
   </developers>)
 
+testOptions in ThisBuild += Tests.Argument(TestFrameworks.JUnit, "-q", "-v")
