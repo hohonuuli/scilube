@@ -12,8 +12,8 @@ trait Time {
    * @param latitude Location of observation in decimal degrees (+N/-S)
    * @param longitude Locaiton of observation in decimal degrees (-W/+E)
    */
-  def solarPosition(date: Date, latitude: Double, longitude: Double): SolarPosition = {
-    val sp = new JSolarPosition(date.getTime, latitude, longitude)
+  def solarPosition(epochSecond: Long, latitude: Double, longitude: Double): SolarPosition = {
+    val sp = new JSolarPosition(epochSecond, latitude, longitude)
     SolarPosition(sp)
   }
 
@@ -22,8 +22,8 @@ trait Time {
    * @param longitude The longitude in decimal degrees (-W/+E)
    * @return GMT time of local apparent noon in decimal hours
    */
-  def noon(date: Date, longitude: Double): Double = {
-    val sp = solarPosition(date, 0, longitude)
+  def noon(epochSecond: Long, longitude: Double): Double = {
+    val sp = solarPosition(epochSecond, 0, longitude)
     val gha = sp.greenwichHourAngle
     val hour1 = 12 + -longitude/15 // approximate time of local area noon 
     if (gha > 180) {
@@ -56,7 +56,8 @@ case class SolarPosition protected (date: Date,
     greenwichHourAngle: Double,
     latitude: Double,
     longitude: Double, 
-    zenith: Double)
+    zenith: Double,
+    earthSunDistance: Double)
 
 
 object SolarPosition {
@@ -68,6 +69,6 @@ object SolarPosition {
   def apply(sp: JSolarPosition): SolarPosition = {
     SolarPosition(new Date(sp.getTime), sp.getAltitude, sp.getAzimuth, sp.getDeclination, 
         sp.getDistance, sp.getGreenwichHourAngle, sp.getLatitude, 
-        sp.getLongitude, sp.getZenith)
+        sp.getLongitude, sp.getZenith, sp.getEarthSunDistance)
   }
 }

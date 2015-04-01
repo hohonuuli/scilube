@@ -7,7 +7,7 @@ version in ThisBuild := "2.0-SNAPSHOT"
 
 scalaVersion in ThisBuild := "2.11.4"
 
-crossScalaVersions in ThisBuild := Seq("2.11.4", "2.10.3")
+crossScalaVersions in ThisBuild := Seq("2.11.4", "2.10.4")
 
 scalacOptions in ThisBuild ++= Seq("-deprecation", "-feature", "-unchecked")
 
@@ -16,6 +16,7 @@ javacOptions in ThisBuild ++= Seq("-target", "1.6", "-source","1.6")
 // DEFINE NESTED PROJECTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 lazy val root = project.in(file("."))
     .aggregate(core, extensions, ocean, imglib2, jfreechart, gis)
+    .dependsOn(core, extensions, ocean)
 
 lazy val core = project in file("scilube-core")
 
