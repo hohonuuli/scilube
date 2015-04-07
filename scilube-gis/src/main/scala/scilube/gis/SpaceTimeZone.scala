@@ -20,7 +20,7 @@ trait SpaceTimeZone {
    * @tparam A The points coordinate types
    * @return true if the point falls with in the zone. false if it is outside the zone
    */
-  def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean
+  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean
 
   /**
    * Compose zones.
@@ -37,9 +37,9 @@ trait SpaceTimeZone {
    * @tparam A
    * @return
    */
-  def and[A](zone: SpaceTimeZone): SpaceTimeZone = new SpaceTimeZone {
+  def and[A, B <: Date](zone: SpaceTimeZone): SpaceTimeZone = new SpaceTimeZone {
 
-    def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean =
+    def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean =
       SpaceTimeZone.this.contains(point) && zone.contains(point)
 
   }
@@ -51,7 +51,7 @@ trait SpaceTimeZone {
  * [[scilube.gis.SpaceTimeZone]]
  */
 class EnvelopeSpaceTimeZone(val envelope: Envelope) extends SpaceTimeZone {
-  def contains[B](point: Point4D[B, Date])(implicit numeric: Numeric[B]): Boolean = envelope.contains(point)
+  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean = envelope.contains(point)
 }
 
 /**
@@ -69,14 +69,14 @@ class MomentIntervalSpaceTimeZone(val momentInterval: MomentInterval) extends Sp
    * @tparam A The points coordinate types
    * @return true if the point falls with in the zone. false if it is outside the zone
    */
-  def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean = momentInterval.contains(point.w)
+  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean = momentInterval.contains(point.w)
 }
 
 /**
  * Does not apply any filtering
  */
 object NoopSpaceTimeZone extends SpaceTimeZone {
-  def contains[A](point: Point4D[A, Date])(implicit numeric: Numeric[A]): Boolean = true
+  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean = true
 }
 
 /**
