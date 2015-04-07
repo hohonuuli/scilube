@@ -2,25 +2,26 @@ package scilube.gis
 
 import java.util.Date
 import scilube.geometry.{ Envelope, Point4D }
-import scilube.time.MomentInterval
+import scilube.time.{DateInterval, MomentInterval}
 
 /**
  * A representation of some spatial area and temporal period.
  *
+ * @tparam B is the temporal type. e.g. java.util.Date or java.time.Instant
+ *
  * @author Brian Schlining
  * @since 2011-05-12
  */
-trait SpaceTimeZone {
+trait SpatialTemporalZone[B] {
 
   /**
    * Checks that the zone contains the given 4D point
    *
    * @param point The point of interest
-   * @param numeric implicit conversion of the points coordiates to a numeric value
    * @tparam A The points coordinate types
    * @return true if the point falls with in the zone. false if it is outside the zone
    */
-  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean
+  def contains[A: Numeric, C <: B](point: Point4D[A, C]): Boolean
 
   /**
    * Compose zones.
@@ -34,24 +35,23 @@ trait SpaceTimeZone {
    *
    * }}}
    * @param zone
-   * @tparam A
    * @return
    */
-  def and[A, B <: Date](zone: SpaceTimeZone): SpaceTimeZone = new SpaceTimeZone {
+  def and[C <: B](zone: SpatialTemporalZone[B]): SpatialTemporalZone[B] = new SpatialTemporalZone[B] {
 
-    def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean =
-      SpaceTimeZone.this.contains(point) && zone.contains(point)
-
+    def contains[A: Numeric, C <: B](point: Point4D[A, C]): Boolean =
+      SpatialTemporalZone.this.contains(point) && zone.contains(point)
   }
 
 }
+
 
 /**
  * Wrapper that converts an [[scilube.geometry.Envelope]] to a
  * [[scilube.gis.SpaceTimeZone]]
  */
-class EnvelopeSpaceTimeZone(val envelope: Envelope) extends SpaceTimeZone {
-  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean = envelope.contains(point)
+class EnvelopeSpaceTimeZone(val envelope: Envelope) extends SpatialTemporalZone[Date] {
+  def contains[A : Numeric, B <: Date](point: Point4D[A, B]): Boolean = envelope.contains(point)
 }
 
 /**
@@ -60,23 +60,23 @@ class EnvelopeSpaceTimeZone(val envelope: Envelope) extends SpaceTimeZone {
  *
  * @param momentInterval The moment
  */
-class MomentIntervalSpaceTimeZone(val momentInterval: MomentInterval) extends SpaceTimeZone {
+class MomentIntervalSpaceTimeZone(val momentInterval: DateInterval) extends SpatialTemporalZone[Date] {
   /**
    * Checks that the zone contains the given 4D point
    *
    * @param point The point of interest
-   * @param numeric implicit conversion of the points coordiates to a numeric value
    * @tparam A The points coordinate types
    * @return true if the point falls with in the zone. false if it is outside the zone
    */
-  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean = momentInterval.contains(point.w)
+  def contains[A : Numeric, B <: Date](point: Point4D[A, B]): Boolean = momentInterval.contains(point.w)
+
 }
 
 /**
  * Does not apply any filtering
  */
 object NoopSpaceTimeZone extends SpaceTimeZone {
-  def contains[A, B <: Date](point: Point4D[A, B])(implicit numeric: Numeric[A]): Boolean = true
+  def contains[A : Numeric, B](point: Point4D[A, B]): Boolean = true
 }
 
 /**
@@ -86,9 +86,9 @@ object SpaceTimeZone {
 
   def apply(envelope: Envelope): EnvelopeSpaceTimeZone = new EnvelopeSpaceTimeZone(envelope)
 
-  def apply(momentInterval: MomentInterval): MomentIntervalSpaceTimeZone = new MomentIntervalSpaceTimeZone(momentInterval)
+  def apply(momentInterval: DateInterval): MomentIntervalSpaceTimeZone = new MomentIntervalSpaceTimeZone(momentInterval)
 
-  def apply(envelope: Envelope, momentInterval: MomentInterval): SpaceTimeZone = apply(envelope) and apply(momentInterval)
+  def apply(envelope: Envelope, momentInterval: DateInterval): SpaceTimeZone = apply(envelope) and apply(momentInterval)
 
   def apply(envelope: Envelope, start: Date, end: Date): SpaceTimeZone = apply(envelope) and apply(MomentInterval(start, end))
 

@@ -1,9 +1,5 @@
 package scilube.geometry
 
-import java.awt.geom.{ Point2D => JPoint2D }
-import scala.math._
-import java.lang.String
-
 /**
  * 4-D point. The 3 spatial dimensions must all be the same type. The 4 dimension can be a different type.
  * Following 3D conventions the dimensions are x, y, z, and w
