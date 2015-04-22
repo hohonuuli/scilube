@@ -1,0 +1,296 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>grid - scilube.grid</title>
+          <meta name="description" content="grid - scilube.grid" />
+          <meta name="keywords" content="grid scilube.grid" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'scilube.grid.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="scilube">scilube</a></p>
+        <h1>grid</h1> <span class="permalink">
+      <a href="../../index.html#scilube.grid.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">grid</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scilube.grid.ArrayGrid" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ArrayGrid[A,B,C]extendsGrid[A,B,C]withMutableGrid[A,B,C]"></a>
+      <a id="ArrayGrid[A,B,C]:ArrayGrid[A,B,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ArrayGrid.html"><span class="name">ArrayGrid</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>]</span><span class="result"> extends <a href="Grid.html" class="extype" name="scilube.grid.Grid">Grid</a>[<span class="extype" name="scilube.grid.ArrayGrid.A">A</span>, <span class="extype" name="scilube.grid.ArrayGrid.B">B</span>, <span class="extype" name="scilube.grid.ArrayGrid.C">C</span>] with <a href="MutableGrid.html" class="extype" name="scilube.grid.MutableGrid">MutableGrid</a>[<span class="extype" name="scilube.grid.ArrayGrid.A">A</span>, <span class="extype" name="scilube.grid.ArrayGrid.B">B</span>, <span class="extype" name="scilube.grid.ArrayGrid.C">C</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@ArrayGrid[A,B,C]extendsGrid[A,B,C]withMutableGrid[A,B,C]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Mutable Grid implementation where the z values ae backed by Array[Array] data.</p><div class="fullcomment"><div class="comment cmt"><p>Mutable Grid implementation where the z values ae backed by Array[Array] data. ArrayGrids use
+image coordinate system, (i.e. origin is upper left)
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-09-04
+</p></dd></dl></div>
+    </li><li name="scilube.grid.DoubleArrayGrid" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DoubleArrayGrid[A,B]extendsArrayGrid[A,B,Double]withNumericGrid[A,B,Double]"></a>
+      <a id="DoubleArrayGrid[A,B]:DoubleArrayGrid[A,B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DoubleArrayGrid.html"><span class="name">DoubleArrayGrid</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="ArrayGrid.html" class="extype" name="scilube.grid.ArrayGrid">ArrayGrid</a>[<span class="extype" name="scilube.grid.DoubleArrayGrid.A">A</span>, <span class="extype" name="scilube.grid.DoubleArrayGrid.B">B</span>, <span class="extype" name="scala.Double">Double</span>] with <a href="NumericGrid.html" class="extype" name="scilube.grid.NumericGrid">NumericGrid</a>[<span class="extype" name="scilube.grid.DoubleArrayGrid.A">A</span>, <span class="extype" name="scilube.grid.DoubleArrayGrid.B">B</span>, <span class="extype" name="scala.Double">Double</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@DoubleArrayGrid[A,B]extendsArrayGrid[A,B,Double]withNumericGrid[A,B,Double]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An ArrayGrid backed by an Array[Array[Double]]
+</p><div class="fullcomment"><div class="comment cmt"><p>An ArrayGrid backed by an Array[Array[Double]]
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-09-04
+</p></dd></dl></div>
+    </li><li name="scilube.grid.FloatArrayGrid" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="FloatArrayGrid[A,B]extendsArrayGrid[A,B,Float]withNumericGrid[A,B,Float]"></a>
+      <a id="FloatArrayGrid[A,B]:FloatArrayGrid[A,B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FloatArrayGrid.html"><span class="name">FloatArrayGrid</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="ArrayGrid.html" class="extype" name="scilube.grid.ArrayGrid">ArrayGrid</a>[<span class="extype" name="scilube.grid.FloatArrayGrid.A">A</span>, <span class="extype" name="scilube.grid.FloatArrayGrid.B">B</span>, <span class="extype" name="scala.Float">Float</span>] with <a href="NumericGrid.html" class="extype" name="scilube.grid.NumericGrid">NumericGrid</a>[<span class="extype" name="scilube.grid.FloatArrayGrid.A">A</span>, <span class="extype" name="scilube.grid.FloatArrayGrid.B">B</span>, <span class="extype" name="scala.Float">Float</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@FloatArrayGrid[A,B]extendsArrayGrid[A,B,Float]withNumericGrid[A,B,Float]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An ArrayGrid backed by an Array[Array[Float]]
+</p><div class="fullcomment"><div class="comment cmt"><p>An ArrayGrid backed by an Array[Array[Float]]
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-09-04
+</p></dd></dl></div>
+    </li><li name="scilube.grid.Grid" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Grid[A,B,C]extendsAnyRef"></a>
+      <a id="Grid[A,B,C]:Grid[A,B,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Grid.html"><span class="name">Grid</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@Grid[A,B,C]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A grid represents a rectangular array of values.</p><div class="fullcomment"><div class="comment cmt"><p>A grid represents a rectangular array of values.
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>Sep 30, 2010
+</p></dd></dl></div>
+    </li><li name="scilube.grid.GridSearcher" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GridSearcher[A,B]extendsAnyRef"></a>
+      <a id="GridSearcher[A,B]:GridSearcher[A,B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GridSearcher.html"><span class="name">GridSearcher</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@GridSearcher[A,B]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Wrapper class the can provide search functionality on Grids with
+axis defined as double values.</p><div class="fullcomment"><div class="comment cmt"><p>Wrapper class the can provide search functionality on Grids with
+axis defined as double values. Grid origins are the lower, left corners
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2013-01-10
+</p></dd></dl></div>
+    </li><li name="scilube.grid.MutableGrid" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="MutableGrid[A,B,C]extendsGrid[A,B,C]"></a>
+      <a id="MutableGrid[A,B,C]:MutableGrid[A,B,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MutableGrid.html"><span class="name">MutableGrid</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>]</span><span class="result"> extends <a href="Grid.html" class="extype" name="scilube.grid.Grid">Grid</a>[<span class="extype" name="scilube.grid.MutableGrid.A">A</span>, <span class="extype" name="scilube.grid.MutableGrid.B">B</span>, <span class="extype" name="scilube.grid.MutableGrid.C">C</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@MutableGrid[A,B,C]extendsGrid[A,B,C]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Grid whose underlying values can be changed
+</p><div class="fullcomment"><div class="comment cmt"><p>A Grid whose underlying values can be changed
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-04-23
+</p></dd></dl></div>
+    </li><li name="scilube.grid.NumericGrid" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="NumericGrid[A,B,C]extendsAnyRef"></a>
+      <a id="NumericGrid[A,B,C]:NumericGrid[A,B,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="NumericGrid.html"><span class="name">NumericGrid</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@NumericGrid[A,B,C]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A mixin for Grids that store backing data as numeric values.</p><div class="fullcomment"><div class="comment cmt"><p>A mixin for Grids that store backing data as numeric values.
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-09-04
+</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scilube.grid.ArrayGrid" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ArrayGrid"></a>
+      <a id="ArrayGrid:ArrayGrid"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ArrayGrid$.html"><span class="name">ArrayGrid</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@ArrayGrid" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory methods to create ArrayGrid implementations.</p><div class="fullcomment"><div class="comment cmt"><p>Factory methods to create ArrayGrid implementations. I'm only creating factories for the most
+commonly used types
+</p></div></div>
+    </li><li name="scilube.grid.DoubleArrayGrid" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DoubleArrayGrid"></a>
+      <a id="DoubleArrayGrid:DoubleArrayGrid"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DoubleArrayGrid$.html"><span class="name">DoubleArrayGrid</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@DoubleArrayGrid" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.grid.FloatArrayGrid" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FloatArrayGrid"></a>
+      <a id="FloatArrayGrid:FloatArrayGrid"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FloatArrayGrid$.html"><span class="name">FloatArrayGrid</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.grid.package@FloatArrayGrid" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

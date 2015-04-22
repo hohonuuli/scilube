@@ -1,0 +1,664 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>geometry - scilube.geometry</title>
+          <meta name="description" content="geometry - scilube.geometry" />
+          <meta name="keywords" content="geometry scilube.geometry" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'scilube.geometry.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="scilube">scilube</a></p>
+        <h1>geometry</h1> <span class="permalink">
+      <a href="../../index.html#scilube.geometry.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">geometry</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scilube.geometry.DoublePoint2D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DoublePoint2DextendsPoint2D[Double]"></a>
+      <a id="DoublePoint2D:DoublePoint2D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DoublePoint2D.html"><span class="name">DoublePoint2D</span></a><span class="result"> extends <a href="Point2D.html" class="extype" name="scilube.geometry.Point2D">Point2D</a>[<span class="extype" name="scala.Double">Double</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@DoublePoint2DextendsPoint2D[Double]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.DoublePoint3D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DoublePoint3DextendsDoublePoint2DwithPoint3D[Double]"></a>
+      <a id="DoublePoint3D:DoublePoint3D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DoublePoint3D.html"><span class="name">DoublePoint3D</span></a><span class="result"> extends <a href="DoublePoint2D.html" class="extype" name="scilube.geometry.DoublePoint2D">DoublePoint2D</a> with <a href="Point3D.html" class="extype" name="scilube.geometry.Point3D">Point3D</a>[<span class="extype" name="scala.Double">Double</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@DoublePoint3DextendsDoublePoint2DwithPoint3D[Double]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.DoublePoint4D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DoublePoint4D[A]extendsDoublePoint3DwithPoint4D[Double,A]"></a>
+      <a id="DoublePoint4D[A]:DoublePoint4D[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DoublePoint4D.html"><span class="name">DoublePoint4D</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="DoublePoint3D.html" class="extype" name="scilube.geometry.DoublePoint3D">DoublePoint3D</a> with <a href="Point4D.html" class="extype" name="scilube.geometry.Point4D">Point4D</a>[<span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scilube.geometry.DoublePoint4D.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@DoublePoint4D[A]extendsDoublePoint3DwithPoint4D[Double,A]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.DoublePolygon2D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DoublePolygon2D[P&lt;:scilube.geometry.Point2D[Double]]extendsPolygon2D[Double,Double,P]"></a>
+      <a id="DoublePolygon2D[P&lt;:Point2D[Double]]:DoublePolygon2D[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DoublePolygon2D.html"><span class="name">DoublePolygon2D</span></a><span class="tparams">[<span name="P">P &lt;: <a href="Point2D.html" class="extype" name="scilube.geometry.Point2D">Point2D</a>[<span class="extype" name="scala.Double">Double</span>]</span>]</span><span class="result"> extends <a href="Polygon2D.html" class="extype" name="scilube.geometry.Polygon2D">Polygon2D</a>[<span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scilube.geometry.DoublePolygon2D.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@DoublePolygon2D[P&lt;:scilube.geometry.Point2D[Double]]extendsPolygon2D[Double,Double,P]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.DoubleTriangle3D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DoubleTriangle3DextendsTriangle3D[Double,Double]"></a>
+      <a id="DoubleTriangle3D:DoubleTriangle3D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DoubleTriangle3D.html"><span class="name">DoubleTriangle3D</span></a><span class="result"> extends <a href="Triangle3D.html" class="extype" name="scilube.geometry.Triangle3D">Triangle3D</a>[<span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scala.Double">Double</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@DoubleTriangle3DextendsTriangle3D[Double,Double]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="scilube.geometry.Envelope" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="EnvelopeextendsAnyRef"></a>
+      <a id="Envelope:Envelope"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Envelope.html"><span class="name">Envelope</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@EnvelopeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a rectangular area</p><div class="fullcomment"><div class="comment cmt"><p>Represents a rectangular area</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2011-05-15
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.EnvelopeContains" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="EnvelopeContainsextendsAnyRef"></a>
+      <a id="EnvelopeContains:EnvelopeContains"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="EnvelopeContains.html"><span class="name">EnvelopeContains</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@EnvelopeContainsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reusable implementation of a contains method for envelopes.</p><div class="fullcomment"><div class="comment cmt"><p>Reusable implementation of a contains method for envelopes. Based on implemntation of minimum
+and maximum in Envelope.
+</p></div></div>
+    </li><li name="scilube.geometry.EnvelopeToRectangle" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="EnvelopeToRectangleextendsAnyRef"></a>
+      <a id="EnvelopeToRectangle:EnvelopeToRectangle"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="EnvelopeToRectangle.html"><span class="name">EnvelopeToRectangle</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@EnvelopeToRectangleextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reusable implementation of toRectangle method for envelopes
+</p>
+    </li><li name="scilube.geometry.HausdorffDistanceFn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="HausdorffDistanceFn[T]extends(Iterable[scilube.geometry.LabeledDoublePoint2D],Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;scilube.geometry.PointPair[T]"></a>
+      <a id="HausdorffDistanceFn[T]:HausdorffDistanceFn[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="HausdorffDistanceFn.html"><span class="name">HausdorffDistanceFn</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends (<span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>], <span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>]) ⇒ <a href="PointPair.html" class="extype" name="scilube.geometry.PointPair">PointPair</a>[<span class="extype" name="scilube.geometry.HausdorffDistanceFn.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@HausdorffDistanceFn[T]extends(Iterable[scilube.geometry.LabeledDoublePoint2D],Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;scilube.geometry.PointPair[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculates the bidirectional Hausdorff distance.</p><div class="fullcomment"><div class="comment cmt"><p>Calculates the bidirectional Hausdorff distance.</p><p>Reference: D.P Huttenlocher, G.A. Klandermand, and W.J. Rucklidge., Comparing Images Using the
+ Hausdorff Distance. IEE Transactions on Pattern Analysis and Machine Intelligence. Vol. 15,
+ No. 9, September 1993
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-03-19
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.HausdorffDistances" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="HausdorffDistances[T]extends(Iterable[scilube.geometry.LabeledDoublePoint2D],Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;(Seq[scilube.geometry.PointPair[T]],Seq[scilube.geometry.PointPair[T]])"></a>
+      <a id="HausdorffDistances[T]:HausdorffDistances[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="HausdorffDistances.html"><span class="name">HausdorffDistances</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends (<span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>], <span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>]) ⇒ (<span class="extype" name="scala.Seq">Seq</span>[<a href="PointPair.html" class="extype" name="scilube.geometry.PointPair">PointPair</a>[<span class="extype" name="scilube.geometry.HausdorffDistances.T">T</span>]], <span class="extype" name="scala.Seq">Seq</span>[<a href="PointPair.html" class="extype" name="scilube.geometry.PointPair">PointPair</a>[<span class="extype" name="scilube.geometry.HausdorffDistances.T">T</span>]])</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@HausdorffDistances[T]extends(Iterable[scilube.geometry.LabeledDoublePoint2D],Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;(Seq[scilube.geometry.PointPair[T]],Seq[scilube.geometry.PointPair[T]])" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculate the hausdorff distances between 2 sets of points.</p><div class="fullcomment"><div class="comment cmt"><p>Calculate the hausdorff distances between 2 sets of points. Returns the <i>nearest</i> values
+to each point in both sets.
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>The type that the <i>distanceFn</i> returns. Typically for our analysis we'll use
+     <span class="extype" name="scala.Double">scala.Double</span>
+</p></dd></dl><dl class="attributes block"> <dt>Since</dt><dd><p>2012-03-21
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.IntPoint2D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IntPoint2DextendsPoint2D[Int]"></a>
+      <a id="IntPoint2D:IntPoint2D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="IntPoint2D.html"><span class="name">IntPoint2D</span></a><span class="result"> extends <a href="Point2D.html" class="extype" name="scilube.geometry.Point2D">Point2D</a>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@IntPoint2DextendsPoint2D[Int]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.IntPoint3D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IntPoint3DextendsIntPoint2DwithPoint3D[Int]"></a>
+      <a id="IntPoint3D:IntPoint3D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="IntPoint3D.html"><span class="name">IntPoint3D</span></a><span class="result"> extends <a href="IntPoint2D.html" class="extype" name="scilube.geometry.IntPoint2D">IntPoint2D</a> with <a href="Point3D.html" class="extype" name="scilube.geometry.Point3D">Point3D</a>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@IntPoint3DextendsIntPoint2DwithPoint3D[Int]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.IntPoint4D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IntPoint4D[B]extendsIntPoint3DwithPoint4D[Int,B]"></a>
+      <a id="IntPoint4D[B]:IntPoint4D[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="IntPoint4D.html"><span class="name">IntPoint4D</span></a><span class="tparams">[<span name="B">B</span>]</span><span class="result"> extends <a href="IntPoint3D.html" class="extype" name="scilube.geometry.IntPoint3D">IntPoint3D</a> with <a href="Point4D.html" class="extype" name="scilube.geometry.Point4D">Point4D</a>[<span class="extype" name="scala.Int">Int</span>, <span class="extype" name="scilube.geometry.IntPoint4D.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@IntPoint4D[B]extendsIntPoint3DwithPoint4D[Int,B]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.LabeledDoublePoint2D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LabeledDoublePoint2DextendsDoublePoint2D"></a>
+      <a id="LabeledDoublePoint2D:LabeledDoublePoint2D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LabeledDoublePoint2D.html"><span class="name">LabeledDoublePoint2D</span></a><span class="result"> extends <a href="DoublePoint2D.html" class="extype" name="scilube.geometry.DoublePoint2D">DoublePoint2D</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@LabeledDoublePoint2DextendsDoublePoint2D" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="scilube.geometry.LabeledIntPoint2D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LabeledIntPoint2DextendsIntPoint2D"></a>
+      <a id="LabeledIntPoint2D:LabeledIntPoint2D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LabeledIntPoint2D.html"><span class="name">LabeledIntPoint2D</span></a><span class="result"> extends <a href="IntPoint2D.html" class="extype" name="scilube.geometry.IntPoint2D">IntPoint2D</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@LabeledIntPoint2DextendsIntPoint2D" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p>
+    </li><li name="scilube.geometry.Point2D" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Point2D[A]extendsAnyRef"></a>
+      <a id="Point2D[A]:Point2D[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Point2D.html"><span class="name">Point2D</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Point2D[A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">2-Dimensional point</p><div class="fullcomment"><div class="comment cmt"><p>2-Dimensional point</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2011-05-14
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.Point3D" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Point3D[A]extendsPoint2D[A]"></a>
+      <a id="Point3D[A]:Point3D[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Point3D.html"><span class="name">Point3D</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends <a href="Point2D.html" class="extype" name="scilube.geometry.Point2D">Point2D</a>[<span class="extype" name="scilube.geometry.Point3D.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Point3D[A]extendsPoint2D[A]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">3D point.</p>
+    </li><li name="scilube.geometry.Point4D" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Point4D[A,B]extendsPoint3D[A]"></a>
+      <a id="Point4D[A,B]:Point4D[A,B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Point4D.html"><span class="name">Point4D</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="Point3D.html" class="extype" name="scilube.geometry.Point3D">Point3D</a>[<span class="extype" name="scilube.geometry.Point4D.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Point4D[A,B]extendsPoint3D[A]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">4-D point.</p><div class="fullcomment"><div class="comment cmt"><p>4-D point. The 3 spatial dimensions must all be the same type. The 4 dimension can be a different type.
+Following 3D conventions the dimensions are x, y, z, and w</p></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>The type of the 3 spatial dimensionssp</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>the type of the 4-th dimension
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.PointPair" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PointPair[A]extendsProductwithSerializable"></a>
+      <a id="PointPair[A]:PointPair[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="PointPair.html"><span class="name">PointPair</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="p0">p0: <a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a></span>, <span name="p1">p1: <a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a></span>, <span name="value">value: <span class="extype" name="scilube.geometry.PointPair.A">A</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@PointPair[A]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a pair of points as well as some value relating those 2 points</p><div class="fullcomment"><div class="comment cmt"><p>Represents a pair of points as well as some value relating those 2 points</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-03-07
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.Polygon2D" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Polygon2D[A,B,C&lt;:scilube.geometry.Point2D[A]]extendsAnyRef"></a>
+      <a id="Polygon2D[A,B,C&lt;:Point2D[A]]:Polygon2D[A,B,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Polygon2D.html"><span class="name">Polygon2D</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>, <span name="C">C &lt;: <a href="Point2D.html" class="extype" name="scilube.geometry.Point2D">Point2D</a>[<span class="extype" name="scilube.geometry.Polygon2D.A">A</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Polygon2D[A,B,C&lt;:scilube.geometry.Point2D[A]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>The type of data that the points in the triangle represent. ex. Double would mean the
+          triangle is made of Point3D[Double]</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>The return type of the calculations. For example a Triangle3D[Int, Float] would have
+          points defined by Point3D[Int] but area calculations on it would return Float values.
+</p></dd></dl><dl class="attributes block"> <dt>Since</dt><dd><p>2013-01-08</p></dd></dl></div>
+    </li><li name="scilube.geometry.SetsToPointPairsFn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SetsToPointPairsFn[T]extends(Iterable[scilube.geometry.LabeledDoublePoint2D],Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;Seq[scilube.geometry.PointPair[T]]"></a>
+      <a id="SetsToPointPairsFn[T]:SetsToPointPairsFn[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SetsToPointPairsFn.html"><span class="name">SetsToPointPairsFn</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends (<span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>], <span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>]) ⇒ <span class="extype" name="scala.Seq">Seq</span>[<a href="PointPair.html" class="extype" name="scilube.geometry.PointPair">PointPair</a>[<span class="extype" name="scilube.geometry.SetsToPointPairsFn.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@SetsToPointPairsFn[T]extends(Iterable[scilube.geometry.LabeledDoublePoint2D],Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;Seq[scilube.geometry.PointPair[T]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculate the distances between all permutations of points in Set A and Set B
+</p><div class="fullcomment"><div class="comment cmt"><p>Calculate the distances between all permutations of points in Set A and Set B
+</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>the type that the distance function returns. For most of our analysis this will just
+     be <span class="extype" name="scala.Double">scala.Double</span>
+</p></dd></dl><dl class="attributes block"> <dt>Since</dt><dd><p>2012-03-21
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.SpatialEnvelope" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SpatialEnvelopeextendsEnvelopewithEnvelopeContainswithEnvelopeToRectangle"></a>
+      <a id="SpatialEnvelope:SpatialEnvelope"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SpatialEnvelope.html"><span class="name">SpatialEnvelope</span></a><span class="result"> extends <a href="Envelope.html" class="extype" name="scilube.geometry.Envelope">Envelope</a> with <a href="EnvelopeContains.html" class="extype" name="scilube.geometry.EnvelopeContains">EnvelopeContains</a> with <a href="EnvelopeToRectangle.html" class="extype" name="scilube.geometry.EnvelopeToRectangle">EnvelopeToRectangle</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@SpatialEnvelopeextendsEnvelopewithEnvelopeContainswithEnvelopeToRectangle" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Our basic envelop implementation
+</p>
+    </li><li name="scilube.geometry.ToPointPairsFn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ToPointPairsFn[A]extends((scilube.geometry.LabeledDoublePoint2D,scilube.geometry.LabeledDoublePoint2D)=&gt;A,Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;Seq[scilube.geometry.PointPair[A]]"></a>
+      <a id="ToPointPairsFn[A]:ToPointPairsFn[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ToPointPairsFn.html"><span class="name">ToPointPairsFn</span></a><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends ((<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>, <a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>) ⇒ <span class="extype" name="scilube.geometry.ToPointPairsFn.A">A</span>, <span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>]) ⇒ <span class="extype" name="scala.Seq">Seq</span>[<a href="PointPair.html" class="extype" name="scilube.geometry.PointPair">PointPair</a>[<span class="extype" name="scilube.geometry.ToPointPairsFn.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@ToPointPairsFn[A]extends((scilube.geometry.LabeledDoublePoint2D,scilube.geometry.LabeledDoublePoint2D)=&gt;A,Iterable[scilube.geometry.LabeledDoublePoint2D])=&gt;Seq[scilube.geometry.PointPair[A]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Apply a function between all possible pairings of points in a collection</p><div class="fullcomment"><div class="comment cmt"><p>Apply a function between all possible pairings of points in a collection</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-03-07
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.Triangle3D" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Triangle3D[A,B]extendsAnyRef"></a>
+      <a id="Triangle3D[A,B]:Triangle3D[A,B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Triangle3D.html"><span class="name">Triangle3D</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Triangle3D[A,B]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="tparam">A</dt><dd class="cmt"><p>The type of data that the points in the triangle represent. ex. Double would mean the
+          triangle is made of Point3D[Double]</p></dd><dt class="tparam">B</dt><dd class="cmt"><p>The return type of the calculations. For example a Triangle3D[Int, Float] would have
+          points defined by Point3D[Int] but area calculations on it would return Float values.
+</p></dd></dl><dl class="attributes block"> <dt>Since</dt><dd><p>2012-04-23</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scilube.geometry.Point2D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Point2D"></a>
+      <a id="Point2D:Point2D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Point2D$.html"><span class="name">Point2D</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Point2D" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.Point3D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Point3D"></a>
+      <a id="Point3D:Point3D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Point3D$.html"><span class="name">Point3D</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Point3D" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.Point4D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Point4D"></a>
+      <a id="Point4D:Point4D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Point4D$.html"><span class="name">Point4D</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Point4D" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.PointDirectionsFn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PointDirectionsFn"></a>
+      <a id="PointDirectionsFn:PointDirectionsFn"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PointDirectionsFn$.html"><span class="name">PointDirectionsFn</span></a><span class="result"> extends (<span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>]) ⇒ <span class="extype" name="scala.Seq">Seq</span>[<a href="PointPair.html" class="extype" name="scilube.geometry.PointPair">PointPair</a>[<span class="extype" name="scala.Double">Double</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@PointDirectionsFn" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculate directions between all permutations of a set of points.</p><div class="fullcomment"><div class="comment cmt"><p>Calculate directions between all permutations of a set of points.
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-03-07
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.PointDistancesFn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PointDistancesFn"></a>
+      <a id="PointDistancesFn:PointDistancesFn"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PointDistancesFn$.html"><span class="name">PointDistancesFn</span></a><span class="result"> extends (<span class="extype" name="scala.Iterable">Iterable</span>[<a href="LabeledDoublePoint2D.html" class="extype" name="scilube.geometry.LabeledDoublePoint2D">LabeledDoublePoint2D</a>]) ⇒ <span class="extype" name="scala.Seq">Seq</span>[<a href="PointPair.html" class="extype" name="scilube.geometry.PointPair">PointPair</a>[<span class="extype" name="scala.Double">Double</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@PointDistancesFn" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculate distances between all possible combinations of a colleciton of points</p><div class="fullcomment"><div class="comment cmt"><p>Calculate distances between all possible combinations of a colleciton of points</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-03-07
+</p></dd></dl></div>
+    </li><li name="scilube.geometry.Polygon2D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Polygon2D"></a>
+      <a id="Polygon2D:Polygon2D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Polygon2D$.html"><span class="name">Polygon2D</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Polygon2D" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.geometry.Triangle3D" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Triangle3D"></a>
+      <a id="Triangle3D:Triangle3D"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Triangle3D$.html"><span class="name">Triangle3D</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.geometry.package@Triangle3D" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
