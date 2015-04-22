@@ -1,5 +1,7 @@
 # scilube2
 
+Documentation at [http://hohonuuli.github.io/scilube](http://hohonuuli.github.io/scilube)
+
 This project is built using [SBT](http://www.scala-sbt.org/)
 
 ## Useful [SBT commands](http://www.scala-sbt.org/release/docs/Command-Line-Reference.html) for this project
