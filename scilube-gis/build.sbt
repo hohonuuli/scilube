@@ -5,7 +5,7 @@ name := "scilube-gis"
 // DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 libraryDependencies ++= {
   val geotoolkitVersion = "3.21"
-  val derbyVersion = "10.10.2.0"
+  val derbyVersion = "10.11.1.1"
   Seq("org.geotoolkit" % "geotk-referencing" % geotoolkitVersion,
     "org.geotoolkit" % "geotk-epsg" % geotoolkitVersion,
     "org.geotoolkit" % "geotk-referencing" % geotoolkitVersion,
@@ -14,7 +14,7 @@ libraryDependencies ++= {
     "org.geotoolkit" % "geotk-coverageio-netcdf" % geotoolkitVersion excludeAll(ExclusionRule(organization = "edu.ucar")),
     "org.apache.derby" % "derbyclient" % derbyVersion,
     "org.apache.derby" % "derbynet" % derbyVersion,
-    "edu.ucar" % "netcdf" % "4.3.7",
+    "edu.ucar" % "netcdf" % "4.3.22",
     "org.mbari" % "mbarix4j" % "1.9.3-SNAPSHOT")
 }
  
