@@ -6,7 +6,7 @@ name := "scilube-jfreechart"
 
 libraryDependencies ++= Seq(
     "org.jfree" % "jfreechart" % "1.0.19",
-    "org.jfree" % "jcommon" % "1.0.22"
+    "org.jfree" % "jcommon" % "1.0.23"
 )
 
 publishTo <<= version { (v: String) =>

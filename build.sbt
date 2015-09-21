@@ -5,9 +5,9 @@ name := "scilube-parent"
 
 version in ThisBuild := "2.0-SNAPSHOT"
 
-scalaVersion in ThisBuild := "2.11.4"
+scalaVersion in ThisBuild := "2.11.7"
 
-crossScalaVersions in ThisBuild := Seq("2.11.4", "2.10.4")
+crossScalaVersions in ThisBuild := Seq("2.11.7", "2.10.4")
 
 scalacOptions in ThisBuild ++= Seq("-deprecation", "-feature", "-unchecked")
 
@@ -33,15 +33,15 @@ lazy val gis = project in file("scilube-gis") dependsOn(core, extensions)
 // DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Add Testing libs
 libraryDependencies in ThisBuild ++= Seq(
-    "junit" % "junit" % "4.11" % "test",
-    "org.scalatest" %% "scalatest" % "2.2.2" % "test",
+    "junit" % "junit" % "4.12" % "test",
+    "org.scalatest" %% "scalatest" % "2.2.5" % "test",
     "com.novocode" % "junit-interface" % "0.11" % "test"
 )
 
 // Add SLF4J and Logback libs
 libraryDependencies in ThisBuild ++= {
-  val slf4jVersion = "1.7.7"
-  val logbackVersion = "1.1.2"
+  val slf4jVersion = "1.7.12"
+  val logbackVersion = "1.1.3"
   Seq(
     "org.slf4j" % "slf4j-api" % slf4jVersion,
     "org.slf4j" % "log4j-over-slf4j" % slf4jVersion,
@@ -61,6 +61,10 @@ resolvers in ThisBuild ++= Seq(Resolver.mavenLocal,
   "imagej.releases" at "http://maven.imagej.net/content/repositories/releases")
 
 // OTHER SETTINGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// todolist tags to search fro
+todolistTags := Set("TODO", "FIXME", "HACK")
+
 // Adds commands for dependency reporting
 net.virtualvoid.sbt.graph.Plugin.graphSettings
 

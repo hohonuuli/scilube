@@ -13,4 +13,7 @@ addSbtPlugin("com.sksamuel.sbt-versions" % "sbt-versions" % "0.2.0")
 // https://github.com/rtimush/sbt-updates
 addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.6")
 
+// https://github.com/fedragon/sbt-todolist
+addSbtPlugin("com.github.fedragon" % "sbt-todolist" % "0.1")
+
 resolvers += "sonatype-releases" at "https://oss.sonatype.org/content/repositories/releases/"
