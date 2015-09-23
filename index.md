@@ -17,7 +17,7 @@ SBT coordinates: `"scilube" %% "scilube-core" % "2.0"`
 
 __scilube-core__ contains a Matlab-like DSL for working with Arrays. For example:
 
-```scala
+```
 import scilibe.RichArray // add implict element-by-element math functions to arrays
 import scilube.Matlib._  // Matlab-like DSL
 
