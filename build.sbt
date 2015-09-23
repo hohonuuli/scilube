@@ -3,7 +3,9 @@ organization in ThisBuild := "scilube"
 
 name := "scilube-parent"
 
-version in ThisBuild := "2.0-SNAPSHOT"
+version in ThisBuild := "2.0"
+
+licenses in ThisBuild ++= Seq(("MIT", url("http://opensource.org/licenses/MIT")))
 
 scalaVersion in ThisBuild := "2.11.7"
 
@@ -53,9 +55,10 @@ updateOptions in ThisBuild := updateOptions.value.withCachedResolution(true)
 
 publishMavenStyle in ThisBuild := true
 
-publishTo in ThisBuild := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
+//publishTo in ThisBuild := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
 
 resolvers in ThisBuild ++= Seq(Resolver.mavenLocal,
+  Resolver.bintrayRepo("hohonuuli", "maven"),
   "com.springsource.repository.bundles.external" at "http://repository.springsource.com/maven/bundles/external",
   "imagej.snapshots" at "http://maven.imagej.net/content/repositories/snapshots",
   "imagej.releases" at "http://maven.imagej.net/content/repositories/releases")

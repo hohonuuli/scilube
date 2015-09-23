@@ -16,4 +16,7 @@ addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.6")
 // https://github.com/fedragon/sbt-todolist
 addSbtPlugin("com.github.fedragon" % "sbt-todolist" % "0.1")
 
+// https://github.com/softprops/bintray-sbt
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
+
 resolvers += "sonatype-releases" at "https://oss.sonatype.org/content/repositories/releases/"
