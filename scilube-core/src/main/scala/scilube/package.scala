@@ -22,28 +22,24 @@ package object scilube {
    */
   implicit class RichArray(a: Array[Double]) {
 
-    def +[T: Numeric](s: T): Array[Double] = {
+    def +[@specialized(Int, Long, Float, Double) T: Numeric](s: Array[T]): Array[Double] = {
       val numeric = implicitly[Numeric[T]]
-      val sd = numeric.toDouble(s)
-      (for (i <- 0 until a.size) yield a(i) + sd).toArray
+      (for (i <- 0 until a.size) yield a(i) + numeric.toDouble(s(i))).toArray
     }
 
-    def -[T: Numeric](s: T): Array[Double] = {
+    def -[@specialized(Int, Long, Float, Double) T: Numeric](s: Array[T]): Array[Double] = {
       val numeric = implicitly[Numeric[T]]
-      val sd = numeric.toDouble(s)
-      (for (i <- 0 until a.size) yield a(i) - sd).toArray
+      (for (i <- 0 until a.size) yield a(i) - numeric.toDouble(s(i))).toArray
     }
 
-    def *[T: Numeric](s: T): Array[Double] = {
+    def *[@specialized(Int, Long, Float, Double) T: Numeric](s: Array[T]): Array[Double] = {
       val numeric = implicitly[Numeric[T]]
-      val sd = numeric.toDouble(s)
-      (for (i <- 0 until a.size) yield a(i) * sd).toArray
+      (for (i <- 0 until a.size) yield a(i) * numeric.toDouble(s(i))).toArray
     }
 
-    def /[T: Numeric](s: T): Array[Double] = {
+    def /[@specialized(Int, Long, Float, Double) T: Numeric](s: Array[T]): Array[Double] = {
       val numeric = implicitly[Numeric[T]]
-      val sd = numeric.toDouble(s)
-      (for (i <- 0 until a.size) yield a(i) / sd).toArray
+      (for (i <- 0 until a.size) yield a(i) / numeric.toDouble(s(i))).toArray
     }
 
     def subset(idx: Seq[Int]): Array[Double] = Matlib.subset(a, idx)
