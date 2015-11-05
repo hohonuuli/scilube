@@ -16,7 +16,7 @@ libraryDependencies ++= {
     "loci" % "ome-io" % bioformatsVersion,
     "loci" % "loci-legacy" % bioformatsVersion,
     "javax.media.jai" % "com.springsource.javax.media.jai.core" % "1.1.3",
-    "org.mbari" % "mbarix4j" % "1.9.3-SNAPSHOT")
+    "org.mbari" % "mbarix4j" % "1.10.0")
 }
   
 

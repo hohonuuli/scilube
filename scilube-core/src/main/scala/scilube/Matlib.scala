@@ -4,6 +4,8 @@ import scala.reflect.ClassTag
 import scilube.probability.KDE
 import scala.math._
 import org.mbari.math.{Matlib => JMatlib}
+import java.util.{Arrays, Comparator}
+import java.lang.{Integer => JInteger}
 
 /**
  *
@@ -116,6 +118,35 @@ object Matlib
 
   def find[A](data: Array[A], predicate: A => Boolean): Seq[Int] =
     data.zipWithIndex.filter(i => predicate(i._1)).map(_._2)
+
+
+// https://stackoverflow.com/questions/4859261/get-the-indices-of-an-array-after-sorting
+  private def sortWith[T](x: Array[T], comparator: Comparator[T]): Seq[Int] = {
+    val indices = (x.indices).map(i => i: JInteger).toArray
+    val intComp = new Comparator[JInteger] {
+      override def compare(i0: JInteger, i1: JInteger) = comparator.compare(x(i0), x(i1))
+    }
+    Arrays.sort(indices, intComp)
+    indices.map(i => i: Int)
+  }
+
+  /**
+   * This does not actually sort, rather it returns the sort indices of an array. This
+   * is the same as Matlab's `sort` method. You can use the returned values to sort the array
+   * like so: 
+   * ```
+   * val a = Array(1, 3, 2)
+   * val i = Matlab.sort(a, (i: Int, j: Int) => i < j)
+   * val b = Matlib.subset(a, i);
+   * ```
+   * @type {[type]}
+   */
+  def sort[A](x: Array[A], lt: (A, A) ⇒ Boolean): Seq[Int] = {
+    val comp = new Comparator[A] {
+      override def compare(a: A, b: A) = if (lt(a, b)) -1 else 1
+    }
+    sortWith(x, comp)
+  }
 
 
 }

@@ -15,7 +15,7 @@ libraryDependencies ++= {
     "org.apache.derby" % "derbyclient" % derbyVersion,
     "org.apache.derby" % "derbynet" % derbyVersion,
     "edu.ucar" % "netcdf" % "4.3.22",
-    "org.mbari" % "mbarix4j" % "1.9.3-SNAPSHOT")
+    "org.mbari" % "mbarix4j" % "1.10.0")
 }
  
 

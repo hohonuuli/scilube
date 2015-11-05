@@ -3,7 +3,7 @@ organization in ThisBuild := "scilube"
 
 name := "scilube-parent"
 
-version in ThisBuild := "2.0"
+version in ThisBuild := "2.0.1"
 
 licenses in ThisBuild ++= Seq(("MIT", url("http://opensource.org/licenses/MIT")))
 
