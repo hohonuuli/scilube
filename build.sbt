@@ -26,7 +26,7 @@ scalacOptions in ThisBuild ++= Seq(
   //"-Xfatal-warnings",
   "-Xlint",
   "-Yno-adapted-args",
-  "-Ywarn-numeric-widen",
+  //"-Ywarn-numeric-widen",
   "-Ywarn-value-discard",
   "-Xfuture")
 
