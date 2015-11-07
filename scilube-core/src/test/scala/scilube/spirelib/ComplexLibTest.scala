@@ -1,4 +1,4 @@
-package scilube.spire
+package scilube.spirelib
 
 import spire.implicits._
 import org.apache.commons.math3.complex.{Complex => AComplex}

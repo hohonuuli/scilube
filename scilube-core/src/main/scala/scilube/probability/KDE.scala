@@ -4,7 +4,7 @@ import edu.emory.mathcs.jtransforms.dct.DoubleDCT_1D
 import org.mbari.math.Statlib
 import scala.math._
 import scilube.Matlib
-import scilube.spire.ComplexLib
+import scilube.spirelib.ComplexLib
 import spire.implicits._
 import spire.math.Complex
 
@@ -74,7 +74,7 @@ object KDE {
     val initial_data_sum = initial_data2.sum
     val initial_data = initial_data2.map(_ / initial_data_sum)
     val a = dct1d(initial_data)
-    val I = (1 to (n - 1)).map(pow(_, 2)).toArray
+    val I = (1 to (n - 1)).map(_.toDouble). map(pow(_, 2)).toArray
     val a2 = a.tail.map(j => pow(j / 2D, 2))
 
     // use  fzero to solve the equation t=zeta*gamma^[5](t)
@@ -120,17 +120,18 @@ object KDE {
 
     // *** 2012-06-13 Brian Schlining - validated this method against kde.m. Matches exactly ***
 
-    val l = 7
+    val li = 7
+    val l = li.toDouble
 
     // MATLAB: f=2*pi^(2*l)*sum(I.^l.*a2.*exp(-I*pi^2*t)); CHECK
     var f = {
-      val fa = (for (i <- 0 until I.size) yield {
+      val fa = (for (i <- I.indices) yield {
         pow(I(i), l) * a2(i) * exp(-I(i) * pow(Pi, 2) * t)
       }).sum
       2 * pow(Pi, 2 * l) * fa
     }
 
-    for (s <- (l - 1) to 2 by -1) {
+    for (s <- (li - 1) to 2 by -1) {
 
       // MATLAB: K0=prod([1:2:2*s-1])/sqrt(2*pi);
       val K0 = {
@@ -145,7 +146,7 @@ object KDE {
 
       // MATLAB: f=2*pi^(2*s)*sum(I.^s.*a2.*exp(-I*pi^2*time));
       f = {
-        val fa = (for (i <- 0 until I.size) yield {
+        val fa = (for (i <- I.indices) yield {
           pow(I(i), s) * a2(i) * exp(-I(i) * pow(Pi, 2) * time)
         }).sum
         2 * pow(Pi, 2 * s) * fa

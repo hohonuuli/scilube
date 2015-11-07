@@ -3,7 +3,7 @@ organization in ThisBuild := "scilube"
 
 name := "scilube-parent"
 
-version in ThisBuild := "2.0.1"
+version in ThisBuild := "2.0.2-SNAPSHOT"
 
 licenses in ThisBuild ++= Seq(("MIT", url("http://opensource.org/licenses/MIT")))
 
@@ -11,7 +11,24 @@ scalaVersion in ThisBuild := "2.11.7"
 
 crossScalaVersions in ThisBuild := Seq("2.11.7", "2.10.4")
 
-scalacOptions in ThisBuild ++= Seq("-deprecation", "-feature", "-unchecked")
+//scalacOptions in ThisBuild ++= Seq("-deprecation", "-feature", "-unchecked")
+
+// https://tpolecat.github.io/2014/04/11/scalac-flags.html
+scalacOptions in ThisBuild ++= Seq(
+  "-deprecation",
+  "-encoding", "UTF-8",       // yes, this is 2 args
+  "-feature",
+  "-language:existentials",
+  "-language:higherKinds",
+  "-language:implicitConversions",
+  "-language:postfixOps",
+  "-unchecked",
+  //"-Xfatal-warnings",
+  "-Xlint",
+  "-Yno-adapted-args",
+  "-Ywarn-numeric-widen",
+  "-Ywarn-value-discard",
+  "-Xfuture")
 
 javacOptions in ThisBuild ++= Seq("-target", "1.6", "-source","1.6")
 

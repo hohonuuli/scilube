@@ -1,4 +1,4 @@
-package scilube.spire
+package scilube.spirelib
 
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import scala.{ math => M }

@@ -1,11 +1,13 @@
 package scilube
 
-import _root_.spire.math.Complex
+
+import spire.math.Complex
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
 import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
 import scala.math.{floor, sqrt}
+
 
 /**
  * Math functions.
