@@ -3,7 +3,7 @@ organization in ThisBuild := "scilube"
 
 name := "scilube-parent"
 
-version in ThisBuild := "2.0.2-SNAPSHOT"
+version in ThisBuild := "2.0.3-SNAPSHOT"
 
 licenses in ThisBuild ++= Seq(("MIT", url("http://opensource.org/licenses/MIT")))
 
@@ -11,7 +11,7 @@ scalaVersion in ThisBuild := "2.11.7"
 
 crossScalaVersions in ThisBuild := Seq("2.11.7", "2.10.4")
 
-//scalacOptions in ThisBuild ++= Seq("-deprecation", "-feature", "-unchecked")
+homepage := Some(url("https://hohonuuli.github.io/scilube/"))
 
 // https://tpolecat.github.io/2014/04/11/scalac-flags.html
 scalacOptions in ThisBuild ++= Seq(
@@ -125,15 +125,9 @@ fork := true
 // Aliases
 addCommandAlias("cleanall", ";clean;clean-files")
 
-pomExtra in ThisBuild := (
-  <url>http://scalanlp.org/</url>
-  <licenses>
-    <license>
-      <name>Apache 2</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
+testOptions in ThisBuild += Tests.Argument(TestFrameworks.JUnit, "-q", "-v")
+
+pomExtra := (
   <scm>
     <url>git@github.com:hohonuuli/scilube.git</url>
     <connection>scm:git:git@github.com:hohonuuli/scilube.git</connection>
@@ -142,8 +136,6 @@ pomExtra in ThisBuild := (
     <developer>
       <id>hohonuuli</id>
       <name>Brian Schlining</name>
-      <url>http://www.mbari.org/staff/brian</url>
+      <url>http://www.mbari.org/staff/brian/</url>
     </developer>
   </developers>)
-
-testOptions in ThisBuild += Tests.Argument(TestFrameworks.JUnit, "-q", "-v")
