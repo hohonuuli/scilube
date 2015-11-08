@@ -132,8 +132,8 @@ object Matlib
 
   /**
    * This does not actually sort, rather it returns the sort indices of an array. This
-   * is the same as Matlab's `sort` method. You can use the returned values to sort the array
-   * like so: 
+   * provides sort indices like Matlab's `sort` method. You can use the returned 
+   * value to sort the array like so:
    * ```
    * val a = Array(1, 3, 2)
    * val i = Matlab.sort(a, (i: Int, j: Int) => i < j)
@@ -152,8 +152,8 @@ object Matlib
 
   /**
    * This does not actually sort, rather it returns the sort indices of an array. This
-   * is the same as Matlab's `sort` method. You can use the returned value to sor the array
-   * like so:
+   * provides sort indices like Matlab's `sort` method. You can use the returned 
+   * value to sort the array like so:
    * ```
    * import scala.math.Ordering._ // import implicit orderings
    * val a = Array(1, 3, 2)

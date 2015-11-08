@@ -4,7 +4,7 @@ name := "scilube-ocean"
 
 // DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-libraryDependencies ++= Seq("org.mbari" % "mbarix4j" % "1.10.0", 
+libraryDependencies ++= Seq("org.mbari" % "mbarix4j" % "1.10.1-SNAPSHOT", 
     "org.threeten" % "threetenbp" % "1.2" % "test" // Backport of JSR310 for testing on Java 7
     )
 
