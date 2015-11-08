@@ -1,0 +1,186 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>canadiangrid - scilube.view3d.canadiangrid</title>
+          <meta name="description" content="canadiangrid - scilube.view3d.canadiangrid" />
+          <meta name="keywords" content="canadiangrid scilube.view3d.canadiangrid" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scilube.view3d.canadiangrid.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scilube">scilube</a>.<a href="../package.html" class="extype" name="scilube.view3d">view3d</a></p>
+        <h1>canadiangrid</h1> <span class="permalink">
+      <a href="../../../index.html#scilube.view3d.canadiangrid.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">canadiangrid</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scilube.view3d.canadiangrid.Camera" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CameraextendsAnyRef"></a>
+      <a id="Camera:Camera"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Camera.html"><span class="name">Camera</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scilube.view3d.canadiangrid.package@CameraextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculates view and image parameters for a camera mounted above a view plane.</p><div class="fullcomment"><div class="comment cmt"><p>Calculates view and image parameters for a camera mounted above a view plane. Here's a few
+important terms:</p><ol class="decimal"><li>View plane - The plane that we're trying to image (e.g. the seafloor)
+  2. Image plane - The plane of the image (abstract concept)
+  3. Principal point - The center of the image on our image plane. (e.g. if you have an image
+     400x300 pixels then pixel at coordinates 200, 150 is the principal point). A line can
+     be extended from this point to intersect with our view plane.</li></ol><p>References: [1] W. Wakefield and A. Genin, “The use of a Canadian (perspective) grid in deep-sea
+  photography,” Deep Sea Research Part A. Oceanographic …, vol. 34, no. 3, pp. 469–478, 1987.
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-12-06
+</p></dd></dl></div>
+    </li><li name="scilube.view3d.canadiangrid.Pixel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PixelextendsAnyRef"></a>
+      <a id="Pixel:Pixel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Pixel.html"><span class="name">Pixel</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scilube.view3d.canadiangrid.package@PixelextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Given a pixel within an image and a <a href="Camera.html" class="extype" name="scilube.view3d.canadiangrid.Camera">scilube.view3d.canadiangrid.Camera</a> object, <u>Pixel</u>
+calculates the actual position of the pixel relative to the camera's location.</p><div class="fullcomment"><div class="comment cmt"><p>Given a pixel within an image and a <a href="Camera.html" class="extype" name="scilube.view3d.canadiangrid.Camera">scilube.view3d.canadiangrid.Camera</a> object, <u>Pixel</u>
+calculates the actual position of the pixel relative to the camera's location. This class uses
+the image coordinate system which has the origin at the top-left corner of the image and +X is
+right and +Y is down.
+</p></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-12-06
+</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scilube.view3d.canadiangrid.Camera" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Camera"></a>
+      <a id="Camera:Camera"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Camera$.html"><span class="name">Camera</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scilube.view3d.canadiangrid.package@Camera" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scilube.view3d.canadiangrid.Pixel" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Pixel"></a>
+      <a id="Pixel:Pixel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Pixel$.html"><span class="name">Pixel</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#scilube.view3d.canadiangrid.package@Pixel" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

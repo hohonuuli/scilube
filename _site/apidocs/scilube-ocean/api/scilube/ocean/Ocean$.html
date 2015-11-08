@@ -1,0 +1,1102 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>Ocean - scilube.ocean.Ocean</title>
+          <meta name="description" content="Ocean - scilube.ocean.Ocean" />
+          <meta name="keywords" content="Ocean scilube.ocean.Ocean" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'scilube.ocean.Ocean$';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../lib/object_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="scilube">scilube</a>.<a href="package.html" class="extype" name="scilube.ocean">ocean</a></p>
+        <h1>Ocean</h1> <span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Ocean</span><span class="result"> extends <a href="Atmosphere.html" class="extype" name="scilube.ocean.Atmosphere">Atmosphere</a> with <a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a> with <a href="Light.html" class="extype" name="scilube.ocean.Light">Light</a> with <a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a> with <a href="Time.html" class="extype" name="scilube.ocean.Time">Time</a> with <a href="Waves.html" class="extype" name="scilube.ocean.Waves">Waves</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"></div><dl class="attributes block"> <dt>Since</dt><dd><p>2012-12-17
+</p></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="Waves.html" class="extype" name="scilube.ocean.Waves">Waves</a>, <a href="Time.html" class="extype" name="scilube.ocean.Time">Time</a>, <a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a>, <a href="Light.html" class="extype" name="scilube.ocean.Light">Light</a>, <a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a>, <a href="Atmosphere.html" class="extype" name="scilube.ocean.Atmosphere">Atmosphere</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scilube.ocean.Ocean"><span>Ocean</span></li><li class="in" name="scilube.ocean.Waves"><span>Waves</span></li><li class="in" name="scilube.ocean.Time"><span>Time</span></li><li class="in" name="scilube.ocean.Seawater"><span>Seawater</span></li><li class="in" name="scilube.ocean.Light"><span>Light</span></li><li class="in" name="scilube.ocean.Chlorophyll"><span>Chlorophyll</span></li><li class="in" name="scilube.ocean.Atmosphere"><span>Atmosphere</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scilube.ocean.Atmosphere#airmass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="airmass(zen:Double):Double"></a>
+      <a id="airmass(Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">airmass</span><span class="params">(<span name="zen">zen: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@airmass(zen:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Atmosphere.html" class="extype" name="scilube.ocean.Atmosphere">Atmosphere</a></dd></dl></div>
+    </li><li name="scilube.ocean.Atmosphere#airmass1" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="airmass1(zen:Double,p:Double):Double"></a>
+      <a id="airmass1(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">airmass1</span><span class="params">(<span name="zen">zen: <span class="extype" name="scala.Double">Double</span></span>, <span name="p">p: <span class="extype" name="scala.Double">Double</span> = <span class="symbol"><span class="name"><a href="Atmosphere.html#standardAtmosphericPressure:Double">standardAtmosphericPressure</a></span></span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@airmass1(zen:Double,p:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Atmospheric thickness for all constituents; Kasten (1966)</p><div class="fullcomment"><div class="comment cmt"><p>Atmospheric thickness for all constituents; Kasten (1966)</p><p>Atmospheric thickness or path length calculated using Kastens (1966)
+empirical formula.  The airmass_ is valid for all angles (by correcting
+for the sphericity of the earth) and can be corrected for nonstandard
+atmospheric pressure.
+</p></div><dl class="paramcmts block"><dt class="param">zen</dt><dd class="cmt"><p>solar zenith angle (degrees)</p></dd><dt class="param">p</dt><dd class="cmt"><h3> nonstandard atmospheric pressure (mbar). if not input P </h3><p>           mbar standard atmospheric pressure</p></dd><dt>returns</dt><dd class="cmt"><p>Atmospheric thickness</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Atmosphere.html" class="extype" name="scilube.ocean.Atmosphere">Atmosphere</a></dd></dl></div>
+    </li><li name="scilube.ocean.Atmosphere#airmass2" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="airmass2(zen:Double):Double"></a>
+      <a id="airmass2(Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">airmass2</span><span class="params">(<span name="zen">zen: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@airmass2(zen:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Atmospheric thickness for ozone (Platridge &amp; Platt,1976)</p><div class="fullcomment"><div class="comment cmt"><p>Atmospheric thickness for ozone (Platridge &amp; Platt,1976)</p><p>Ozone requires a slightly longer path length or atmospheric thickness
+than for the major atmospheric constituents. Paltridge and Platt's (1976)
+formula is used to calculate ozone optical thickness.  The airmass is
+valid for all angles.
+</p></div><dl class="paramcmts block"><dt class="param">zen</dt><dd class="cmt"><p>solar zenith angle (degrees)</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Atmosphere.html" class="extype" name="scilube.ocean.Atmosphere">Atmosphere</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#atg" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="atg(salinity:Double,temperature:Double,pressure:Double):Double"></a>
+      <a id="atg(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">atg</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="temperature">temperature: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@atg(salinity:Double,temperature:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Adiabatic temperature gradient (salinity,temperature,pressure)</p><div class="fullcomment"><div class="comment cmt"><p>Adiabatic temperature gradient (salinity,temperature,pressure)</p><p>From: UNESCO Tech Paper Mar Sci 44 (1983)
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><p>(psu)</p></dd><dt class="param">temperature</dt><dd class="cmt"><p>(celsius)</p></dd><dt class="param">pressure</dt><dd class="cmt"><p>(decibar)</p></dd><dt>returns</dt><dd class="cmt"><p>Adiabatic temperature gradient (C/dbar)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#bulkmod" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bulkmod(salinity:Double,temperature:Double,pressure:Double):Double"></a>
+      <a id="bulkmod(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bulkmod</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="temperature">temperature: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@bulkmod(salinity:Double,temperature:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Seawater bulk modulus
+</p><div class="fullcomment"><div class="comment cmt"><p>Seawater bulk modulus
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><p>(psu)</p></dd><dt class="param">temperature</dt><dd class="cmt"><p>(celsius)</p></dd><dt class="param">pressure</dt><dd class="cmt"><p>(dbar)</p></dd><dt>returns</dt><dd class="cmt"><p>Seawater bulk modulus in BARS!! (not dbar)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scilube.ocean.Light#c2t" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="c2t(c:Double,pathLength:Double):Double"></a>
+      <a id="c2t(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">c2t</span><span class="params">(<span name="c">c: <span class="extype" name="scala.Double">Double</span></span>, <span name="pathLength">pathLength: <span class="extype" name="scala.Double">Double</span> = <span class="symbol">1.0</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@c2t(c:Double,pathLength:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Convert beam attenuation (/m) to percent beam transmission
+</p><div class="fullcomment"><div class="comment cmt"><p>Convert beam attenuation (/m) to percent beam transmission
+</p></div><dl class="paramcmts block"><dt class="param">c</dt><dd class="cmt"><p>beam attenuation coefficient (/m)</p></dd><dt class="param">pathLength</dt><dd class="cmt"><p>m (default = 1.0 m)</p></dd><dt>returns</dt><dd class="cmt"><p>beam transmission (percentage per pathlength)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Light.html" class="extype" name="scilube.ocean.Light">Light</a></dd></dl></div>
+    </li><li name="scilube.ocean.Waves#celerity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="celerity(t:Double):(Double,Double,Double)"></a>
+      <a id="celerity(Double):(Double,Double,Double)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">celerity</span><span class="params">(<span name="t">t: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: (<span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scala.Double">Double</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@celerity(t:Double):(Double,Double,Double)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Ideal wave phase speed = f(Period), Deep water approximation
+</p><div class="fullcomment"><div class="comment cmt"><p>Ideal wave phase speed = f(Period), Deep water approximation
+</p></div><dl class="paramcmts block"><dt class="param">t</dt><dd class="cmt"><h3> ideal wave period (seconds)</h3></dd><dt>returns</dt><dd class="cmt"><p>(c, Ld, L) where: C = wave phase speed (m/s), Ld = deepwater wavelength (M),
+        and L = wavelength in deep water
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Waves.html" class="extype" name="scilube.ocean.Waves">Waves</a></dd></dl></div>
+    </li><li name="scilube.ocean.Waves#celerity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="celerity(t:Double,z:Double):(Double,Double,Double)"></a>
+      <a id="celerity(Double,Double):(Double,Double,Double)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">celerity</span><span class="params">(<span name="t">t: <span class="extype" name="scala.Double">Double</span></span>, <span name="z">z: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: (<span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scala.Double">Double</span>, <span class="extype" name="scala.Double">Double</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@celerity(t:Double,z:Double):(Double,Double,Double)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Ideal wave phase speed = f(Period, Depth)</p><div class="fullcomment"><div class="comment cmt"><p>Ideal wave phase speed = f(Period, Depth)</p></div><dl class="paramcmts block"><dt class="param">t</dt><dd class="cmt"><h3> ideal wave period (seconds)</h3></dd><dt class="param">z</dt><dd class="cmt"><h3> water depth (meters)</h3></dd><dt>returns</dt><dd class="cmt"><p>(c, Ld, L) where: C = wave phase speed (m/s), Ld = deepwater wavelength (M),
+        and L = wavelength in water depth, Z
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Waves.html" class="extype" name="scilube.ocean.Waves">Waves</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#czcs" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="czcs(lw443:Double,lw550:Double):Double"></a>
+      <a id="czcs(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">czcs</span><span class="params">(<span name="lw443">lw443: <span class="extype" name="scala.Double">Double</span></span>, <span name="lw550">lw550: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@czcs(lw443:Double,lw550:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">CZVS Calculate Chl using CZCS algorythmn</p><div class="fullcomment"><div class="comment cmt"><p>CZVS Calculate Chl using CZCS algorythmn</p></div><dl class="paramcmts block"><dt class="param">lw443</dt><dd class="cmt"><p>Water leaving radiance at 443nm</p></dd><dt class="param">lw550</dt><dd class="cmt"><p>Water leaving radiance at 550nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#delta" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="delta(salinity:Double,temperature:Double,pressure:Double):Double"></a>
+      <a id="delta(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">delta</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="temperature">temperature: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span> = <span class="symbol">0</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@delta(salinity:Double,temperature:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specific volume anomaly = f(S,T,P)
+International Equation of State of Seawater (1980)
+</p><div class="fullcomment"><div class="comment cmt"><p>Specific volume anomaly = f(S,T,P)
+International Equation of State of Seawater (1980)
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><p>psu</p></dd><dt class="param">temperature</dt><dd class="cmt"><p>Celsius</p></dd><dt class="param">pressure</dt><dd class="cmt"><p>decibar (Supply P = 0 to obtain delta-t), default is 0</p></dd><dt>returns</dt><dd class="cmt"><p>Specific Volume Anomaly (centiliters/ton or 1E-8 m^3/kg)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#density" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="density(salinity:Double,temperature:Double,pressure:Double):Double"></a>
+      <a id="density(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">density</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="temperature">temperature: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span> = <span class="symbol">0</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@density(salinity:Double,temperature:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">DENSITY - Seawater density (S,T,P)</p><div class="fullcomment"><div class="comment cmt"><p>DENSITY - Seawater density (S,T,P)</p><p>International Equation of State of Seawater (1980)
+UNESCO Tech Paper Mar Sci 44 (1983)</p><p>Example:  density(34.567,5.00,2000) -&gt; 1.036409
+density(35,25,10000)      -&gt; 1.06253817  UNESCO 44 p19
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><h3> Salinity (psu)</h3></dd><dt class="param">temperature</dt><dd class="cmt"><h3> Temperature (C)</h3></dd><dt class="param">pressure</dt><dd class="cmt"><h3> Pressure (dbar), default is 0</h3></dd><dt>returns</dt><dd class="cmt"><p>density (kg/liter)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#depth" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="depth(pressure:Double,latitude:Double):Double"></a>
+      <a id="depth(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">depth</span><span class="params">(<span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span></span>, <span name="latitude">latitude: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@depth(pressure:Double,latitude:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculate ocean depth from measured pressure and latitude.<br></p><div class="fullcomment"><div class="comment cmt"><p>Calculate ocean depth from measured pressure and latitude.<br></p><p>Example: depth_(5000,36) -&gt; 4906.08<br>
+depth_(1000,90) -&gt; 9674.23  UNESCO 44 p28<br><br></p><p>Note:    For more accurate results an additional factor of the
+ratio of the actual geopotential anomaly/gravity must
+be added. This correction will be less than 2 m.<br>
+</p></div><dl class="paramcmts block"><dt class="param">pressure</dt><dd class="cmt"><p>dbar</p></dd><dt class="param">latitude</dt><dd class="cmt"><p>decimal degrees</p></dd><dt>returns</dt><dd class="cmt"><p>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#freeze" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="freeze(salinity:Double,pressure:Double):Double"></a>
+      <a id="freeze(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">freeze</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@freeze(salinity:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Freezing point of seawater.</p><div class="fullcomment"><div class="comment cmt"><p>Freezing point of seawater. Ref: UNESCO Tech Paper Mar Sci 44 (1983)</p><p>TODO: Create unit test
+freeze(33, 0)  -&gt; -1.808
+freeze(35,500) -&gt; -2.299  UNESCO 44 p30
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><p>Salinity (psu)</p></dd><dt class="param">pressure</dt><dd class="cmt"><p>Pressure (dbar)</p></dd><dt>returns</dt><dd class="cmt"><p>Freezing point (Celsius)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scilube.ocean.Time#noon" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="noon(epochSecond:Long,longitude:Double):Double"></a>
+      <a id="noon(Long,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">noon</span><span class="params">(<span name="epochSecond">epochSecond: <span class="extype" name="scala.Long">Long</span></span>, <span name="longitude">longitude: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@noon(epochSecond:Long,longitude:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">longitude</dt><dd class="cmt"><p>The longitude in decimal degrees (-W/+E)</p></dd><dt>returns</dt><dd class="cmt"><p>GMT time of local apparent noon in decimal hours
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Time.html" class="extype" name="scilube.ocean.Time">Time</a></dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc1a" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc1a(rrs490:Double,rrs555:Double):Double"></a>
+      <a id="oc1a(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc1a</span><span class="params">(<span name="rrs490">rrs490: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs555">rrs555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc1a(rrs490:Double,rrs555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC1A Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.</p><div class="fullcomment"><div class="comment cmt"><p>OC1A Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.
+      however they must be the same for both inputs. If Rrs is
+      unavailable use Lw or Lwn.
+</p></div><dl class="paramcmts block"><dt class="param">rrs490</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs555</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc1b" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc1b(rrs490:Double,rrs555:Double):Double"></a>
+      <a id="oc1b(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc1b</span><span class="params">(<span name="rrs490">rrs490: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs555">rrs555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc1b(rrs490:Double,rrs555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC1B Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.</p><div class="fullcomment"><div class="comment cmt"><p>OC1B Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.
+      however they must be the same for both inputs. If Rrs is
+      unavailable use Lw or Lwn.
+</p></div><dl class="paramcmts block"><dt class="param">rrs490</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs555</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc1c" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc1c(rrs490:Double,rrs555:Double):Double"></a>
+      <a id="oc1c(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc1c</span><span class="params">(<span name="rrs490">rrs490: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs555">rrs555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc1c(rrs490:Double,rrs555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC1C Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.</p><div class="fullcomment"><div class="comment cmt"><p>OC1C Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.
+      however they must be the same for both inputs. If Rrs is
+      unavailable use Lw or Lwn.
+</p></div><dl class="paramcmts block"><dt class="param">rrs490</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs555</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc1d" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc1d(rrs490:Double,rrs555:Double):Double"></a>
+      <a id="oc1d(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc1d</span><span class="params">(<span name="rrs490">rrs490: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs555">rrs555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc1d(rrs490:Double,rrs555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC1D Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.</p><div class="fullcomment"><div class="comment cmt"><p>OC1D Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.
+      however they must be the same for both inputs. If Rrs is
+      unavailable use Lw or Lwn.
+</p></div><dl class="paramcmts block"><dt class="param">rrs490</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs555</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc2v1" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc2v1(rrs490:Double,rrs555:Double):Double"></a>
+      <a id="oc2v1(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc2v1</span><span class="params">(<span name="rrs490">rrs490: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs555">rrs555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc2v1(rrs490:Double,rrs555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC2V2 Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.</p><div class="fullcomment"><div class="comment cmt"><p>OC2V2 Optical chlorophyll algorithmn
+Note: the units of Rrs490 and Rrs555 are not important.
+      however they must be the same for both inputs. If Rrs is
+      unavailable use Lw or Lwn.
+</p></div><dl class="paramcmts block"><dt class="param">rrs490</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs555</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc2v2" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc2v2(lu490:Double,lu555:Double):Double"></a>
+      <a id="oc2v2(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc2v2</span><span class="params">(<span name="lu490">lu490: <span class="extype" name="scala.Double">Double</span></span>, <span name="lu555">lu555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc2v2(lu490:Double,lu555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC2V2 Modified ocean chlorphyll 2 algorithm</p><div class="fullcomment"><div class="comment cmt"><p>OC2V2 Modified ocean chlorphyll 2 algorithm</p><p>OC2V2 calculates ocean chlorphyll from in water upwelled radiance (Lu).
+The algorithm is from Stephane Maritorena &lt;stephane@calval.gfsc.nasa.gov&gt;</p><p>It's modified in that the original algotithm uses:
+R = log(Rrs_490/Rrs_555) where Rrs is the remote reflectance ratio</p><p> Be aware:
+       R = log(Lu_490/Lu_555) as an approximation gives values that are closer to
+       morel's algorythmn (at least for equatorial data).</p><p> Note:
+       the units of LU490 and LU_555 are not important.
+       however they must be the same for both inputs
+</p></div><dl class="paramcmts block"><dt class="param">lu490</dt><dd class="cmt"><p>Upwelled radiance at 490 nm</p></dd><dt class="param">lu555</dt><dd class="cmt"><p>Upwelled radiance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc2v4" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc2v4(rrs490:Double,rrs555:Double):Double"></a>
+      <a id="oc2v4(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc2v4</span><span class="params">(<span name="rrs490">rrs490: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs555">rrs555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc2v4(rrs490:Double,rrs555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC2V4 2-band ocean chlorphyll algorithm (version 4)</p><div class="fullcomment"><div class="comment cmt"><p>OC2V4 2-band ocean chlorphyll algorithm (version 4)</p><p>OC2V4 calculates ocean chlorphyll from in water upwelled radiance (Lu).
+The algorithm is from Jay O'Reilly &lt;oreilly@fish1.gso.uri.edu&gt;</p><p>Note: the units of Rrs490 and Rrs555 are not important.
+      however they must be the same for both inputs. If Rrs is
+      unavailable use Lw or Lwn.
+</p></div><dl class="paramcmts block"><dt class="param">rrs490</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs555</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Chlorophyll#oc4v4" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oc4v4(rrs443:Double,rrs490:Double,rrs510:Double,rrs555:Double):Double"></a>
+      <a id="oc4v4(Double,Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oc4v4</span><span class="params">(<span name="rrs443">rrs443: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs490">rrs490: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs510">rrs510: <span class="extype" name="scala.Double">Double</span></span>, <span name="rrs555">rrs555: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@oc4v4(rrs443:Double,rrs490:Double,rrs510:Double,rrs555:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">OC4V4 4-band ocean chlorphyll algorithm (version 4)</p><div class="fullcomment"><div class="comment cmt"><p>OC4V4 4-band ocean chlorphyll algorithm (version 4)</p><p>OC4V4 calculates ocean chlorphyll from in water upwelled radiance (Lu).
+The algorithm is from Jay O'Reilly &lt;oreilly@fish1.gso.uri.edu&gt;</p><p>Note: the units of rrs443, rrs490, rrs510 and rrs555 are not important.
+      however they must be the same for both inputs. If Rrs is
+      unavailable use Lw or Lwn.
+</p></div><dl class="paramcmts block"><dt class="param">rrs443</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs490</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt class="param">rrs510</dt><dd class="cmt"><p>Remote sensing reflectance at 490 nm</p></dd><dt class="param">rrs555</dt><dd class="cmt"><p>Remote sensing reflectance at 555 nm</p></dd><dt>returns</dt><dd class="cmt"><p>chlorophyll (ug/L)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#salinity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="salinity(conductivity:Double,temperature:Double,pressure:Double):Double"></a>
+      <a id="salinity(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">salinity</span><span class="params">(<span name="conductivity">conductivity: <span class="extype" name="scala.Double">Double</span></span>, <span name="temperature">temperature: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span> = <span class="symbol">0</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@salinity(conductivity:Double,temperature:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Conversion of conductivity ratio to practical salinity (R, T, P)
+UNESCO Tech Paper Mar Sci 44 (1983)
+</p><div class="fullcomment"><div class="comment cmt"><p>Conversion of conductivity ratio to practical salinity (R, T, P)
+UNESCO Tech Paper Mar Sci 44 (1983)
+</p></div><dl class="paramcmts block"><dt class="param">conductivity</dt><dd class="cmt"><p>Conductivity ratio</p></dd><dt class="param">temperature</dt><dd class="cmt"><p>C</p></dd><dt class="param">pressure</dt><dd class="cmt"><p>(dbar)</p></dd><dt>returns</dt><dd class="cmt"><p>Practical salinity (psu or ~g/kg)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scilube.ocean.Time#solarPosition" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="solarPosition(epochSecond:Long,latitude:Double,longitude:Double):scilube.ocean.SolarPosition"></a>
+      <a id="solarPosition(Long,Double,Double):SolarPosition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">solarPosition</span><span class="params">(<span name="epochSecond">epochSecond: <span class="extype" name="scala.Long">Long</span></span>, <span name="latitude">latitude: <span class="extype" name="scala.Double">Double</span></span>, <span name="longitude">longitude: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <a href="SolarPosition.html" class="extype" name="scilube.ocean.SolarPosition">SolarPosition</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@solarPosition(epochSecond:Long,latitude:Double,longitude:Double):scilube.ocean.SolarPosition" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">latitude</dt><dd class="cmt"><p>Location of observation in decimal degrees (+N/-S)</p></dd><dt class="param">longitude</dt><dd class="cmt"><p>Locaiton of observation in decimal degrees (-W/+E)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Time.html" class="extype" name="scilube.ocean.Time">Time</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#spiciness" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="spiciness(salinity:Double,theta:Double,pressure:Double):Double"></a>
+      <a id="spiciness(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">spiciness</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="theta">theta: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@spiciness(salinity:Double,theta:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">'Spiciness', an oceanographic variable for characterization
+of intrusions and water masses.</p><div class="fullcomment"><div class="comment cmt"><p>'Spiciness', an oceanographic variable for characterization
+of intrusions and water masses.</p><p>Spiceness is orthogonal to isopycnals of potential density</p><p>Algorithmn from P. Flament, Subduction and finestructure associated
+with upwelling filaments. Ph. D. Dissertation. University of
+California, San Diego. Vol 32. No.10. pp.1195 to 1207. 1985
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><p>psu</p></dd><dt class="param">theta</dt><dd class="cmt"><p>Potential temperature Celsius (see theta)</p></dd><dt class="param">pressure</dt><dd class="cmt"><p>decibar</p></dd><dt>returns</dt><dd class="cmt"><p>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scilube.ocean.Atmosphere#standardAtmosphericPressure" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="standardAtmosphericPressure:Double"></a>
+      <a id="standardAtmosphericPressure:Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">standardAtmosphericPressure</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@standardAtmosphericPressure:Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">standard atmospheric pressure (mbar)</p><div class="fullcomment"><div class="comment cmt"><p>standard atmospheric pressure (mbar)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Atmosphere.html" class="extype" name="scilube.ocean.Atmosphere">Atmosphere</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#svel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="svel(salinity:Double,temperature:Double,pressure:Double):Double"></a>
+      <a id="svel(Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">svel</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="temperature">temperature: <span class="extype" name="scala.Double">Double</span></span>, <span name="pressure">pressure: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@svel(salinity:Double,temperature:Double,pressure:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Sound velocity in seawater = f(S, T, P)
+UNESCO Tech Paper Mar Sci 44 (1983)
+</p><div class="fullcomment"><div class="comment cmt"><p>Sound velocity in seawater = f(S, T, P)
+UNESCO Tech Paper Mar Sci 44 (1983)
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><p>psu</p></dd><dt class="param">temperature</dt><dd class="cmt"><p>Celsius</p></dd><dt class="param">pressure</dt><dd class="cmt"><p>dbar</p></dd><dt>returns</dt><dd class="cmt"><p>Speed of sound in seawater (m/s)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scilube.ocean.Light#t2c" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="t2c(t:Double,pathLength:Double):Double"></a>
+      <a id="t2c(Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">t2c</span><span class="params">(<span name="t">t: <span class="extype" name="scala.Double">Double</span></span>, <span name="pathLength">pathLength: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@t2c(t:Double,pathLength:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Convert beam transmission to beam attenuation
+</p><div class="fullcomment"><div class="comment cmt"><p>Convert beam transmission to beam attenuation
+</p></div><dl class="paramcmts block"><dt class="param">t</dt><dd class="cmt"><p>beam transmission (percentage per pathlength)</p></dd><dt class="param">pathLength</dt><dd class="cmt"><p>m (default = 1.0 m)</p></dd><dt>returns</dt><dd class="cmt"><p>c beam attenuation coefficient (/m)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Light.html" class="extype" name="scilube.ocean.Light">Light</a></dd></dl></div>
+    </li><li name="scilube.ocean.Seawater#theta" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="theta(salinity:Double,temperature:Double,p0:Double,pr:Double):Double"></a>
+      <a id="theta(Double,Double,Double,Double):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">theta</span><span class="params">(<span name="salinity">salinity: <span class="extype" name="scala.Double">Double</span></span>, <span name="temperature">temperature: <span class="extype" name="scala.Double">Double</span></span>, <span name="p0">p0: <span class="extype" name="scala.Double">Double</span></span>, <span name="pr">pr: <span class="extype" name="scala.Double">Double</span> = <span class="symbol">0</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@theta(salinity:Double,temperature:Double,p0:Double,pr:Double):Double" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Local potential temperature at the reference pressure = f(S, T, P)
+UNESCO Tech Paper Mar Sci 44 (1983)
+</p><div class="fullcomment"><div class="comment cmt"><p>Local potential temperature at the reference pressure = f(S, T, P)
+UNESCO Tech Paper Mar Sci 44 (1983)
+</p></div><dl class="paramcmts block"><dt class="param">salinity</dt><dd class="cmt"><p>psu</p></dd><dt class="param">temperature</dt><dd class="cmt"><p>Celsius</p></dd><dt class="param">p0</dt><dd class="cmt"><p>(decibar)</p></dd><dt class="param">pr</dt><dd class="cmt"><p>Reference pressure (decibar), default = 0</p></dd><dt>returns</dt><dd class="cmt"><p>Potential Temperature at the reference pressure (Celsius)
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#scilube.ocean.Ocean$@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scilube.ocean.Waves">
+              <h3>Inherited from <a href="Waves.html" class="extype" name="scilube.ocean.Waves">Waves</a></h3>
+            </div><div class="parent" name="scilube.ocean.Time">
+              <h3>Inherited from <a href="Time.html" class="extype" name="scilube.ocean.Time">Time</a></h3>
+            </div><div class="parent" name="scilube.ocean.Seawater">
+              <h3>Inherited from <a href="Seawater.html" class="extype" name="scilube.ocean.Seawater">Seawater</a></h3>
+            </div><div class="parent" name="scilube.ocean.Light">
+              <h3>Inherited from <a href="Light.html" class="extype" name="scilube.ocean.Light">Light</a></h3>
+            </div><div class="parent" name="scilube.ocean.Chlorophyll">
+              <h3>Inherited from <a href="Chlorophyll.html" class="extype" name="scilube.ocean.Chlorophyll">Chlorophyll</a></h3>
+            </div><div class="parent" name="scilube.ocean.Atmosphere">
+              <h3>Inherited from <a href="Atmosphere.html" class="extype" name="scilube.ocean.Atmosphere">Atmosphere</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
