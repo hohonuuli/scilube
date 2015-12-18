@@ -23,15 +23,16 @@ trait Time {
    * @return GMT time of local apparent noon in decimal hours
    */
   def noon(epochSecond: Long, longitude: Double): Double = {
-    val sp = solarPosition(epochSecond, 0, longitude)
-    val gha = sp.greenwichHourAngle
-    val hour1 = 12 + sp / 15D // approximate time of local area noon 
-    if (gha > 180) {
-      hour1 - (gha - Matlib.TAU) / 15D + -longitude / 15D
-    }
-    else {
-      hour1 - gha / 15D + -longitude / 15D
-    }
+    // val sp = solarPosition(epochSecond, 0, longitude)
+    // val gha = sp.greenwichHourAngle
+    // val hour1 = 12 + sp / 15D // approximate time of local area noon 
+    // if (gha > 180) {
+    //   hour1 - (gha - Matlib.TAU) / 15D + -longitude / 15D
+    // }
+    // else {
+    //   hour1 - gha / 15D + -longitude / 15D
+    // }
+    0D
   }
 }
    

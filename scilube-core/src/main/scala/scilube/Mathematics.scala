@@ -29,7 +29,7 @@ protected trait Mathematics {
   def add(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
         " and " + b.length + " ")
-    (for (i <- 0 until a.length) yield a(i) + b(i)).toArray
+    (for (i <- a.indices) yield a(i) + b(i)).toArray
   }
 
   /**
@@ -71,7 +71,7 @@ protected trait Mathematics {
   def divide(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
         " and " + b.length + " ")
-    (for (i <- 0 until a.length) yield a(i) / b(i)).toArray
+    (for (i <- a.indices) yield a(i) / b(i)).toArray
   }
 
   /**
@@ -84,7 +84,7 @@ protected trait Mathematics {
   def dot(a: Array[Double], b: Array[Double]): Double = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
         " and " + b.length + " ")
-    (for (i <- 0 until a.length) yield a(i) * b(i)).sum
+    (for (i <- a.indices) yield a(i) * b(i)).sum
   }
 
   /**
@@ -163,7 +163,8 @@ protected trait Mathematics {
    *
    * @throws IllegalArgumentException
    */
-  def interp1(x: Array[Double], y: Array[Double], xi: Array[Double]) = JMatlib.interpolate(x, y, xi)
+  def interp1(x: Array[Double], y: Array[Double], xi: Array[Double]): Array[Double] =
+      JMatlib.interpolate(x, y, xi)
 
   /**
    * @return true if the number is a prime number. False otherwise
@@ -175,7 +176,9 @@ protected trait Mathematics {
       val ni = floor(nd).toInt
       (2 until ni) forall { d => nd % d != 0 }
     }
-    else false
+    else {
+      false
+    }
   }
 
   /**
@@ -185,7 +188,7 @@ protected trait Mathematics {
    * @param n The number of points to generated
    * @return an array of lineraly space points.
    */
-  def linspace(d1: Double, d2: Double, n: Int) = JMatlib.linspace(d1, d2, n)
+  def linspace(d1: Double, d2: Double, n: Int): Array[Double] = JMatlib.linspace(d1, d2, n)
 
   /**
    * generates n logarithmically-spaced points between d1 and d2.
@@ -194,7 +197,7 @@ protected trait Mathematics {
    * @param n The number of points to generated
    * @return an array of lineraly space points.
    */
-  def logspace(d1: Double, d2: Double, n: Int) = JMatlib.logspace(d1, d2, n)
+  def logspace(d1: Double, d2: Double, n: Int): Array[Double] = JMatlib.logspace(d1, d2, n)
 
   /**
    * Modulus after divistion. THis just calls the `%` operator; it's included to make porting
@@ -203,7 +206,7 @@ protected trait Mathematics {
    * @param b the other value
    * @return the modulus
    */
-  def mod(a: Double, b: Double) = a % b
+  def mod(a: Double, b: Double): Double = a % b
 
 
   /**
@@ -215,7 +218,7 @@ protected trait Mathematics {
   def multiply(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
         " and " + b.length + " ")
-    (for (i <- 0 until a.length) yield a(i) * b(i)).toArray
+    (for (i <- a.indices) yield a(i) * b(i)).toArray
   }
 
   /**
@@ -258,7 +261,7 @@ protected trait Mathematics {
    * @param x a value
    * @return The sign of x (-1 or 1)
    */
-  def sign(x: Double) = DoubleMath.sign(x)
+  def sign(x: Double): Int = DoubleMath.sign(x)
 
   /**
    * Element by element subtraction
@@ -269,10 +272,10 @@ protected trait Mathematics {
   def subtract(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
         " and " + b.length + " ")
-    (for (i <- 0 until a.length) yield a(i) - b(i)).toArray
+    (for (i <- a.indices) yield a(i) - b(i)).toArray
   }
 
-  def sum(x: Array[Double]) = JMatlib.sum(x);
+  def sum(x: Array[Double]): Double = JMatlib.sum(x)
 
   /**
    * Same as Matlab's unique. For performance, if you just need the unique values use {{{a.distinct}}}.
@@ -293,21 +296,13 @@ protected trait Mathematics {
       case _ => false
     }
 
-    val c = a.distinct.sorted
+    val av = a.toStream
 
-    val ia = (for (i <- 0 until c.length) yield {
-      val v = c(i)
-      if (useFirst) {
-        a.indexOf(v)
-      }
-      else {
-        a.lastIndexOf(v)
-      }
-    }).toArray
+    val c = av.distinct.sorted
+    val ia = c.map(v => if (useFirst) av.indexOf(v) else av.lastIndexOf(v)).toArray
+    val ic = av.map(v => c.indexOf(v)).toArray
 
-    val ic = (for (i <- 0 until a.length) yield c.indexOf(a(i)) ).toArray
-
-    (c, ia, ic)
+    (c.toArray, ia, ic)
   }
 
 
