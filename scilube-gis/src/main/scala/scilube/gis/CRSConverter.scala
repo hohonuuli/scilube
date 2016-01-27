@@ -11,10 +11,17 @@ import scilube.geometry.{ DoublePoint2D, Point2D }
  *  DefaultGeographicCRS.WGS84 // WGS84 (lon, lat)
  * }}}
  * @param targetCRS The target coordinate system (e.g. {{{
- *  CRS.decode('EPSG:32610') // UTM Zone 10N
+ *  CRS.decode("EPSG:32610") // UTM Zone 10N
  * }}}
  */
 class CRSConverter(val sourceCRS: CoordinateReferenceSystem, val targetCRS: CoordinateReferenceSystem) {
+
+  /**
+   * Alternate constructor that uses the string representations of the CRS
+   * @param src The source crs. e.g. "EPSG:4326"
+   * @param target The target crs. e.g. "EPSG:32610"
+   */
+  def this(src: String, target: String) = this(CRS.decode(src), CRS.decode(target))
 
   private val mathTransform = CRS.findMathTransform(sourceCRS, targetCRS)
 

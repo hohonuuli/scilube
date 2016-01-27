@@ -16,8 +16,10 @@ class ToPointPairsFn[A: Ordering]
    * @param points The points to apply the funciton to
    * @return A collection of pointpairs with the value from the ''valueCalculation'' function
    */
-  def apply(valueCalculation: (LabeledDoublePoint2D, LabeledDoublePoint2D) => A,
-    points: Iterable[LabeledDoublePoint2D]): Seq[PointPair[A]] = {
+  def apply(
+    valueCalculation: (LabeledDoublePoint2D, LabeledDoublePoint2D) => A,
+    points: Iterable[LabeledDoublePoint2D]
+  ): Seq[PointPair[A]] = {
     val set = new mutable.HashSet[PointPair[A]]
     val pointMap = points.map(p => p.label -> p).toMap
 

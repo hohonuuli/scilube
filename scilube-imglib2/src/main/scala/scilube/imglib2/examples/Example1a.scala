@@ -3,7 +3,7 @@ package scilube.imglib2.examples
 import net.imglib2.`type`.numeric.NumericType
 import net.imglib2.`type`.NativeType
 import ij.io.Opener
-import net.imglib2.img.{Img, ImagePlusAdapter}
+import net.imglib2.img.{ Img, ImagePlusAdapter }
 import net.imglib2.img.display.imagej.ImageJFunctions
 import ij.ImageJ
 import org.mbari.net.URLUtilities
@@ -19,7 +19,7 @@ object Example1a extends App {
 
     val url = getClass.getResource("/DrosophilaWing.tif")
     val file = URLUtilities.toFile(url)
-    val  imagePlus = new Opener().openImage(file.getAbsolutePath)
+    val imagePlus = new Opener().openImage(file.getAbsolutePath)
     // display image via ImageJ
     imagePlus.show()
     // wrap it into an ImgLib image (no copying)

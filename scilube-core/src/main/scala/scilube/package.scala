@@ -1,5 +1,5 @@
 import java.text.SimpleDateFormat
-import java.util.{Date, TimeZone}
+import java.util.{ Date, TimeZone }
 
 /**
  * '''scilube-core''' - Science libraries for Scala.
@@ -48,9 +48,7 @@ package object scilube {
 
   }
 
-
 }
-
 
 // Allow Calling Java 8 functions from Scala
 // From http://www.michaelpollmeier.com/2014/10/12/calling-java-8-functions-from-scala/

@@ -7,12 +7,12 @@ package object mail {
 
   implicit def stringToSeq(single: String): Seq[String] = Seq(single)
   implicit def liftToOption[T](t: T): Option[T] = Some(t)
- 
+
   sealed abstract class MailType
   case object Plain extends MailType
   case object Rich extends MailType
   case object MultiPart extends MailType
- 
+
   case class Mail(
     hostName: String,
     from: (String, String), // (email -> name)
@@ -24,16 +24,16 @@ package object mail {
     richMessage: Option[String] = None,
     attachment: Option[(java.io.File)] = None
   )
- 
+
   object send {
     def a(mail: Mail) {
       import org.apache.commons.mail._
- 
+
       val format =
         if (mail.attachment.isDefined) MultiPart
         else if (mail.richMessage.isDefined) Rich
         else Plain
- 
+
       val commonsMail: Email = format match {
         case Plain => new SimpleEmail().setMsg(mail.message)
         case Rich => new HtmlEmail().setHtmlMsg(mail.richMessage.get).setTextMsg(mail.message)
@@ -45,7 +45,7 @@ package object mail {
           new MultiPartEmail().attach(attachment).setMsg(mail.message)
         }
       }
- 
+
       // TODO Set authentication from your configuration, sys properties or w/e
 
       // Can't add these via fluent API because it produces exceptions
@@ -54,14 +54,14 @@ package object mail {
       mail.bcc foreach (commonsMail.addBcc(_))
 
       commonsMail.setHostName(mail.hostName)
- 
+
       commonsMail
         .setFrom(mail.from._1, mail.from._2)
         .setSubject(mail.subject)
         .send()
     }
   }
-  
+
 }
 
 /* EXAMPLE USAGE
@@ -96,4 +96,4 @@ object Demo {
   )
 }
 
-*/
+*/ 

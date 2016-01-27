@@ -14,25 +14,24 @@ import ij.process.ImageProcessor
 
 trait ImageIOTrait {
 
-    /**
-     * Read an image from a URL
-     * @param url to read from
-     * @return the resulting image as an ImagePlus
-     */
-    def read(url: URL): ImagePlus
+  /**
+   * Read an image from a URL
+   * @param url to read from
+   * @return the resulting image as an ImagePlus
+   */
+  def read(url: URL): ImagePlus
 
-    /**
-     * Read an image from a URL as a BufferedImage
-     * @param url to read from
-     * @return the resulting BufferedImage
-     */
-    def readAsBufferedImage(url: URL): BufferedImage
+  /**
+   * Read an image from a URL as a BufferedImage
+   * @param url to read from
+   * @return the resulting BufferedImage
+   */
+  def readAsBufferedImage(url: URL): BufferedImage
 
-    def write(imagePlus: ImagePlus, file: File): Unit
+  def write(imagePlus: ImagePlus, file: File): Unit
 
-    def write(imageProcessor: ImageProcessor, file: File): Unit
+  def write(imageProcessor: ImageProcessor, file: File): Unit
 
-    def write(bufferedImage: BufferedImage, file: File): Unit
-
+  def write(bufferedImage: BufferedImage, file: File): Unit
 
 }

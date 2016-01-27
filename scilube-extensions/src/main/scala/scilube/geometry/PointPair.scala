@@ -1,6 +1,5 @@
 package scilube.geometry
 
-
 /**
  * Represents a pair of points as well as some value relating those 2 points
  * @author Brian Schlining

@@ -1,13 +1,13 @@
 package scilube.jdbc
 
-import java.sql.{DriverManager, Connection}
-import scala.util.{Failure, Success, Try}
+import java.sql.{ DriverManager, Connection }
+import scala.util.{ Failure, Success, Try }
 import org.slf4j.LoggerFactory
 
 class Database(url: String, username: String, password: String) {
 
-  def this(params: DatabaseParams) = 
-      this(params.url, params.username, params.password)
+  def this(params: DatabaseParams) =
+    this(params.url, params.username, params.password)
 
   private[this] val log = LoggerFactory.getLogger(getClass)
 

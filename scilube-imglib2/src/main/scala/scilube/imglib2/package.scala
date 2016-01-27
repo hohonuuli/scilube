@@ -7,12 +7,11 @@ import ij.process.ImageProcessor
  */
 package object imglib2 {
 
-
-    /**
-     * implicit conversion of [[ij.process.ImageProcessor]] to ImageProcessorExt
-     * @param imageProcessor
-     * @return
-     */
-    implicit def extendImageProcessor(imageProcessor: ImageProcessor) = new ImageProcessorExt(imageProcessor)
+  /**
+   * implicit conversion of [[ij.process.ImageProcessor]] to ImageProcessorExt
+   * @param imageProcessor
+   * @return
+   */
+  implicit def extendImageProcessor(imageProcessor: ImageProcessor) = new ImageProcessorExt(imageProcessor)
 
 }

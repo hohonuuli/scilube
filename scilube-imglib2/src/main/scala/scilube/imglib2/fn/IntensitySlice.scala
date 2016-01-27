@@ -12,24 +12,24 @@ import scilube.imglib2.extendImageProcessor
  * @since 2012-03-14
  */
 class IntensitySlice(val bottom: Int, val top: Int) extends (ImageProcessor => ImageProcessor) {
-    require(bottom <= top, "Check your args!! bottom (" + bottom +
-            ") should be less than or equal to top (" + top + ")")
+  require(bottom <= top, "Check your args!! bottom (" + bottom +
+    ") should be less than or equal to top (" + top + ")")
 
-    def apply(from: ImageProcessor): ImageProcessor = {
-        val to = from.duplicate()
-        val black = to.processorType.minValue.toInt
-        val white = to.processorType.maxValue.toInt
-        for (i <- 0 until to.getWidth; j <- 0 until to.getHeight) {
-            val z = to.get(i, j)
-            val newZ = if (to.get(i, j) < bottom || to.get(i, j) > top) black else white
-            to.set(i, j, newZ)
-        }
-        to
+  def apply(from: ImageProcessor): ImageProcessor = {
+    val to = from.duplicate()
+    val black = to.processorType.minValue.toInt
+    val white = to.processorType.maxValue.toInt
+    for (i <- 0 until to.getWidth; j <- 0 until to.getHeight) {
+      val z = to.get(i, j)
+      val newZ = if (to.get(i, j) < bottom || to.get(i, j) > top) black else white
+      to.set(i, j, newZ)
     }
+    to
+  }
 
 }
 
 object IntensitySlice {
-    def apply(bottom: Int, top: Int, imageProcessor: ImageProcessor) =
-        new IntensitySlice(bottom, top).apply(imageProcessor)
+  def apply(bottom: Int, top: Int, imageProcessor: ImageProcessor) =
+    new IntensitySlice(bottom, top).apply(imageProcessor)
 }

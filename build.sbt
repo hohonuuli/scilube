@@ -30,7 +30,7 @@ scalacOptions in ThisBuild ++= Seq(
   "-Ywarn-value-discard",
   "-Xfuture")
 
-javacOptions in ThisBuild ++= Seq("-target", "1.6", "-source","1.6")
+javacOptions in ThisBuild ++= Seq("-target", "1.8", "-source","1.8")
 
 // DEFINE NESTED PROJECTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 lazy val root = project.in(file("."))
@@ -68,7 +68,7 @@ libraryDependencies in ThisBuild ++= {
     "ch.qos.logback" % "logback-core" % logbackVersion)
 }
 
-updateOptions in ThisBuild := updateOptions.value.withCachedResolution(true) 
+updateOptions in ThisBuild := updateOptions.value.withCachedResolution(true)
 
 publishMavenStyle in ThisBuild := true
 
@@ -83,15 +83,12 @@ resolvers in ThisBuild ++= Seq(Resolver.mavenLocal,
 // OTHER SETTINGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // todolist tags to search fro
-todolistTags := Set("TODO", "FIXME", "HACK")
-
-// Adds commands for dependency reporting
-net.virtualvoid.sbt.graph.Plugin.graphSettings
+todosTags := Set("TODO", "FIXME", "HACK", "WTF\\?")
 
 // set the prompt (for this build) to include the project id.
-shellPrompt in ThisBuild := { state => 
+shellPrompt in ThisBuild := { state =>
   val user = System.getProperty("user.name")
-  "\n" + user + "@" + Project.extract(state).currentRef.project + "\nsbt> " 
+  "\n" + user + "@" + Project.extract(state).currentRef.project + "\nsbt> "
 }
 
 // Add this setting to your project to generate a version report (See ExtendedBuild.scala too.)
@@ -118,6 +115,18 @@ versionReport <<= (externalDependencyClasspath in Compile, streams) map {
 
 // For sbt-pack
 packAutoSettings
+
+// -- SCALARIFORM
+// Format code on save with scalariform
+import scalariform.formatter.preferences._
+import com.typesafe.sbt.SbtScalariform
+
+SbtScalariform.scalariformSettings
+
+SbtScalariform.ScalariformKeys.preferences := SbtScalariform.ScalariformKeys.preferences.value
+  .setPreference(IndentSpaces, 2)
+  .setPreference(PlaceScaladocAsterisksBeneathSecondAsterisk, false)
+  .setPreference(DoubleIndentClassDeclaration, true)
 
 // fork a new JVM for run and test:run
 fork := true

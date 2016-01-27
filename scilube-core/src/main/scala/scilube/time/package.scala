@@ -1,7 +1,7 @@
 package scilube
 
-import java.text.{DateFormat, SimpleDateFormat}
-import java.util.{Date, TimeZone}
+import java.text.{ DateFormat, SimpleDateFormat }
+import java.util.{ Date, TimeZone }
 
 /**
  *
@@ -27,7 +27,7 @@ package object time {
   def toDate(s: String): Date = dateFormat.parse(s)
 
   /**
-   * Create a new instance of a [java.text.DateFormat] for 
+   * Create a new instance of a [java.text.DateFormat] for
    * ISO8601 convetion
    */
   def iso8601DateFormat: DateFormat = {

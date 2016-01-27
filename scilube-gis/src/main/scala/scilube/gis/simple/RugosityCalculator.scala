@@ -67,7 +67,7 @@ object RugosityCalculator {
         area(t7) + area(t8)
 
       // TODO run test this probably should be (dx(i - 1) + dx(i + 1)) * (dy(j - 1) + dy(j + 1))
-      val planarArea = dx(i) * dy(j) 
+      val planarArea = dx(i) * dy(j)
       rugosity(i, j) = surfaceArea / planarArea
 
     }

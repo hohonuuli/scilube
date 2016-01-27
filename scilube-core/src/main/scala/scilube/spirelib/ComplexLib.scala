@@ -28,8 +28,10 @@ object ComplexLib {
    * @param c The complex number
    * @return exp(z) where z is this Complex number.
    */
-  def exp(c: Complex[Double]): Complex[Double] = Complex(M.exp(c.real) * M.cos(c.imag),
-    M.exp(c.real) * M.sin(c.imag))
+  def exp(c: Complex[Double]): Complex[Double] = Complex(
+    M.exp(c.real) * M.cos(c.imag),
+    M.exp(c.real) * M.sin(c.imag)
+  )
 
   /**
    * Principal branch of the Complex logarithm of this Complex number.
@@ -63,8 +65,10 @@ object ComplexLib {
    * sin(z) = (exp(i*z)-exp(-i*z))/(2*i).
    * @return sin(z) where z is this Complex number.
    */
-  def sin(c: Complex[Double]): Complex[Double] = Complex(M.cosh(c.imag) * M.sin(c.real),
-    M.sinh(c.imag) * M.cos(c.real))
+  def sin(c: Complex[Double]): Complex[Double] = Complex(
+    M.cosh(c.imag) * M.sin(c.real),
+    M.sinh(c.imag) * M.cos(c.real)
+  )
 
   /**
    * Cosine of this Complex number (doesn't change this Complex number).
@@ -72,8 +76,10 @@ object ComplexLib {
    * @param c The complex number
    * @return cos(z) where z is this Complex number.
    */
-  def cos(c: Complex[Double]): Complex[Double] = Complex(M.cosh(c.imag) * M.cos(c.real),
-    -M.sinh(c.imag) * M.sin(c.real))
+  def cos(c: Complex[Double]): Complex[Double] = Complex(
+    M.cosh(c.imag) * M.cos(c.real),
+    -M.sinh(c.imag) * M.sin(c.real)
+  )
 
   /**
    * Hyperbolic sine of this Complex number
@@ -81,8 +87,10 @@ object ComplexLib {
    * @param c The complex number
    * @return sinh(z) where z is this Complex number.
    */
-  def sinh(c: Complex[Double]): Complex[Double] = new Complex(M.sinh(c.real) * M.cos(c.imag),
-    M.cosh(c.real) * M.sin(c.imag));
+  def sinh(c: Complex[Double]): Complex[Double] = new Complex(
+    M.sinh(c.real) * M.cos(c.imag),
+    M.cosh(c.real) * M.sin(c.imag)
+  );
 
   /**
    * Hyperbolic cosine of this Complex number
@@ -90,8 +98,10 @@ object ComplexLib {
    * @param c The complex number
    * @return cosh(z) where z is this Complex number.
    */
-  def cosh(c: Complex[Double]): Complex[Double] = new Complex(M.cosh(c.real) * M.cos(c.imag),
-    M.sinh(c.real) * M.sin(c.imag));
+  def cosh(c: Complex[Double]): Complex[Double] = new Complex(
+    M.cosh(c.real) * M.cos(c.imag),
+    M.sinh(c.real) * M.sin(c.imag)
+  );
 
   /**
    * Tangent of this Complex number (doesn't change this Complex number).

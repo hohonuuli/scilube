@@ -12,8 +12,8 @@ import org.geotoolkit.geometry.DirectPosition2D
 object CRSConverterUTMToGeo {
 
   private[this] val crsConverter = {
-    val sourceCRS = CRS.decode("EPSG:32610")  // UTM Zone 10N
-    val targetCRS = CRS.decode("EPSG:4326")   // WGS84 (lat, lon)
+    val sourceCRS = CRS.decode("EPSG:32610") // UTM Zone 10N
+    val targetCRS = CRS.decode("EPSG:4326") // WGS84 (lat, lon)
     new CRSConverter(sourceCRS, targetCRS)
   }
 

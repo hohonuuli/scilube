@@ -1,7 +1,7 @@
 package scilube.ocean
 
 /**
- * 
+ *
  * @author Brian Schlining
  * @since 2012-12-17
  */

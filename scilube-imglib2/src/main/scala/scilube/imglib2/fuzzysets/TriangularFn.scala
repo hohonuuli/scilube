@@ -17,28 +17,25 @@ package scilube.imglib2.fuzzysets
  *
  * @author Brian Schlining
  * @since 2012-03-12
- * 
+ *
  * @param one The center or peak of the triangle
  * @param lowZero value less than __one__ value
  * @param highZero value greater than __one__ value
  */
 class TriangularFn(val lowZero: Double, val one: Double, val highZero: Double) extends (Double => Double) {
-    require(lowZero < one)
-    require(highZero > one)
+  require(lowZero < one)
+  require(highZero > one)
 
-    private[this] val a = one
-    private[this] val b = one - lowZero
-    private[this] val c = highZero - one
+  private[this] val a = one
+  private[this] val b = one - lowZero
+  private[this] val c = highZero - one
 
-    def apply(z: Double): Double = if (lowZero <= z && z < one) {
-        1 - (a - z) / b
-    }
-    else if (one <= z && z <= highZero) {
-        1 - (z - a) / c
-    }
-    else {
-        0
-    }
+  def apply(z: Double): Double = if (lowZero <= z && z < one) {
+    1 - (a - z) / b
+  } else if (one <= z && z <= highZero) {
+    1 - (z - a) / c
+  } else {
+    0
+  }
 }
-
 

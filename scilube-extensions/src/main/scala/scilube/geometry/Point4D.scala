@@ -24,8 +24,8 @@ object Point4D {
 }
 
 class DoublePoint4D[A](x: Double, y: Double, z: Double, val w: A)
-    extends DoublePoint3D(x, y, z) with Point4D[Double, A]
+  extends DoublePoint3D(x, y, z) with Point4D[Double, A]
 
 class IntPoint4D[B](x: Int, y: Int, z: Int, val w: B)
-    extends IntPoint3D(x, y, z) with Point4D[Int, B]
+  extends IntPoint3D(x, y, z) with Point4D[Int, B]
 

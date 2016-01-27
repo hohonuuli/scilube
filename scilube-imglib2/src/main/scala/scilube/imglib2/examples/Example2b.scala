@@ -4,7 +4,7 @@ import org.mbari.net.URLUtilities
 import ij.io.Opener
 import net.imglib2.img.array.ArrayImgFactory
 import net.imglib2.`type`.numeric.real.FloatType
-import net.imglib2.img.{ImgFactory, Img}
+import net.imglib2.img.{ ImgFactory, Img }
 import net.imglib2.`type`.Type
 import net.imglib2.img.cell.CellImgFactory
 import net.imglib2.img.display.imagej.ImageJFunctions
@@ -42,7 +42,7 @@ object Example2b extends App {
     val cursorInput = input.localizingCursor()
     val randomAccess = output.randomAccess()
 
-    while(cursorInput.hasNext) {
+    while (cursorInput.hasNext) {
       // move input cursor forward
       cursorInput.fwd()
       // set the output cursor to the position of the input cursor

@@ -26,8 +26,8 @@ object Example1c extends App {
     val img2 = imgFactory.create(img1, img1.firstElement())
 
     // display both (but they are empty)
-    ImageJFunctions.show( img1 );
-    ImageJFunctions.show( img2 );
+    ImageJFunctions.show(img1);
+    ImageJFunctions.show(img2);
   }
 
   new ImageJ()

@@ -1,13 +1,11 @@
 package scilube
 
-
 import spire.math.Complex
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
-import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
-import scala.math.{floor, sqrt}
-
+import org.mbari.math.{ DoubleMath, Matlib => JMatlib, Statlib }
+import scala.math.{ floor, sqrt }
 
 /**
  * Math functions.
@@ -19,7 +17,6 @@ import scala.math.{floor, sqrt}
  */
 protected trait Mathematics {
 
-
   /**
    * Element by element addition
    * @param a THe first array
@@ -28,7 +25,7 @@ protected trait Mathematics {
    */
   def add(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-        " and " + b.length + " ")
+      " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) + b(i)).toArray
   }
 
@@ -70,7 +67,7 @@ protected trait Mathematics {
    */
   def divide(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-        " and " + b.length + " ")
+      " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) / b(i)).toArray
   }
 
@@ -83,7 +80,7 @@ protected trait Mathematics {
    */
   def dot(a: Array[Double], b: Array[Double]): Double = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-        " and " + b.length + " ")
+      " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) * b(i)).sum
   }
 
@@ -164,19 +161,18 @@ protected trait Mathematics {
    * @throws IllegalArgumentException
    */
   def interp1(x: Array[Double], y: Array[Double], xi: Array[Double]): Array[Double] =
-      JMatlib.interpolate(x, y, xi)
+    JMatlib.interpolate(x, y, xi)
 
   /**
    * @return true if the number is a prime number. False otherwise
    */
-  def isprime[A : Numeric](n: A): Boolean = {
+  def isprime[A: Numeric](n: A): Boolean = {
     val numeric = implicitly[Numeric[A]]
     val nd = numeric.toDouble(n)
     if (nd % 1 == 0) {
       val ni = floor(nd).toInt
       (2 until ni) forall { d => nd % d != 0 }
-    }
-    else {
+    } else {
       false
     }
   }
@@ -208,7 +204,6 @@ protected trait Mathematics {
    */
   def mod(a: Double, b: Double): Double = a % b
 
-
   /**
    * Element by element multiplication
    * @param a THe first array
@@ -217,7 +212,7 @@ protected trait Mathematics {
    */
   def multiply(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-        " and " + b.length + " ")
+      " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) * b(i)).toArray
   }
 
@@ -234,7 +229,6 @@ protected trait Mathematics {
    *  key is outside the array values
    */
   def near(data: Array[Double], key: Double, inclusive: Boolean = true): Int = JMatlib.near(data, key, inclusive)
-
 
   /**
    * Compute the norm. Treats the array as a vector of values.
@@ -271,7 +265,7 @@ protected trait Mathematics {
    */
   def subtract(a: Array[Double], b: Array[Double]): Array[Double] = {
     require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-        " and " + b.length + " ")
+      " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) - b(i)).toArray
   }
 
@@ -304,6 +298,5 @@ protected trait Mathematics {
 
     (c.toArray, ia, ic)
   }
-
 
 }

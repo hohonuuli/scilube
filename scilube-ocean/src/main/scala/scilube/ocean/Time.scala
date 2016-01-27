@@ -2,7 +2,7 @@ package scilube.ocean
 
 import java.util.Date
 import java.util.GregorianCalendar
-import org.mbari.solar.{SolarPosition => JSolarPosition}
+import org.mbari.solar.{ SolarPosition => JSolarPosition }
 import scilube.Matlib
 
 trait Time {
@@ -35,8 +35,6 @@ trait Time {
     0D
   }
 }
-   
-
 
 /**
  *
@@ -50,27 +48,28 @@ trait Time {
  * @param longitude Observers longitude in radians
  * @param zenith Solar zenith angle in radians
  */
-case class SolarPosition protected (date: Date,
-    altitude: Double, 
-    azimuth: Double, 
-    declination: Double,
-    distance: Double,
-    greenwichHourAngle: Double,
-    latitude: Double,
-    longitude: Double, 
-    zenith: Double,
-    earthSunDistance: Double)
-
+case class SolarPosition protected (
+  date: Date,
+  altitude: Double,
+  azimuth: Double,
+  declination: Double,
+  distance: Double,
+  greenwichHourAngle: Double,
+  latitude: Double,
+  longitude: Double,
+  zenith: Double,
+  earthSunDistance: Double
+)
 
 object SolarPosition {
-  /** 
+  /**
    * Factory method
    *
    * @param sp The Java SolarPosition object to convert to a Scala SolarPosition
    */
   def apply(sp: JSolarPosition): SolarPosition = {
-    SolarPosition(new Date(sp.getTime), sp.getAltitude, sp.getAzimuth, sp.getDeclination, 
-        sp.getDistance, sp.getGreenwichHourAngle, sp.getLatitude, 
-        sp.getLongitude, sp.getZenith, sp.getEarthSunDistance)
+    SolarPosition(new Date(sp.getTime), sp.getAltitude, sp.getAzimuth, sp.getDeclination,
+      sp.getDistance, sp.getGreenwichHourAngle, sp.getLatitude,
+      sp.getLongitude, sp.getZenith, sp.getEarthSunDistance)
   }
 }

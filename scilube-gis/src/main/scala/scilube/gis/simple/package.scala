@@ -5,6 +5,4 @@ import scilube.Matlib
 
 package object simple {
 
-
-
 }

@@ -10,7 +10,9 @@ package scilube.probability
  * @author Brian Schlining
  * @since 2012-06-12
  */
-class KDEResult(val bandwidth: Double,
+class KDEResult(
+  val bandwidth: Double,
   val x: Array[Double],
   val pdf: Array[Double],
-  val cdf: Array[Double])
+  val cdf: Array[Double]
+)

@@ -3,9 +3,9 @@ package scilube
 import scala.reflect.ClassTag
 import scilube.probability.KDE
 import scala.math._
-import org.mbari.math.{Matlib => JMatlib}
-import java.util.{Arrays, Comparator}
-import java.lang.{Integer => JInteger}
+import org.mbari.math.{ Matlib => JMatlib }
+import java.util.{ Arrays, Comparator }
+import java.lang.{ Integer => JInteger }
 
 /**
  *
@@ -119,8 +119,7 @@ object Matlib
   def find[A](data: Array[A], predicate: A => Boolean): Seq[Int] =
     data.zipWithIndex.filter(i => predicate(i._1)).map(_._2)
 
-
-// https://stackoverflow.com/questions/4859261/get-the-indices-of-an-array-after-sorting
+  // https://stackoverflow.com/questions/4859261/get-the-indices-of-an-array-after-sorting
   private def sortWith[T](x: Array[T], comparator: Comparator[T]): Seq[Int] = {
     val indices = (x.indices).map(i => i: JInteger).toArray
     val intComparator = new Comparator[JInteger] {
@@ -132,7 +131,7 @@ object Matlib
 
   /**
    * This does not actually sort, rather it returns the sort indices of an array. This
-   * provides sort indices like Matlab's `sort` method. You can use the returned 
+   * provides sort indices like Matlab's `sort` method. You can use the returned
    * value to sort the array like so:
    * ```
    * val a = Array(1, 3, 2)
@@ -152,7 +151,7 @@ object Matlib
 
   /**
    * This does not actually sort, rather it returns the sort indices of an array. This
-   * provides sort indices like Matlab's `sort` method. You can use the returned 
+   * provides sort indices like Matlab's `sort` method. You can use the returned
    * value to sort the array like so:
    * ```
    * import scala.math.Ordering._ // import implicit orderings
@@ -164,13 +163,12 @@ object Matlib
    * @tparam A
    * @return
    */
-  def sort[A : Ordering](x: Array[A]): Seq[Int] = {
+  def sort[A: Ordering](x: Array[A]): Seq[Int] = {
     val ordering = implicitly[Ordering[A]]
     val comparator = new Comparator[A] {
       override def compare(a: A, b: A) = ordering.compare(a, b)
     }
     sortWith(x, comparator)
   }
-
 
 }

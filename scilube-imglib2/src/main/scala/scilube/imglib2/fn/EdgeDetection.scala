@@ -1,6 +1,6 @@
 package scilube.imglib2.fn
 
-import java.awt.image.{Kernel, ConvolveOp}
+import java.awt.image.{ Kernel, ConvolveOp }
 import ij.process.ImageProcessor
 import ij.ImagePlus
 
@@ -14,17 +14,17 @@ import ij.ImagePlus
  */
 object EdgeDetection extends ProcessorTransform {
 
-    private[this] lazy val imageOp = {
-        // Laplace filter inverted
-        val edgeKernel = Array(0F, -1F, 0F,
-            -1F, 4F, -1F,
-            0F, -1F, 0F)
-        new ConvolveOp(new Kernel(3, 3, edgeKernel))
-    }
+  private[this] lazy val imageOp = {
+    // Laplace filter inverted
+    val edgeKernel = Array(0F, -1F, 0F,
+      -1F, 4F, -1F,
+      0F, -1F, 0F)
+    new ConvolveOp(new Kernel(3, 3, edgeKernel))
+  }
 
-    def apply(from: ImageProcessor): ImageProcessor = {
-        val image = from.duplicate().getBufferedImage
-        val edges = imageOp.filter(image, null)
-        new ImagePlus("", edges).getProcessor
-    }
+  def apply(from: ImageProcessor): ImageProcessor = {
+    val image = from.duplicate().getBufferedImage
+    val edges = imageOp.filter(image, null)
+    new ImagePlus("", edges).getProcessor
+  }
 }

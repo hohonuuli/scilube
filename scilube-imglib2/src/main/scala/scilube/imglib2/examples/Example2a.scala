@@ -55,5 +55,4 @@ object Example2a extends App {
   new ImageJ()
   example()
 
-
 }

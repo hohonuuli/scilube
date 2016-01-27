@@ -74,7 +74,7 @@ object KDE {
     val initial_data_sum = initial_data2.sum
     val initial_data = initial_data2.map(_ / initial_data_sum)
     val a = dct1d(initial_data)
-    val I = (1 to (n - 1)).map(_.toDouble). map(pow(_, 2)).toArray
+    val I = (1 to (n - 1)).map(_.toDouble).map(pow(_, 2)).toArray
     val a2 = a.tail.map(j => pow(j / 2D, 2))
 
     // use  fzero to solve the equation t=zeta*gamma^[5](t)

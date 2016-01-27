@@ -21,7 +21,7 @@ import scilube.geometry.Point2D
 
 class Pixel(val camera: Camera, val width: Int, val height: Int, val x: Int, val y: Int) {
   require(x >= 0 && x < width, "x must be between 0 and " + (width - 1) + ". You supplied " + x)
-  require(y >= 0 && y < width, "y must be between 0 and " + (height - 1)  + ". You supplied " + x)
+  require(y >= 0 && y < width, "y must be between 0 and " + (height - 1) + ". You supplied " + x)
 
   /**
    * The vertical angle between the principal point and the pixel
@@ -38,7 +38,7 @@ class Pixel(val camera: Camera, val width: Int, val height: Int, val x: Int, val
   val beta: Double = {
     val gp = width / 2
     val ip = gp - x
-    atan(ip * tan(camera.beta / 2D) / gp) * -1  // Flip sign (+ is right)
+    atan(ip * tan(camera.beta / 2D) / gp) * -1 // Flip sign (+ is right)
   }
 
   /**
@@ -63,7 +63,6 @@ class Pixel(val camera: Camera, val width: Int, val height: Int, val x: Int, val
 
 }
 
-
 object Pixel {
 
   /**
@@ -75,9 +74,11 @@ object Pixel {
    * @param height The height of the image in pixels
    */
   def imageCorners(camera: Camera, width: Int, height: Int): List[Pixel] =
-    List(new Pixel(camera, width, height, 0, 0),
+    List(
+      new Pixel(camera, width, height, 0, 0),
       new Pixel(camera, width, height, width - 1, 0),
       new Pixel(camera, width, height, width - 1, height - 1),
-      new Pixel(camera, width, height, 0, height - 1))
+      new Pixel(camera, width, height, 0, height - 1)
+    )
 
 }

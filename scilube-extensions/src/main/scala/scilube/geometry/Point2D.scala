@@ -21,8 +21,10 @@ trait Point2D[A] {
   }
 
   def direction(that: Point2D[A])(implicit numeric: Numeric[A]): Double = {
-    atan2(numeric.toDouble(that.y) - numeric.toDouble(y),
-      numeric.toDouble(that.x) - numeric.toDouble(x))
+    atan2(
+      numeric.toDouble(that.y) - numeric.toDouble(y),
+      numeric.toDouble(that.x) - numeric.toDouble(x)
+    )
   }
 
   override lazy val toString: String = x + "," + y

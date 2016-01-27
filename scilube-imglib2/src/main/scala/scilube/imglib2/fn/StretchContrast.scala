@@ -1,7 +1,7 @@
 package scilube.imglib2.fn
 
 import ij.process.ImageProcessor
-import org.mbari.math.{Matlib}
+import org.mbari.math.{ Matlib }
 import scilube.imglib2.extendImageProcessor
 
 /**
@@ -19,40 +19,39 @@ import scilube.imglib2.extendImageProcessor
  *
  */
 class StretchContrastFn(val lowIdx: Int, val lowValue: Int, val highIdx: Int, val highValue: Int)
-        extends (ImageProcessor => ImageProcessor) {
+    extends (ImageProcessor => ImageProcessor) {
 
-    private[this] val lowX = Array[Double](0, lowIdx)
-    private[this] val lowY = Array[Double](0, lowValue)
-    private[this] val midX = Array[Double](lowIdx, highIdx)
-    private[this] val midY = Array[Double](lowValue, highValue)
+  private[this] val lowX = Array[Double](0, lowIdx)
+  private[this] val lowY = Array[Double](0, lowValue)
+  private[this] val midX = Array[Double](lowIdx, highIdx)
+  private[this] val midY = Array[Double](lowValue, highValue)
 
-    private[this] val lowInterp = Matlib.interpolate(lowX, lowY, _: Array[Double])
-    private[this] val midInterp = Matlib.interpolate(midX, midY, _: Array[Double])
+  private[this] val lowInterp = Matlib.interpolate(lowX, lowY, _: Array[Double])
+  private[this] val midInterp = Matlib.interpolate(midX, midY, _: Array[Double])
 
-
-    /**
-     * @param from The image to stretch. It will not be modified
-     * @return the stretched image
-     */
-    def apply(from: ImageProcessor): ImageProcessor = {
-        val maxValue = from.maxTypeValue
-        val highX = Array[Double](highIdx, maxValue)
-        val highY = Array[Double](highValue, maxValue)
-        val highInterp = Matlib.interpolate(highX, highY, _: Array[Double])
-        def interp(v: Int): Int = {
-            val va = Array(v.toDouble)
-            val u = if (v <= lowIdx) {lowInterp(va)}
-            else if (v >= highIdx) {highInterp(va)}
-            else {midInterp(va)}
-            u(0).toInt
-        }
-
-        val to = from.duplicate()
-        for (i <- 0 until to.getWidth; j <- 0 until to.getHeight) {
-            val z = interp(to.get(i, j))
-            to.set(i, j, z)
-        }
-        to
+  /**
+   * @param from The image to stretch. It will not be modified
+   * @return the stretched image
+   */
+  def apply(from: ImageProcessor): ImageProcessor = {
+    val maxValue = from.maxTypeValue
+    val highX = Array[Double](highIdx, maxValue)
+    val highY = Array[Double](highValue, maxValue)
+    val highInterp = Matlib.interpolate(highX, highY, _: Array[Double])
+    def interp(v: Int): Int = {
+      val va = Array(v.toDouble)
+      val u = if (v <= lowIdx) { lowInterp(va) }
+      else if (v >= highIdx) { highInterp(va) }
+      else { midInterp(va) }
+      u(0).toInt
     }
+
+    val to = from.duplicate()
+    for (i <- 0 until to.getWidth; j <- 0 until to.getHeight) {
+      val z = interp(to.get(i, j))
+      to.set(i, j, z)
+    }
+    to
+  }
 
 }

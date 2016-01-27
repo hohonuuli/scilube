@@ -27,20 +27,22 @@ import scilube.Matlib.HALF_PI
  * @since 2012-12-06
  */
 
-class Camera(val height: Double,
+class Camera(
+  val height: Double,
     val alpha: Double,
     val beta: Double,
     val theta: Double,
-    val units: Option[String] = None) {
+    val units: Option[String] = None
+) {
 
   require(theta > 0 && theta <= HALF_PI, "alpha must be greater than 0 and less than Pi/2. " +
-      "You gave " + theta)
+    "You gave " + theta)
 
   require(alpha > 0 && alpha < Pi, "beta must be greater than 0 and less than Pi. " +
-        "You gave " + alpha)
+    "You gave " + alpha)
 
   require(beta > 0 && beta < Pi, "beta must be greater than 0 and less than Pi. " +
-          "You gave " + beta)
+    "You gave " + beta)
 
   /**
    * The distance from the point directly under the camera on the view plane to the principal point
@@ -77,8 +79,6 @@ class Camera(val height: Double,
 
 }
 
-
-
 object Camera {
 
   /**
@@ -94,7 +94,7 @@ object Camera {
    * @return
    */
   def fromDegrees(height: Double, alpha: Double, beta: Double, theta: Double,
-      units: Option[String] = None) =
+    units: Option[String] = None) =
     new Camera(height, toRadians(alpha), toRadians(beta), toRadians(theta), units)
 
   /**
@@ -112,6 +112,6 @@ object Camera {
    * @return
    */
   def fromRadians(height: Double, alpha: Double, beta: Double, theta: Double,
-      units: Option[String] = None) = new Camera(height, alpha, beta, theta, units)
+    units: Option[String] = None) = new Camera(height, alpha, beta, theta, units)
 
 }

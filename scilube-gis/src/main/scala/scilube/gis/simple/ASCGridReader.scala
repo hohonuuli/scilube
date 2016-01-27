@@ -1,13 +1,11 @@
 package scilube.gis.simple
 
-
 import java.net.URL
-import org.mbari.util.{StringUtilities}
+import org.mbari.util.{ StringUtilities }
 import java.util.StringTokenizer
-import scilube.grid.{ArrayGrid, MutableGrid}
-import java.io.{File, InputStreamReader, BufferedReader}
+import scilube.grid.{ ArrayGrid, MutableGrid }
+import java.io.{ File, InputStreamReader, BufferedReader }
 import scilube.Matlib
-
 
 object ASCGridReader {
 
@@ -32,7 +30,7 @@ object ASCGridReader {
       val st = new StringTokenizer(line)
       for (i <- 0 until ncols) {
         val buf = st.nextToken().toDouble
-        grid(i, j) =  if (buf == noDataValue) Double.NaN else buf
+        grid(i, j) = if (buf == noDataValue) Double.NaN else buf
       }
     }
 

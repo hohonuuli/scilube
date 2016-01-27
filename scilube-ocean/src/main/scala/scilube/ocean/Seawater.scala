@@ -1,6 +1,6 @@
 package scilube.ocean
 
-import org.mbari.ocean.{Seawater => JSeawater}
+import org.mbari.ocean.{ Seawater => JSeawater }
 
 /**
  *
@@ -100,7 +100,7 @@ trait Seawater {
    * @param pressure     (dbar)
    * @return Practical salinity (psu or ~g/kg)
    */
-  def salinity(conductivity: Double,  temperature: Double, pressure: Double = 0) =
+  def salinity(conductivity: Double, temperature: Double, pressure: Double = 0) =
     JSeawater.salinity(conductivity, temperature, pressure)
 
   /**

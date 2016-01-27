@@ -14,7 +14,7 @@ trait DatabaseParams {
 }
 
 case class DBParams(url: String, driver: String, username: String, password: String)
-  extends DatabaseParams {
+    extends DatabaseParams {
 
   Class.forName(driver) // Initialize driver.
 }
@@ -40,10 +40,12 @@ object DatabaseParams {
     prop.load(input)
     prop
   } match {
-    case Success(p) => Option(DBParams(p.getProperty("jdbc.url"),
+    case Success(p) => Option(DBParams(
+      p.getProperty("jdbc.url"),
       p.getProperty("jdbc.driver"),
       p.getProperty("jdbc.username"),
-      p.getProperty("jdbc.password")))
+      p.getProperty("jdbc.password")
+    ))
     case Failure(e) => {
       val log = LoggerFactory.getLogger(getClass)
       log.error(s"Unable to load database properties from ${file.getAbsolutePath}", e)

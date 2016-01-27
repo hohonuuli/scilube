@@ -24,32 +24,27 @@ import scala.math._
  */
 
 class SigmaFn(val zero: Double, val one: Double) extends (Double => Double) {
-    
-    private[this] val a = one
-    private[this] val b = abs(one - zero)
 
-    def apply(z: Double): Double = {
-        if (one > zero) {
-            if (zero <= z  && z <= one) {
-                1 - (a - z) / b
-            }
-            else if (z > one) {
-                1
-            }
-            else {
-                0
-            } 
-        }
-        else {
-            if (z <= zero && one <= z) {
-                1 - (z - a) / b
-            }
-            else if (one > z) {
-                1
-            }
-            else {
-                0
-            }
-        }
+  private[this] val a = one
+  private[this] val b = abs(one - zero)
+
+  def apply(z: Double): Double = {
+    if (one > zero) {
+      if (zero <= z && z <= one) {
+        1 - (a - z) / b
+      } else if (z > one) {
+        1
+      } else {
+        0
+      }
+    } else {
+      if (z <= zero && one <= z) {
+        1 - (z - a) / b
+      } else if (one > z) {
+        1
+      } else {
+        0
+      }
     }
+  }
 }

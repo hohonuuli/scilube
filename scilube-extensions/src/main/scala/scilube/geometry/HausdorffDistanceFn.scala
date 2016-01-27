@@ -13,9 +13,11 @@ import scala.math._
  * @since 2012-03-19
  */
 
-class HausdorffDistanceFn[T: Ordering](distanceFn: (LabeledDoublePoint2D, LabeledDoublePoint2D) => T,
+class HausdorffDistanceFn[T: Ordering](
+  distanceFn: (LabeledDoublePoint2D, LabeledDoublePoint2D) => T,
   partialFractionA: Double,
-  partialFractionB: Double)
+  partialFractionB: Double
+)
     extends ((Iterable[LabeledDoublePoint2D], Iterable[LabeledDoublePoint2D]) => PointPair[T]) {
 
   require(partialFractionA > 0 && partialFractionA <= 1)

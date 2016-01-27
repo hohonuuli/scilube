@@ -9,8 +9,8 @@ import scilube.geometry.Point2D
 object CRSConverterGeoToUTM {
 
   private[this] val crsConverter = {
-    val sourceCRS = CRS.decode("EPSG:4326")   // WGS84 (lat, lon)
-    val targetCRS = CRS.decode("EPSG:32610")  // UTM Zone 10N
+    val sourceCRS = CRS.decode("EPSG:4326") // WGS84 (lat, lon)
+    val targetCRS = CRS.decode("EPSG:32610") // UTM Zone 10N
     new CRSConverter(sourceCRS, targetCRS)
   }
 

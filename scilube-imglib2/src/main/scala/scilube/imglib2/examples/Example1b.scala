@@ -13,7 +13,7 @@ import ij.ImageJ
 import org.mbari.net.URLUtilities
 
 /**
- * 
+ *
  * @author Brian Schlining
  * @since 2013-03-18
  */
