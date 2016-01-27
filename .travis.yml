@@ -1,4 +1,18 @@
 language: scala
 scala:
-   - 2.10.4
-   - 2.11.7
+  - 2.10.4
+  - 2.11.7
+jdk:
+  - oraclejdk8
+  
+after_success:
+  - sbt clean
+  
+branches:
+  only:
+    - master
+    - develop
+
+notifications:
+  email:
+    - bschlining@gmail.com
