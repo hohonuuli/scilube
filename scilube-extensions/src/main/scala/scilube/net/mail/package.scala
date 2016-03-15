@@ -26,7 +26,7 @@ package object mail {
   )
 
   object send {
-    def a(mail: Mail) {
+    def a(mail: Mail): Unit = {
       import org.apache.commons.mail._
 
       val format =

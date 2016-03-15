@@ -15,7 +15,7 @@ class ArrayGrid[A, B, C: ClassTag](val x: IndexedSeq[A], val y: IndexedSeq[B], v
   require(x.size == array.size, "x.size != array.size")
   require(y.size == array(0).size, "ysize != array(0).size")
 
-  def z(i: Int, j: Int, k: C) { array(i)(j) = k }
+  def z(i: Int, j: Int, k: C): Unit = { array(i)(j) = k }
 
   /**
    * Retrieves a value from grid based in the indices

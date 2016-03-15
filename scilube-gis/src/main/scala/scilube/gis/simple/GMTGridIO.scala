@@ -64,7 +64,7 @@ class GMTGridIO {
     grid
   }
 
-  def write[A <: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double]](file: File, data: A, zName: String) {
+  def write[A <: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double]](file: File, data: A, zName: String): Unit = {
     log.debug("Writing " + file)
     val nc = NetcdfFileWriteable.createNew(file.getCanonicalPath)
     nc.addGlobalAttribute("Conventions", "COARDS/CF-1.0")

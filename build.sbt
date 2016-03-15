@@ -3,7 +3,7 @@ organization in ThisBuild := "scilube"
 
 name := "scilube-parent"
 
-version in ThisBuild := "2.0.3-SNAPSHOT"
+version in ThisBuild := "2.0.3"
 
 licenses in ThisBuild ++= Seq(("MIT", url("http://opensource.org/licenses/MIT")))
 
@@ -27,14 +27,14 @@ scalacOptions in ThisBuild ++= Seq(
   "-Xlint",
   "-Yno-adapted-args",
   //"-Ywarn-numeric-widen",
-  "-Ywarn-value-discard",
+  //"-Ywarn-value-discard",
   "-Xfuture")
 
 javacOptions in ThisBuild ++= Seq("-target", "1.8", "-source","1.8")
 
 // DEFINE NESTED PROJECTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 lazy val root = project.in(file("."))
-    .aggregate(core, extensions, ocean, imglib2, jfreechart, gis)
+    .aggregate(core, extensions, ocean, jfreechart, gis)
     .dependsOn(core, extensions, ocean)
 
 lazy val core = project in file("scilube-core")
@@ -42,8 +42,6 @@ lazy val core = project in file("scilube-core")
 lazy val extensions = project in file("scilube-extensions")  dependsOn(core)
 
 lazy val ocean = project.in(file("scilube-ocean")).dependsOn(core)
-
-lazy val imglib2 = project in file("scilube-imglib2") dependsOn(core, extensions)
 
 lazy val jfreechart = project in file("scilube-jfreechart") dependsOn(core, extensions)
 
