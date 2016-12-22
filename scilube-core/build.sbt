@@ -6,8 +6,8 @@ name := "scilube-core"
 libraryDependencies ++= Seq(
     "org.mbari" % "mbarix4j" % "1.10.0",
     "com.github.rwl" % "jtransforms" % "2.4.0", // FFT
-    "org.spire-math" %% "spire" % "0.11.0", // Complex numbers
-    "org.apache.commons" % "commons-math3" % "3.5"
+    "org.spire-math" %% "spire" % "0.13.0", // Complex numbers
+    "org.apache.commons" % "commons-math3" % "3.6.1"
 )
 
 // publishTo <<= version { (v: String) =>
