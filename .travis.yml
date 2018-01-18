@@ -1,7 +1,6 @@
 language: scala
 scala:
-  - 2.10.4
-  - 2.11.7
+  - 2.12.4
 jdk:
   - oraclejdk8
   
@@ -11,7 +10,6 @@ after_success:
 branches:
   only:
     - master
-    - develop
 
 notifications:
   email:
