@@ -1,10 +1,10 @@
 package scilube.gis.simple
 
 import java.net.URL
-import org.mbari.util.{ StringUtilities }
+import org.mbari.util.{StringUtilities}
 import java.util.StringTokenizer
-import scilube.grid.{ ArrayGrid, MutableGrid }
-import java.io.{ File, InputStreamReader, BufferedReader }
+import scilube.grid.{ArrayGrid, MutableGrid}
+import java.io.{BufferedReader, File, InputStreamReader}
 import scilube.Matlib
 
 object ASCGridReader {
@@ -21,7 +21,8 @@ object ASCGridReader {
     //val x = xllCorner to (xllCorner + ((ncols - 1) * cellSize)) by cellSize
     //val y = yllCorner to (yllCorner + ((nrows - 1) * cellSize)) by cellSize
 
-    val x = Matlib.linspace(xllCorner, xllCorner + (ncols - 1) * cellSize, ncols)
+    val x =
+      Matlib.linspace(xllCorner, xllCorner + (ncols - 1) * cellSize, ncols)
     val y = Matlib.linspace(yllCorner, yllCorner + (nrows - 1) * cellSize, nrows).reverse
 
     val grid = ArrayGrid(x, y, Double.NaN)
@@ -38,6 +39,7 @@ object ASCGridReader {
 
   }
 
-  def read(file: File): MutableGrid[Double, Double, Double] = read(file.toURI.toURL)
+  def read(file: File): MutableGrid[Double, Double, Double] =
+    read(file.toURI.toURL)
 
 }

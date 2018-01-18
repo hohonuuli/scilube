@@ -18,7 +18,6 @@ import scilube.geometry.Point2D
  * @author Brian Schlining
  * @since 2012-12-06
  */
-
 class Pixel(val camera: Camera, val width: Int, val height: Int, val x: Int, val y: Int) {
   require(x >= 0 && x < width, "x must be between 0 and " + (width - 1) + ". You supplied " + x)
   require(y >= 0 && y < width, "y must be between 0 and " + (height - 1) + ". You supplied " + x)
@@ -75,10 +74,10 @@ object Pixel {
    */
   def imageCorners(camera: Camera, width: Int, height: Int): List[Pixel] =
     List(
-      new Pixel(camera, width, height, 0, 0),
-      new Pixel(camera, width, height, width - 1, 0),
-      new Pixel(camera, width, height, width - 1, height - 1),
-      new Pixel(camera, width, height, 0, height - 1)
+        new Pixel(camera, width, height, 0, 0),
+        new Pixel(camera, width, height, width - 1, 0),
+        new Pixel(camera, width, height, width - 1, height - 1),
+        new Pixel(camera, width, height, 0, height - 1)
     )
 
 }

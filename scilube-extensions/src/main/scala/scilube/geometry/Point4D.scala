@@ -20,12 +20,14 @@ trait Point4D[A, B] extends Point3D[A] {
 }
 
 object Point4D {
-  def apply[A](x: Double, y: Double, z: Double, w: A) = new DoublePoint4D[A](x, y, z, w)
+  def apply[A](x: Double, y: Double, z: Double, w: A) =
+    new DoublePoint4D[A](x, y, z, w)
 }
 
 class DoublePoint4D[A](x: Double, y: Double, z: Double, val w: A)
-  extends DoublePoint3D(x, y, z) with Point4D[Double, A]
+    extends DoublePoint3D(x, y, z)
+    with Point4D[Double, A]
 
 class IntPoint4D[B](x: Int, y: Int, z: Int, val w: B)
-  extends IntPoint3D(x, y, z) with Point4D[Int, B]
-
+    extends IntPoint3D(x, y, z)
+    with Point4D[Int, B]

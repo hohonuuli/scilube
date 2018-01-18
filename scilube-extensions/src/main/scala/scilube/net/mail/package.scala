@@ -14,15 +14,15 @@ package object mail {
   case object MultiPart extends MailType
 
   case class Mail(
-    hostName: String,
-    from: (String, String), // (email -> name)
-    to: Seq[String],
-    cc: Seq[String] = Seq.empty,
-    bcc: Seq[String] = Seq.empty,
-    subject: String,
-    message: String,
-    richMessage: Option[String] = None,
-    attachment: Option[(java.io.File)] = None
+      hostName: String,
+      from: (String, String), // (email -> name)
+      to: Seq[String],
+      cc: Seq[String] = Seq.empty,
+      bcc: Seq[String] = Seq.empty,
+      subject: String,
+      message: String,
+      richMessage: Option[String] = None,
+      attachment: Option[(java.io.File)] = None
   )
 
   object send {
@@ -36,7 +36,8 @@ package object mail {
 
       val commonsMail: Email = format match {
         case Plain => new SimpleEmail().setMsg(mail.message)
-        case Rich => new HtmlEmail().setHtmlMsg(mail.richMessage.get).setTextMsg(mail.message)
+        case Rich =>
+          new HtmlEmail().setHtmlMsg(mail.richMessage.get).setTextMsg(mail.message)
         case MultiPart => {
           val attachment = new EmailAttachment()
           attachment.setPath(mail.attachment.get.getAbsolutePath)
@@ -55,10 +56,7 @@ package object mail {
 
       commonsMail.setHostName(mail.hostName)
 
-      commonsMail
-        .setFrom(mail.from._1, mail.from._2)
-        .setSubject(mail.subject)
-        .send()
+      commonsMail.setFrom(mail.from._1, mail.from._2).setSubject(mail.subject).send()
     }
   }
 
@@ -67,10 +65,10 @@ package object mail {
 /* EXAMPLE USAGE
 
 package something
- 
+
 object Demo {
   import mail._
- 
+
   send a new Mail (
     from = ("john.smith@mycompany.com", "John Smith"),
     to = "boss@mycompany.com",
@@ -78,7 +76,7 @@ object Demo {
     subject = "Import stuff",
     message = "Dear Boss..."
   )
- 
+
   send a new Mail (
     from = "john.smith@mycompany.com" -> "John Smith",
     to = Seq("dev@mycompany.com", "marketing@mycompany.com"),
@@ -86,7 +84,7 @@ object Demo {
     message = "Please find attach the latest strategy document.",
     richMessage = "Here's the <blink>latest</blink> <strong>Strategy</strong>..."
   )
- 
+
   send a new Mail (
     from = "john.smith@mycompany.com" -> "John Smith",
     to = "dev@mycompany.com" :: "marketing@mycompany.com" :: Nil,
@@ -96,4 +94,4 @@ object Demo {
   )
 }
 
-*/ 
+ */

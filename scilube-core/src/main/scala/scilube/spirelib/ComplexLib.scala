@@ -1,7 +1,7 @@
 package scilube.spirelib
 
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
-import scala.{ math => M }
+import scala.{math => M}
 import spire.implicits._
 import spire.math.Complex
 
@@ -29,8 +29,8 @@ object ComplexLib {
    * @return exp(z) where z is this Complex number.
    */
   def exp(c: Complex[Double]): Complex[Double] = Complex(
-    M.exp(c.real) * M.cos(c.imag),
-    M.exp(c.real) * M.sin(c.imag)
+      M.exp(c.real) * M.cos(c.imag),
+      M.exp(c.real) * M.sin(c.imag)
   )
 
   /**
@@ -39,7 +39,8 @@ object ComplexLib {
    * @param c The complex number
    * @return log(z) where z is this Complex number.
    */
-  def log(c: Complex[Double]): Complex[Double] = Complex(scala.math.log(c.abs), c.arg)
+  def log(c: Complex[Double]): Complex[Double] =
+    Complex(scala.math.log(c.abs), c.arg)
 
   /**
    * Complex square root
@@ -66,8 +67,8 @@ object ComplexLib {
    * @return sin(z) where z is this Complex number.
    */
   def sin(c: Complex[Double]): Complex[Double] = Complex(
-    M.cosh(c.imag) * M.sin(c.real),
-    M.sinh(c.imag) * M.cos(c.real)
+      M.cosh(c.imag) * M.sin(c.real),
+      M.sinh(c.imag) * M.cos(c.real)
   )
 
   /**
@@ -77,8 +78,8 @@ object ComplexLib {
    * @return cos(z) where z is this Complex number.
    */
   def cos(c: Complex[Double]): Complex[Double] = Complex(
-    M.cosh(c.imag) * M.cos(c.real),
-    -M.sinh(c.imag) * M.sin(c.real)
+      M.cosh(c.imag) * M.cos(c.real),
+      -M.sinh(c.imag) * M.sin(c.real)
   )
 
   /**
@@ -88,8 +89,8 @@ object ComplexLib {
    * @return sinh(z) where z is this Complex number.
    */
   def sinh(c: Complex[Double]): Complex[Double] = new Complex(
-    M.sinh(c.real) * M.cos(c.imag),
-    M.cosh(c.real) * M.sin(c.imag)
+      M.sinh(c.real) * M.cos(c.imag),
+      M.cosh(c.real) * M.sin(c.imag)
   );
 
   /**
@@ -99,8 +100,8 @@ object ComplexLib {
    * @return cosh(z) where z is this Complex number.
    */
   def cosh(c: Complex[Double]): Complex[Double] = new Complex(
-    M.cosh(c.real) * M.cos(c.imag),
-    M.sinh(c.real) * M.sin(c.imag)
+      M.cosh(c.real) * M.cos(c.imag),
+      M.sinh(c.real) * M.sin(c.imag)
   );
 
   /**

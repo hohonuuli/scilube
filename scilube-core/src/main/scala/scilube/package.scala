@@ -1,5 +1,5 @@
 import java.text.SimpleDateFormat
-import java.util.{ Date, TimeZone }
+import java.util.{Date, TimeZone}
 
 /**
  * '''scilube-core''' - Science libraries for Scala.
@@ -94,4 +94,4 @@ implicit def toJavaPredicate[A](f: Function1[A, Boolean]) = new JPredicate[A] {
 implicit def toJavaBiPredicate[A, B](predicate: (A, B) ⇒ Boolean) = new BiPredicate[A, B] {
   def test(a: A, b: B) = predicate(a, b)
 }
-*/
+ */

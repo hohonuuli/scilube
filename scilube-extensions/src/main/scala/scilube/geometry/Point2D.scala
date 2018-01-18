@@ -1,7 +1,7 @@
 package scilube.geometry
 
 import scala.math._
-import java.awt.geom.{ Point2D => JPoint2D }
+import java.awt.geom.{Point2D => JPoint2D}
 
 /**
  * 2-Dimensional point
@@ -20,12 +20,11 @@ trait Point2D[A] {
     sqrt(dx + dy)
   }
 
-  def direction(that: Point2D[A])(implicit numeric: Numeric[A]): Double = {
+  def direction(that: Point2D[A])(implicit numeric: Numeric[A]): Double =
     atan2(
-      numeric.toDouble(that.y) - numeric.toDouble(y),
-      numeric.toDouble(that.x) - numeric.toDouble(x)
+        numeric.toDouble(that.y) - numeric.toDouble(y),
+        numeric.toDouble(that.x) - numeric.toDouble(x)
     )
-  }
 
   override lazy val toString: String = x + "," + y
 
@@ -78,15 +77,18 @@ class LabeledIntPoint2D(x: Int, y: Int, val label: Int) extends IntPoint2D(x, y)
 }
 
 object Point2D {
-  /**
-   * Implicit conversion to Java Point2D
-   */
-  implicit def point2DToJavaPoint2DDouble(p: Point2D[Double]): JPoint2D = new JPoint2D.Double(p.x, p.y)
 
   /**
    * Implicit conversion to Java Point2D
    */
-  implicit def point2DToJavaPoint2DInt(p: Point2D[Int]): JPoint2D = new JPoint2D.Float(p.x, p.y)
+  implicit def point2DToJavaPoint2DDouble(p: Point2D[Double]): JPoint2D =
+    new JPoint2D.Double(p.x, p.y)
+
+  /**
+   * Implicit conversion to Java Point2D
+   */
+  implicit def point2DToJavaPoint2DInt(p: Point2D[Int]): JPoint2D =
+    new JPoint2D.Float(p.x, p.y)
 
   /**
    * Convert a Java Point2D to a Point2D
@@ -105,7 +107,8 @@ object Point2D {
    */
   def apply(x: Double, y: Double) = new DoublePoint2D(x, y)
 
-  def apply(x: Double, y: Double, label: Int) = new LabeledDoublePoint2D(x, y, label)
+  def apply(x: Double, y: Double, label: Int) =
+    new LabeledDoublePoint2D(x, y, label)
 
   /**
    * Factory method

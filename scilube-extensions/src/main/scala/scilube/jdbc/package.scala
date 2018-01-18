@@ -1,6 +1,6 @@
 package scilube
 
-import java.sql.{ Connection, ResultSet, Timestamp, PreparedStatement }
+import java.sql.{Connection, PreparedStatement, ResultSet, Timestamp}
 import java.util.Date
 import collection.mutable.ArrayBuffer
 
@@ -38,7 +38,8 @@ package object jdbc {
    * they can be sorted
    */
   implicit val timestampOrdering = new Ordering[Timestamp] {
-    def compare(x: Timestamp, y: Timestamp): Int = x.getTime.compareTo(y.getTime)
+    def compare(x: Timestamp, y: Timestamp): Int =
+      x.getTime.compareTo(y.getTime)
   }
 
   implicit def timestampAsDate(t: Timestamp): Date = new Date(t.getTime)

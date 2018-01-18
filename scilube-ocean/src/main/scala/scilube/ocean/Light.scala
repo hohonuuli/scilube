@@ -7,7 +7,6 @@ import scala.math._
  * @author Brian Schlining
  * @since 2011-11-29
  */
-
 trait Light {
 
   /**

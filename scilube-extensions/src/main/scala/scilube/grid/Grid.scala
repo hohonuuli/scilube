@@ -6,7 +6,6 @@ package scilube.grid
  * @author Brian Schlining
  * @since Sep 30, 2010
  */
-
 trait Grid[A, B, C] {
 
   /**
@@ -36,4 +35,3 @@ trait Grid[A, B, C] {
   def apply(i: Int, j: Int): C = z(i, j)
 
 }
-

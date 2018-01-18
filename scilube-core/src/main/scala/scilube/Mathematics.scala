@@ -5,8 +5,7 @@ import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
 import org.apache.commons.math3.analysis.interpolation.LinearInterpolator
-import org.mbari.math.{DoubleMath, Statlib, Matlib => JMatlib}
-
+import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
 import scala.math.{floor, sqrt}
 
 /**
@@ -26,8 +25,10 @@ protected trait Mathematics {
    * @return An array that is the element by element summation of a to b
    */
   def add(a: Array[Double], b: Array[Double]): Array[Double] = {
-    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-      " and " + b.length + " ")
+    require(
+        a.length == b.length,
+        "Whoops, arrays are different sizes (" + a.length +
+          " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) + b(i)).toArray
   }
 
@@ -40,9 +41,11 @@ protected trait Mathematics {
    * @param y y values
    * @return correlation coefficient
    */
-  def corr(x: Array[Double], y: Array[Double]) = Statlib.pearsonsCorrelation(x, y)
+  def corr(x: Array[Double], y: Array[Double]) =
+    Statlib.pearsonsCorrelation(x, y)
 
-  def corrcoef(x: Array[Double], y: Array[Double]) = Statlib.correlationCoefficient(x, y)
+  def corrcoef(x: Array[Double], y: Array[Double]) =
+    Statlib.correlationCoefficient(x, y)
 
   /**
    * Cumulative sum of elements
@@ -52,14 +55,15 @@ protected trait Mathematics {
    */
   def cumsum(data: Array[Double]): Array[Double] = JMatlib.cumsum(data)
 
-  def diff(x: Array[Double]): Array[Double] = if (x.size < 2) Array.empty[Double]
-  else {
-    JMatlib.diff(x);
-    /*(for (i <- 0 until x.size - 1) yield {
+  def diff(x: Array[Double]): Array[Double] =
+    if (x.size < 2) Array.empty[Double]
+    else {
+      JMatlib.diff(x);
+      /*(for (i <- 0 until x.size - 1) yield {
       val j = i + 1
       x(j) - x(i)
     }).toArray */
-  }
+    }
 
   /**
    * Element by element division
@@ -68,8 +72,10 @@ protected trait Mathematics {
    * @return An array that is the element by element summation of a to b
    */
   def divide(a: Array[Double], b: Array[Double]): Array[Double] = {
-    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-      " and " + b.length + " ")
+    require(
+        a.length == b.length,
+        "Whoops, arrays are different sizes (" + a.length +
+          " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) / b(i)).toArray
   }
 
@@ -81,8 +87,10 @@ protected trait Mathematics {
    * @return The dot product. (b projected onto a)
    */
   def dot(a: Array[Double], b: Array[Double]): Double = {
-    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-      " and " + b.length + " ")
+    require(
+        a.length == b.length,
+        "Whoops, arrays are different sizes (" + a.length +
+          " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) * b(i)).sum
   }
 
@@ -199,8 +207,11 @@ protected trait Mathematics {
     val nd = numeric.toDouble(n)
     if (nd % 1 == 0) {
       val ni = floor(nd).toInt
-      (2 until ni) forall { d => nd % d != 0 }
-    } else {
+      (2 until ni) forall { d =>
+        nd % d != 0
+      }
+    }
+    else {
       false
     }
   }
@@ -212,7 +223,8 @@ protected trait Mathematics {
    * @param n The number of points to generated
    * @return an array of lineraly space points.
    */
-  def linspace(d1: Double, d2: Double, n: Int): Array[Double] = JMatlib.linspace(d1, d2, n)
+  def linspace(d1: Double, d2: Double, n: Int): Array[Double] =
+    JMatlib.linspace(d1, d2, n)
 
   /**
    * generates n logarithmically-spaced points between d1 and d2.
@@ -221,7 +233,8 @@ protected trait Mathematics {
    * @param n The number of points to generated
    * @return an array of lineraly space points.
    */
-  def logspace(d1: Double, d2: Double, n: Int): Array[Double] = JMatlib.logspace(d1, d2, n)
+  def logspace(d1: Double, d2: Double, n: Int): Array[Double] =
+    JMatlib.logspace(d1, d2, n)
 
   /**
    * Modulus after divistion. THis just calls the `%` operator; it's included to make porting
@@ -239,8 +252,10 @@ protected trait Mathematics {
    * @return An array that is the element by element summation of a to b
    */
   def multiply(a: Array[Double], b: Array[Double]): Array[Double] = {
-    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-      " and " + b.length + " ")
+    require(
+        a.length == b.length,
+        "Whoops, arrays are different sizes (" + a.length +
+          " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) * b(i)).toArray
   }
 
@@ -256,7 +271,8 @@ protected trait Mathematics {
    * @return The index of the array value nearest the value. -1 will be returned if the
    *  key is outside the array values
    */
-  def near(data: Array[Double], key: Double, inclusive: Boolean = true): Int = JMatlib.near(data, key, inclusive)
+  def near(data: Array[Double], key: Double, inclusive: Boolean = true): Int =
+    JMatlib.near(data, key, inclusive)
 
   /**
    * Compute the norm. Treats the array as a vector of values.
@@ -292,8 +308,10 @@ protected trait Mathematics {
    * @return An array that is the element by element summation of a to b
    */
   def subtract(a: Array[Double], b: Array[Double]): Array[Double] = {
-    require(a.length == b.length, "Whoops, arrays are different sizes (" + a.length +
-      " and " + b.length + " ")
+    require(
+        a.length == b.length,
+        "Whoops, arrays are different sizes (" + a.length +
+          " and " + b.length + " ")
     (for (i <- a.indices) yield a(i) - b(i)).toArray
   }
 
@@ -311,7 +329,8 @@ protected trait Mathematics {
    * @return A tuple of (c, ia, ic). c is the same values as in A but with no repetitions. C will be sorted.
    *         ia and ic are index arrays such that c = a(ia) and a = c(ic)
    */
-  def unique(a: Array[Double], occurrence: String = "last"): (Array[Double], Array[Int], Array[Int]) = {
+  def unique(a: Array[Double],
+             occurrence: String = "last"): (Array[Double], Array[Int], Array[Int]) = {
 
     val useFirst = occurrence match {
       case "first" => true
@@ -321,7 +340,8 @@ protected trait Mathematics {
     val av = a.toStream
 
     val c = av.distinct.sorted
-    val ia = c.map(v => if (useFirst) av.indexOf(v) else av.lastIndexOf(v)).toArray
+    val ia =
+      c.map(v => if (useFirst) av.indexOf(v) else av.lastIndexOf(v)).toArray
     val ic = av.map(v => c.indexOf(v)).toArray
 
     (c.toArray, ia, ic)

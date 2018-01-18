@@ -1,8 +1,8 @@
 package scilube.gis.simple
 
 import scala.math._
-import scilube.grid.{ NumericGrid, ArrayGrid, Grid }
-import scilube.geometry.{ Triangle3D, Point3D }
+import scilube.grid.{ArrayGrid, Grid, NumericGrid}
+import scilube.geometry.{Point3D, Triangle3D}
 import java.io.File
 
 /**
@@ -12,7 +12,8 @@ import java.io.File
  */
 object RugosityCalculator {
 
-  def apply(grid: Grid[Double, Double, Double]): ArrayGrid[Double, Double, Double] with NumericGrid[Double, Double, Double] = {
+  def apply(grid: Grid[Double, Double, Double])
+    : ArrayGrid[Double, Double, Double] with NumericGrid[Double, Double, Double] = {
 
     val x = grid.x
     val y = grid.y
@@ -22,17 +23,23 @@ object RugosityCalculator {
     val rugosity = ArrayGrid(x, y, Double.NaN)
 
     val points = Array.ofDim[Point3D[Double]](x.size, y.size)
-    for (i <- 0 until x.size; j <- 0 until y.size) {
+    for {
+      i <- 0 until x.size
+      j <- 0 until y.size
+    } {
       points(i)(j) = Point3D(x(i), y(j), grid(i, j))
     }
 
-    for (i <- 2 until (x.size - 1); j <- 2 until (y.size - 1)) {
+    for {
+      i <- 2 until (x.size - 1)
+      j <- 2 until (y.size - 1)
+    } {
 
       /*
                 1 2 3
                 4   5
                 6 7 8
-             */
+       */
       val p1 = points(i - 1)(j - 1)
       val p2 = points(i - 1)(j)
       val p3 = points(i - 1)(j + 1)
@@ -53,7 +60,7 @@ object RugosityCalculator {
                  |   /   |  \   |
                  |  / t7 | t8\  |
                  p6-----p7-----p8
-             */
+       */
       val t1 = Triangle3D(p1, p2, center);
       val t2 = Triangle3D(p2, p3, center);
       val t3 = Triangle3D(p1, p4, center);
@@ -87,9 +94,12 @@ object RugosityCalculator {
   }
 
   def main(args: Array[String]) {
-    require(args.size == 2, "Use as: " + getClass.getSimpleName + " ingrid outgrid\n" +
-      "\tArgs: ingrid: UTM ASC grid file\n" +
-      "\t      outgrid: Target file to write an ASC grid")
+    require(
+        args.size == 2,
+        "Use as: " + getClass.getSimpleName + " ingrid outgrid\n" +
+          "\tArgs: ingrid: UTM ASC grid file\n" +
+          "\t      outgrid: Target file to write an ASC grid"
+    )
 
     val ingrid = new File(args(0).trim)
     val outgrid = new File(args(1).trim)

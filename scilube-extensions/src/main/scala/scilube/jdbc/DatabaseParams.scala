@@ -4,7 +4,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.util.Properties
 import org.slf4j.LoggerFactory
-import scala.util.{ Failure, Success, Try }
+import scala.util.{Failure, Success, Try}
 
 trait DatabaseParams {
   def url: String
@@ -34,22 +34,25 @@ object DatabaseParams {
    * }}}
    * @param file The properties file
    */
-  def fromProps(file: File): Option[DatabaseParams] = Try {
-    val prop = new Properties()
-    val input = new FileInputStream(file)
-    prop.load(input)
-    prop
-  } match {
-    case Success(p) => Option(DBParams(
-      p.getProperty("jdbc.url"),
-      p.getProperty("jdbc.driver"),
-      p.getProperty("jdbc.username"),
-      p.getProperty("jdbc.password")
-    ))
-    case Failure(e) => {
-      val log = LoggerFactory.getLogger(getClass)
-      log.error(s"Unable to load database properties from ${file.getAbsolutePath}", e)
-      None
+  def fromProps(file: File): Option[DatabaseParams] =
+    Try {
+      val prop = new Properties()
+      val input = new FileInputStream(file)
+      prop.load(input)
+      prop
+    } match {
+      case Success(p) =>
+        Option(
+            DBParams(
+                p.getProperty("jdbc.url"),
+                p.getProperty("jdbc.driver"),
+                p.getProperty("jdbc.username"),
+                p.getProperty("jdbc.password")
+            ))
+      case Failure(e) => {
+        val log = LoggerFactory.getLogger(getClass)
+        log.error(s"Unable to load database properties from ${file.getAbsolutePath}", e)
+        None
+      }
     }
-  }
 }

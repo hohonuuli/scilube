@@ -11,7 +11,7 @@ object SafeOption {
 
   private[this] val log = LoggerFactory.getLogger(getClass)
 
-  def apply[A](x: => A): Option[A] = {
+  def apply[A](x: => A): Option[A] =
     try {
       Option(x)
     } catch {
@@ -20,5 +20,4 @@ object SafeOption {
         None
       }
     }
-  }
 }

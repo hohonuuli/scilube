@@ -42,43 +42,62 @@ object GIS {
 
     val Letra = if (la < -72) {
       'C'
-    } else if (la < -64) {
+    }
+    else if (la < -64) {
       'D'
-    } else if (la < -56) {
+    }
+    else if (la < -56) {
       'E'
-    } else if (la < -48) {
+    }
+    else if (la < -48) {
       'F'
-    } else if (la < -40) {
+    }
+    else if (la < -40) {
       'G'
-    } else if (la < -32) {
+    }
+    else if (la < -32) {
       'H'
-    } else if (la < -24) {
+    }
+    else if (la < -24) {
       'J'
-    } else if (la < -16) {
+    }
+    else if (la < -16) {
       'K'
-    } else if (la < -8) {
+    }
+    else if (la < -8) {
       'L'
-    } else if (la < 0) {
+    }
+    else if (la < 0) {
       'M'
-    } else if (la < 8) {
+    }
+    else if (la < 8) {
       'N'
-    } else if (la < 16) {
+    }
+    else if (la < 16) {
       'P'
-    } else if (la < 24) {
+    }
+    else if (la < 24) {
       'Q'
-    } else if (la < 32) {
+    }
+    else if (la < 32) {
       'R'
-    } else if (la < 40) {
+    }
+    else if (la < 40) {
       'S'
-    } else if (la < 48) {
+    }
+    else if (la < 48) {
       'T'
-    } else if (la < 56) {
+    }
+    else if (la < 56) {
       'U'
-    } else if (la < 64) {
+    }
+    else if (la < 64) {
       'V'
-    } else if (la < 72) {
+    }
+    else if (la < 72) {
       'W'
-    } else {
+    }
+    else {
       'X'
     }
 

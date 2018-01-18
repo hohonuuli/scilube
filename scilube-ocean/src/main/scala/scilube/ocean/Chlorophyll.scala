@@ -7,7 +7,6 @@ import scala.math._
  * @author Brian Schlining
  * @since 2011-11-29
  */
-
 trait Chlorophyll {
 
   /**
@@ -16,9 +15,8 @@ trait Chlorophyll {
    * @param lw550  Water leaving radiance at 550nm
    * @return chlorophyll (ug/L)
    */
-  def czcs(lw443: Double, lw550: Double) = {
+  def czcs(lw443: Double, lw550: Double) =
     pow(10, (0.053 + 1.71 * log10(lw550 / lw443)))
-  }
 
   /**
    * OC1A Optical chlorophyll algorithmn

@@ -6,7 +6,6 @@ package scilube.geometry
  * @author Brian Schlining
  * @since 2012-03-07
  */
-
 object PointDirectionsFn extends (Iterable[LabeledDoublePoint2D] => Seq[PointPair[Double]]) {
 
   /**
