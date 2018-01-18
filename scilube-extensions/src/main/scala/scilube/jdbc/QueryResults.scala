@@ -1,8 +1,8 @@
 package scilube.jdbc
 
-import scala.collection.mutable.{ ArrayBuffer }
+import scala.collection.mutable.{ArrayBuffer}
 import java.util.Date
-import java.sql.{ Timestamp, Time, Types, ResultSet }
+import java.sql.{ResultSet, Time, Timestamp, Types}
 
 /**
  * Utility class that reads a ResultSet into a series of Arrays, one array for each column. Types will
@@ -56,7 +56,8 @@ class QueryResults(resultSet: ResultSet) extends Dataset {
       var i = 0
       while (i < colCount) { // In Scala, 'while' is much faster than 'for'
         columnClassNames(i) match {
-          case "oracle.sql.timestamp" => dataStores(i) += resultSet.getTimestamp(i + 1)
+          case "oracle.sql.timestamp" =>
+            dataStores(i) += resultSet.getTimestamp(i + 1)
           case _ => dataStores(i) += resultSet.getObject(i + 1)
         }
         i += 1
@@ -79,7 +80,8 @@ class QueryResults(resultSet: ResultSet) extends Dataset {
    * @param columnName The name of the column o interest (see __columneNames__)
    * @return An array of data for the column of interest. TODO should return an option if no match is found None
    */
-  def data(columnName: String): Array[Any] = dataBuffers(columns.indexOf(columnName))
+  def data(columnName: String): Array[Any] =
+    dataBuffers(columns.indexOf(columnName))
 
   def columnCount = _columnCount
   def rowCount = _rowCount
@@ -90,6 +92,7 @@ class QueryResults(resultSet: ResultSet) extends Dataset {
    * @return The SQL Type
    * @see [[java.sql.Types]]
    */
-  def sqlType(columnName: String): Int = _sqlColumnTypes(columns.indexOf(columnName))
+  def sqlType(columnName: String): Int =
+    _sqlColumnTypes(columns.indexOf(columnName))
 
 }

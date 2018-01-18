@@ -1,6 +1,6 @@
 package scilube.ocean
 
-import org.mbari.ocean.{ Seawater => JSeawater }
+import org.mbari.ocean.{Seawater => JSeawater}
 
 /**
  *
@@ -76,7 +76,8 @@ trait Seawater {
    * @param latitude decimal degrees
    * @return
    */
-  def depth(pressure: Double, latitude: Double) = JSeawater.depth(pressure, latitude)
+  def depth(pressure: Double, latitude: Double) =
+    JSeawater.depth(pressure, latitude)
 
   /**
    * Freezing point of seawater. Ref: UNESCO Tech Paper Mar Sci 44 (1983)
@@ -89,7 +90,8 @@ trait Seawater {
    * @param pressure Pressure (dbar)
    * @return Freezing point (Celsius)
    */
-  def freeze(salinity: Double, pressure: Double) = JSeawater.freeze(salinity, pressure)
+  def freeze(salinity: Double, pressure: Double) =
+    JSeawater.freeze(salinity, pressure)
 
   /**
    * Conversion of conductivity ratio to practical salinity (R, T, P)

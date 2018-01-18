@@ -49,16 +49,20 @@ trait EnvelopeContains {
 trait EnvelopeToRectangle {
   self: Envelope =>
 
-  def toRectangle: Rectangle2D = new Rectangle2D.Double(minimum.x, minimum.y, width, height);
+  def toRectangle: Rectangle2D =
+    new Rectangle2D.Double(minimum.x, minimum.y, width, height);
 }
 
 /**
  * Our basic envelop implementation
  */
-class SpatialEnvelope(val corner0: Point2D[Double], val corner1: Point2D[Double]) extends Envelope
-    with EnvelopeContains with EnvelopeToRectangle {
+class SpatialEnvelope(val corner0: Point2D[Double], val corner1: Point2D[Double])
+    extends Envelope
+    with EnvelopeContains
+    with EnvelopeToRectangle {
 
-  def this(x0: Double, y0: Double, x1: Double, y1: Double) = this(new DoublePoint2D(x0, y0), new DoublePoint2D(x1, y1))
+  def this(x0: Double, y0: Double, x1: Double, y1: Double) =
+    this(new DoublePoint2D(x0, y0), new DoublePoint2D(x1, y1))
 
   private val corners = {
     val minX = min(corner0.x, corner1.x)

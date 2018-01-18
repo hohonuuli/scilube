@@ -12,20 +12,19 @@ import scala.math._
  * @author Brian Schlining
  * @since 2012-03-19
  */
-
 class HausdorffDistanceFn[T: Ordering](
-  distanceFn: (LabeledDoublePoint2D, LabeledDoublePoint2D) => T,
-  partialFractionA: Double,
-  partialFractionB: Double
-)
-    extends ((Iterable[LabeledDoublePoint2D], Iterable[LabeledDoublePoint2D]) => PointPair[T]) {
+    distanceFn: (LabeledDoublePoint2D, LabeledDoublePoint2D) => T,
+    partialFractionA: Double,
+    partialFractionB: Double
+) extends ((Iterable[LabeledDoublePoint2D], Iterable[LabeledDoublePoint2D]) => PointPair[T]) {
 
   require(partialFractionA > 0 && partialFractionA <= 1)
   require(partialFractionB > 0 && partialFractionB <= 1)
 
   private val toHausdorffDistances = new HausdorffDistances(distanceFn)
 
-  def apply(aa: Iterable[LabeledDoublePoint2D], bb: Iterable[LabeledDoublePoint2D]): PointPair[T] = {
+  def apply(aa: Iterable[LabeledDoublePoint2D],
+            bb: Iterable[LabeledDoublePoint2D]): PointPair[T] = {
 
     // --- Calculate all distances
     val (nearestBToA, nearestAToB) = toHausdorffDistances(aa, bb)

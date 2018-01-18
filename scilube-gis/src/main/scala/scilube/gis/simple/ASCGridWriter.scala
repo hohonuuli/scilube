@@ -1,18 +1,18 @@
 package scilube.gis.simple
 
-import scilube.grid.{ NumericGrid, Grid }
-import java.io.{ FileWriter, BufferedWriter, File }
+import scilube.grid.{Grid, NumericGrid}
+import java.io.{BufferedWriter, File, FileWriter}
 
 /**
  *
  * @author Brian Schlining
  * @since 2012-04-23
  */
-
 object ASCGridWriter {
 
-  def write(file: File, grid: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double],
-    nodataValue: Double = -9999D) = {
+  def write(file: File,
+            grid: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double],
+            nodataValue: Double = -9999D) = {
 
     val dx = grid.dx
     //val dy = grid.dy
@@ -37,7 +37,8 @@ object ASCGridWriter {
         val z = grid(i, j)
         if (z.isNaN || z.isInfinity) {
           writer.write(nodataString)
-        } else {
+        }
+        else {
           writer.write(fmt.format(z))
         }
       }

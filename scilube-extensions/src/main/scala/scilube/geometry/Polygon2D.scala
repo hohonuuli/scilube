@@ -31,7 +31,8 @@ object Polygon2D {
 
 }
 
-class DoublePolygon2D[P <: Point2D[Double]](val points: Seq[P]) extends Polygon2D[Double, Double, P] {
+class DoublePolygon2D[P <: Point2D[Double]](val points: Seq[P])
+    extends Polygon2D[Double, Double, P] {
   require(points.size > 2, " A polygon needs 3 or more points, you gave " + points.size)
 
   lazy val area: Double = {
@@ -47,7 +48,8 @@ class DoublePolygon2D[P <: Point2D[Double]](val points: Seq[P]) extends Polygon2
     abs((p1 - p2) / 2D)
   }
 
-  def perimeter: Double = throw new UnsupportedOperationException("Not Implemented yet")
+  def perimeter: Double =
+    throw new UnsupportedOperationException("Not Implemented yet")
 
   def intersects(that: Polygon2D[Double, _, P]): Boolean =
     throw new UnsupportedOperationException("Not Implemented yet")
@@ -57,7 +59,6 @@ class DoublePolygon2D[P <: Point2D[Double]](val points: Seq[P]) extends Polygon2
    * @param point
    * @return
    */
-  def contains(point: P): Boolean = {
+  def contains(point: P): Boolean =
     throw new UnsupportedOperationException("Not Implemented yet")
-  }
 }

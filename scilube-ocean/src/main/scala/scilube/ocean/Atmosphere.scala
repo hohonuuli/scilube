@@ -12,7 +12,8 @@ trait Atmosphere {
     if (zen < 75) {
       val X = 1 / cos(zenr) - 1;
       1 + X - 1.867e-3 * X - 2.875e-3 * pow(X, 2) - 8.083e-4 * pow(X, 3);
-    } else {
+    }
+    else {
       var X = 0D; // the following iteration is Kasten's formula
       for (i <- 1 to 4) {
         // careful... X is degrees here

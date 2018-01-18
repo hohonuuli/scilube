@@ -2,7 +2,7 @@ package scilube.jfreechart.renderer
 
 import scala.beans.BeanProperty
 import org.jfree.chart.renderer.PaintScale
-import java.awt.{ Paint, Color }
+import java.awt.{Color, Paint}
 import scala.math._
 import scala.Double
 import scilube.Matlib
@@ -12,18 +12,25 @@ import scilube.Matlib
  * @author Brian Schlining
  * @since 2012-08-29
  */
-class HaxbyPaintScale(@BeanProperty val lowerBound: Double, @BeanProperty val upperBound: Double, m: Int = 64)
+class HaxbyPaintScale(@BeanProperty val lowerBound: Double,
+                      @BeanProperty val upperBound: Double,
+                      m: Int = 64)
     extends PaintScale {
 
-  require(lowerBound < upperBound, "Requires lowerBound (" + lowerBound + ") < upperBound (" +
-    upperBound + ")")
+  require(
+      lowerBound < upperBound,
+      "Requires lowerBound (" + lowerBound + ") < upperBound (" +
+        upperBound + ")")
 
   private[this] val emptyColor = new Color(255, 255, 255)
 
   private[this] val ncolors = 11D
-  private[this] val c1 = Array[Double](37, 40, 50, 106, 138, 205, 240, 255, 255, 255, 255)
-  private[this] val c2 = Array[Double](57, 127, 190, 235, 236, 255, 236, 189, 161, 186, 255)
-  private[this] val c3 = Array[Double](175, 251, 255, 255, 174, 162, 121, 87, 68, 133, 255)
+  private[this] val c1 =
+    Array[Double](37, 40, 50, 106, 138, 205, 240, 255, 255, 255, 255)
+  private[this] val c2 =
+    Array[Double](57, 127, 190, 235, 236, 255, 236, 189, 161, 186, 255)
+  private[this] val c3 =
+    Array[Double](175, 251, 255, 255, 174, 162, 121, 87, 68, 133, 255)
 
   val colors = {
     val pp = (1D to m.toDouble by ((m - 1) / (ncolors - 1))).toArray
@@ -41,7 +48,8 @@ class HaxbyPaintScale(@BeanProperty val lowerBound: Double, @BeanProperty val up
   def getPaint(value: Double): Paint = {
     val color = if (value.isNaN) {
       emptyColor
-    } else {
+    }
+    else {
       colors(getIndex(value))
     }
 

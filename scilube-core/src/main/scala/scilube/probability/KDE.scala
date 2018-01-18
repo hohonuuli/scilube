@@ -115,7 +115,10 @@ object KDE {
    * @param I
    * @param a2
    */
-  protected[probability] def fixedPoint(t: Double, N: Double, I: Array[Double], a2: Array[Double]) = {
+  protected[probability] def fixedPoint(t: Double,
+                                        N: Double,
+                                        I: Array[Double],
+                                        a2: Array[Double]) = {
     require(I.size == a2.size)
 
     // *** 2012-06-13 Brian Schlining - validated this method against kde.m. Matches exactly ***

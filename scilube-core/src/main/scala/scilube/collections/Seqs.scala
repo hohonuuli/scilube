@@ -20,12 +20,14 @@ object Seqs {
    * @tparam A The type of the contents of the list
    * @return The rotated list
    */
-  def rotate[A](p: Seq[A], u: Int): Seq[A] = if (u > 0) {
-    val v = u % p.size // Wraps in case u is greater than list size
-    p.slice(v, p.size) ++ p.slice(0, v)
-  } else {
-    val v = abs(u) % p.size
-    p.slice(p.size - v, p.size) ++ p.slice(0, p.size - v)
-  }
+  def rotate[A](p: Seq[A], u: Int): Seq[A] =
+    if (u > 0) {
+      val v = u % p.size // Wraps in case u is greater than list size
+      p.slice(v, p.size) ++ p.slice(0, v)
+    }
+    else {
+      val v = abs(u) % p.size
+      p.slice(p.size - v, p.size) ++ p.slice(0, p.size - v)
+    }
 
 }

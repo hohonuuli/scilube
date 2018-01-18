@@ -1,8 +1,8 @@
 package scilube.jfreechart.renderer
 
 import scala.beans.BeanProperty
-import java.awt.{ Color, Paint }
-import java.lang.{ Double => JDouble }
+import java.awt.{Color, Paint}
+import java.lang.{Double => JDouble}
 import scala.math._
 import org.jfree.chart.renderer.PaintScale
 import org.mbari.math.Matlib
@@ -12,12 +12,15 @@ import org.mbari.math.Matlib
  * @author Brian Schlining
  * @since Oct 11, 2010
  */
-
-class JetPlusPaintScale(@BeanProperty val lowerBound: Double, @BeanProperty val upperBound: Double, m: Int = 64)
+class JetPlusPaintScale(@BeanProperty val lowerBound: Double,
+                        @BeanProperty val upperBound: Double,
+                        m: Int = 64)
     extends PaintScale {
 
-  require(lowerBound < upperBound, "Requires lowerBound (" + lowerBound + ") < upperBound (" +
-    upperBound + ")")
+  require(
+      lowerBound < upperBound,
+      "Requires lowerBound (" + lowerBound + ") < upperBound (" +
+        upperBound + ")")
 
   private final val emptyColor = new Color(255, 255, 255)
 
@@ -29,10 +32,14 @@ class JetPlusPaintScale(@BeanProperty val lowerBound: Double, @BeanProperty val 
     val x = (1 to n) map { _ / nd } toList
     val y = ((nd / 2).toInt to n) map { _ / nd } toList
     val y0 = y.map(_ * 0D)
-    val e = x.map { a => 1D } toList
+    val e = x.map { a =>
+      1D
+    } toList
     val e0 = e.map(_ * 0D)
 
-    val r = Matlib.linspace(0.9, 0, k).toList ::: y0 ::: e0 ::: x ::: e ::: Matlib.linspace(1D, 0.3, y.size).toList
+    val r = Matlib
+      .linspace(0.9, 0, k)
+      .toList ::: y0 ::: e0 ::: x ::: e ::: Matlib.linspace(1D, 0.3, y.size).toList
     val g = k0 ::: y0 ::: x ::: e ::: x.reverse ::: y0
     val b = Matlib.linspace(0.75, 0.50, k).toList ::: y ::: e ::: x.reverse ::: e0 ::: y0
 
@@ -45,7 +52,8 @@ class JetPlusPaintScale(@BeanProperty val lowerBound: Double, @BeanProperty val 
   def getPaint(value: Double): Paint = {
     val color = if (JDouble.isNaN(value)) {
       emptyColor
-    } else {
+    }
+    else {
       colors(getIndex(value))
     }
 

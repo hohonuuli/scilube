@@ -9,13 +9,16 @@ import scala.reflect.ClassTag
  * @author Brian Schlining
  * @since 2012-09-04
  */
-class ArrayGrid[A, B, C: ClassTag](val x: IndexedSeq[A], val y: IndexedSeq[B], val array: Array[Array[C]])
-    extends Grid[A, B, C] with MutableGrid[A, B, C] {
+class ArrayGrid[A, B, C: ClassTag](val x: IndexedSeq[A],
+                                   val y: IndexedSeq[B],
+                                   val array: Array[Array[C]])
+    extends Grid[A, B, C]
+    with MutableGrid[A, B, C] {
 
   require(x.size == array.size, "x.size != array.size")
   require(y.size == array(0).size, "ysize != array(0).size")
 
-  def z(i: Int, j: Int, k: C): Unit = { array(i)(j) = k }
+  def z(i: Int, j: Int, k: C): Unit = array(i)(j) = k
 
   /**
    * Retrieves a value from grid based in the indices
@@ -37,7 +40,10 @@ class ArrayGrid[A, B, C: ClassTag](val x: IndexedSeq[A], val y: IndexedSeq[B], v
     val a = Array.ofDim[C](i1 - i0 + 1, j1 - j0 + 1)
     var xi = 0
     var yi = 0
-    for (i <- i0 to i1; j <- j0 to j1) {
+    for {
+      i <- i0 to i1
+      j <- j0 to j1
+    } {
       a(xi)(yi) = array(i)(j)
     }
     new ArrayGrid(x.slice(i0, i1 + 1), y.slice(j0, j1 + 1), a)
@@ -51,20 +57,28 @@ class ArrayGrid[A, B, C: ClassTag](val x: IndexedSeq[A], val y: IndexedSeq[B], v
  */
 object ArrayGrid {
 
-  def apply(x: IndexedSeq[Double], y: IndexedSeq[Double], z: Array[Array[Double]]): DoubleArrayGrid[Double, Double] = {
+  def apply(x: IndexedSeq[Double],
+            y: IndexedSeq[Double],
+            z: Array[Array[Double]]): DoubleArrayGrid[Double, Double] =
     new DoubleArrayGrid(x, y, z)
-  }
 
-  def apply(x: IndexedSeq[Double], y: IndexedSeq[Double], defaultValue: Double): DoubleArrayGrid[Double, Double] = {
-    new DoubleArrayGrid(x, y, Array.tabulate(x.size, y.size) { (u, v) => defaultValue })
-  }
+  def apply(x: IndexedSeq[Double],
+            y: IndexedSeq[Double],
+            defaultValue: Double): DoubleArrayGrid[Double, Double] =
+    new DoubleArrayGrid(x, y, Array.tabulate(x.size, y.size) { (u, v) =>
+      defaultValue
+    })
 
-  def apply(x: IndexedSeq[Double], y: IndexedSeq[Double], z: Array[Array[Float]]): FloatArrayGrid[Double, Double] = {
+  def apply(x: IndexedSeq[Double],
+            y: IndexedSeq[Double],
+            z: Array[Array[Float]]): FloatArrayGrid[Double, Double] =
     new FloatArrayGrid(x, y, z)
-  }
 
-  def apply(x: IndexedSeq[Double], y: IndexedSeq[Double], defaultValue: Float): FloatArrayGrid[Double, Double] = {
-    new FloatArrayGrid(x, y, Array.tabulate(x.size, y.size) { (u, v) => defaultValue })
-  }
+  def apply(x: IndexedSeq[Double],
+            y: IndexedSeq[Double],
+            defaultValue: Float): FloatArrayGrid[Double, Double] =
+    new FloatArrayGrid(x, y, Array.tabulate(x.size, y.size) { (u, v) =>
+      defaultValue
+    })
 
 }

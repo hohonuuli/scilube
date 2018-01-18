@@ -112,7 +112,7 @@ lazy val jfreechart = (project in file("scilube-jfreechart"))
   .settings(appSettings)
   .dependsOn(core, extensions)
 
-lazy val gis = (project in file("scilube-gis"))
+lazy val gis = (project in file("scilube-gis")) 
   .settings(appSettings)
   .dependsOn(core, extensions)
 

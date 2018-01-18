@@ -1,7 +1,7 @@
 package scilube
 
-import java.text.{ DateFormat, SimpleDateFormat }
-import java.util.{ Date, TimeZone }
+import java.text.{DateFormat, SimpleDateFormat}
+import java.util.{Date, TimeZone}
 
 /**
  *

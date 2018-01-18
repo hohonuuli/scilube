@@ -12,7 +12,6 @@ import math._
  * @author Brian Schlining
  * @since 2012-06-08
  */
-
 protected trait Statistics {
 
   /**
@@ -20,7 +19,8 @@ protected trait Statistics {
    * @param data data
    * @return array of mean absolute deviation
    */
-  def mad(data: Array[Double]): Array[Double] = Statlib.deviationFromMean(data).map(abs(_))
+  def mad(data: Array[Double]): Array[Double] =
+    Statlib.deviationFromMean(data).map(abs(_))
 
   /**
    * @param data data

@@ -8,7 +8,6 @@ import scala.math._
  * @author Brian Schlining
  * @since 2012-06-07
  */
-
 trait Trigonometry {
 
   val TAU = 2 * Pi

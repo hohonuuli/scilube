@@ -26,7 +26,6 @@ import scilube.Matlib.HALF_PI
  * @author Brian Schlining
  * @since 2012-12-06
  */
-
 class Camera(
     val height: Double,
     val alpha: Double,
@@ -35,14 +34,20 @@ class Camera(
     val units: Option[String] = None
 ) {
 
-  require(theta > 0 && theta <= HALF_PI, "alpha must be greater than 0 and less than Pi/2. " +
-    "You gave " + theta)
+  require(
+      theta > 0 && theta <= HALF_PI,
+      "alpha must be greater than 0 and less than Pi/2. " +
+        "You gave " + theta)
 
-  require(alpha > 0 && alpha < Pi, "beta must be greater than 0 and less than Pi. " +
-    "You gave " + alpha)
+  require(
+      alpha > 0 && alpha < Pi,
+      "beta must be greater than 0 and less than Pi. " +
+        "You gave " + alpha)
 
-  require(beta > 0 && beta < Pi, "beta must be greater than 0 and less than Pi. " +
-    "You gave " + beta)
+  require(
+      beta > 0 && beta < Pi,
+      "beta must be greater than 0 and less than Pi. " +
+        "You gave " + beta)
 
   /**
    * The distance from the point directly under the camera on the view plane to the principal point
@@ -93,8 +98,11 @@ object Camera {
    *              be in the same units as height
    * @return
    */
-  def fromDegrees(height: Double, alpha: Double, beta: Double, theta: Double,
-    units: Option[String] = None) =
+  def fromDegrees(height: Double,
+                  alpha: Double,
+                  beta: Double,
+                  theta: Double,
+                  units: Option[String] = None) =
     new Camera(height, toRadians(alpha), toRadians(beta), toRadians(theta), units)
 
   /**
@@ -111,7 +119,11 @@ object Camera {
    *              be in the same units as height
    * @return
    */
-  def fromRadians(height: Double, alpha: Double, beta: Double, theta: Double,
-    units: Option[String] = None) = new Camera(height, alpha, beta, theta, units)
+  def fromRadians(height: Double,
+                  alpha: Double,
+                  beta: Double,
+                  theta: Double,
+                  units: Option[String] = None) =
+    new Camera(height, alpha, beta, theta, units)
 
 }

@@ -2,7 +2,7 @@ package scilube.ocean
 
 import java.util.Date
 import java.util.GregorianCalendar
-import org.mbari.solar.{ SolarPosition => JSolarPosition }
+import org.mbari.solar.{SolarPosition => JSolarPosition}
 import scilube.Matlib
 
 trait Time {
@@ -22,10 +22,10 @@ trait Time {
    * @param longitude The longitude in decimal degrees (-W/+E)
    * @return GMT time of local apparent noon in decimal hours
    */
-  def noon(epochSecond: Long, longitude: Double): Double = {
+  def noon(epochSecond: Long, longitude: Double): Double =
     // val sp = solarPosition(epochSecond, 0, longitude)
     // val gha = sp.greenwichHourAngle
-    // val hour1 = 12 + sp / 15D // approximate time of local area noon 
+    // val hour1 = 12 + sp / 15D // approximate time of local area noon
     // if (gha > 180) {
     //   hour1 - (gha - Matlib.TAU) / 15D + -longitude / 15D
     // }
@@ -33,7 +33,6 @@ trait Time {
     //   hour1 - gha / 15D + -longitude / 15D
     // }
     0D
-  }
 }
 
 /**
@@ -49,27 +48,36 @@ trait Time {
  * @param zenith Solar zenith angle in radians
  */
 case class SolarPosition protected (
-  date: Date,
-  altitude: Double,
-  azimuth: Double,
-  declination: Double,
-  distance: Double,
-  greenwichHourAngle: Double,
-  latitude: Double,
-  longitude: Double,
-  zenith: Double,
-  earthSunDistance: Double
+    date: Date,
+    altitude: Double,
+    azimuth: Double,
+    declination: Double,
+    distance: Double,
+    greenwichHourAngle: Double,
+    latitude: Double,
+    longitude: Double,
+    zenith: Double,
+    earthSunDistance: Double
 )
 
 object SolarPosition {
+
   /**
    * Factory method
    *
    * @param sp The Java SolarPosition object to convert to a Scala SolarPosition
    */
-  def apply(sp: JSolarPosition): SolarPosition = {
-    SolarPosition(new Date(sp.getTime), sp.getAltitude, sp.getAzimuth, sp.getDeclination,
-      sp.getDistance, sp.getGreenwichHourAngle, sp.getLatitude,
-      sp.getLongitude, sp.getZenith, sp.getEarthSunDistance)
-  }
+  def apply(sp: JSolarPosition): SolarPosition =
+    SolarPosition(
+        new Date(sp.getTime),
+        sp.getAltitude,
+        sp.getAzimuth,
+        sp.getDeclination,
+        sp.getDistance,
+        sp.getGreenwichHourAngle,
+        sp.getLatitude,
+        sp.getLongitude,
+        sp.getZenith,
+        sp.getEarthSunDistance
+    )
 }

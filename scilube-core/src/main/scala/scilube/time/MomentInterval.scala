@@ -70,14 +70,14 @@ object MomentInterval {
    * @param d0 A date
    * @param d1 Another date
    */
-  def apply(d0: Date, d1: Date) = {
+  def apply(d0: Date, d1: Date) =
     if (d0.equals(d1)) {
       new Moment(d0)
-    } else {
+    }
+    else {
       val dates = List(d0, d1).sortBy(_.getTime)
       new Interval(dates.head, dates(1))
     }
-  }
 }
 
 /**
@@ -95,6 +95,7 @@ class Moment(val date: Date) extends DateInterval {
  */
 class Interval(val start: Date, val end: Date) extends DateInterval {
   require(start.before(end), "The start date was not before the end date!")
-  override def contains[B <: Date](date: B): Boolean = date.after(start) && date.before(end)
+  override def contains[B <: Date](date: B): Boolean =
+    date.after(start) && date.before(end)
   val duration = end.getTime - start.getTime
 }

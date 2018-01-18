@@ -3,12 +3,12 @@ package scilube.gis.simple
 import java.io.File
 import ucar.nc2.dataset.NetcdfDataset
 import ucar.nc2.NetcdfFileWriteable
-import ucar.ma2.{ DataType, Array => NCArray }
-import java.util.{ Date }
+import ucar.ma2.{DataType, Array => NCArray}
+import java.util.{Date}
 import org.slf4j.LoggerFactory
 
 import scala.Array
-import scilube.grid.{ NumericGrid, ArrayGrid, Grid }
+import scilube.grid.{ArrayGrid, Grid, NumericGrid}
 
 /**
  * Reads and writes GMT/GRD files. Here's an example CDL
@@ -58,18 +58,26 @@ class GMTGridIO {
     val grid = ArrayGrid(x, y, Double.NaN)
     val zVar = netcdf.findVariable("z")
     val z = zVar.read().copyToNDJavaArray.asInstanceOf[Array[Array[Float]]]
-    for (i <- 0 until x.size; j <- 0 until y.size) {
+    for {
+      i <- 0 until x.size
+      j <- 0 until y.size
+    } {
       grid.z(i, j, z(j)(i).asInstanceOf[Double])
     }
     grid
   }
 
-  def write[A <: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double]](file: File, data: A, zName: String): Unit = {
+  def write[A <: Grid[Double, Double, Double] with NumericGrid[Double, Double, Double]](
+      file: File,
+      data: A,
+      zName: String): Unit = {
     log.debug("Writing " + file)
     val nc = NetcdfFileWriteable.createNew(file.getCanonicalPath)
     nc.addGlobalAttribute("Conventions", "COARDS/CF-1.0")
-    nc.addGlobalAttribute("description", "\tProjection: UTM10N\n" +
-      "\tGrid created by: GMTGridIO.scala")
+    nc.addGlobalAttribute(
+        "description",
+        "\tProjection: UTM10N\n" +
+          "\tGrid created by: GMTGridIO.scala")
     nc.addGlobalAttribute("CreationDate", (new Date()).toString)
 
     val xDim = nc.addDimension("x", data.x.size)
@@ -97,7 +105,8 @@ class GMTGridIO {
   }
 
   private def toNCArray(grid: Grid[Double, Double, Double]) = {
-    val ncArray = NCArray.factory(DataType.DOUBLE, Array(grid.y.size, grid.x.size))
+    val ncArray =
+      NCArray.factory(DataType.DOUBLE, Array(grid.y.size, grid.x.size))
     val index = ncArray.getIndex
     for {
       xi <- 0 until grid.x.size

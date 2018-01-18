@@ -30,7 +30,8 @@ trait NumericGrid[A, B, C] {
       val isVNaN = numeric.toDouble(v).isNaN
       if (isMNaN && !isVNaN) {
         m = v
-      } else if (!numeric.toDouble(v).isNaN) {
+      }
+      else if (!numeric.toDouble(v).isNaN) {
         m = numeric.min(m, v)
       }
     }
@@ -51,7 +52,8 @@ trait NumericGrid[A, B, C] {
       val isVNaN = numeric.toDouble(v).isNaN
       if (isMNaN && !isVNaN) {
         m = v
-      } else if (!isVNaN) {
+      }
+      else if (!isVNaN) {
         m = numeric.max(m, v)
       }
     }
@@ -61,12 +63,14 @@ trait NumericGrid[A, B, C] {
   /**
    * Get the difference between the x values in a grid. Assumes an equally spaced x grid
    */
-  def dx(implicit numeric: Numeric[A]): A = numeric.minus(x.take(2).tail(0), x.head)
+  def dx(implicit numeric: Numeric[A]): A =
+    numeric.minus(x.take(2).tail(0), x.head)
 
   /**
    * Get the difference between the x values in a grid. Assumes an equally spaced x grid
    */
-  def dy(implicit numeric: Numeric[B]): B = numeric.minus(y.take(2).tail(0), y.head)
+  def dy(implicit numeric: Numeric[B]): B =
+    numeric.minus(y.take(2).tail(0), y.head)
 
   /**
    * Sum all the cells in a grid. NaN's are ignored.
@@ -91,7 +95,10 @@ trait NumericGrid[A, B, C] {
    */
   def toXYZ()(implicit numeric: Numeric[C]): String = {
     val sb = new StringBuilder("X,Y,Z\n")
-    for (xi <- 0 until x.size; yi <- 0 until y.size) {
+    for {
+      xi <- 0 until x.size
+      yi <- 0 until y.size
+    } {
       val zval = numeric.toDouble(z(xi, yi))
       if (zval != 0 && !zval.isNaN && !zval.isInfinity) {
         sb.append(x(xi)).append(",").append(y(yi)).append(",").append(z(xi, yi)).append("\n")

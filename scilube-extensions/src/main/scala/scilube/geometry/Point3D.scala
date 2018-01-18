@@ -21,9 +21,8 @@ trait Point3D[A] extends Point2D[A] {
     sqrt(dx + dy + dz)
   }
 
-  def direction(point: Point3D[A])(implicit numeric: Numeric[A]): Double = {
+  def direction(point: Point3D[A])(implicit numeric: Numeric[A]): Double =
     throw new UnsupportedOperationException("Not implemented yet")
-  }
 
   override lazy val toString: String = x + "," + y + "," + z
 
@@ -35,7 +34,9 @@ trait Point3D[A] extends Point2D[A] {
   }
 }
 
-class DoublePoint3D(x: Double, y: Double, val z: Double) extends DoublePoint2D(x, y) with Point3D[Double]
+class DoublePoint3D(x: Double, y: Double, val z: Double)
+    extends DoublePoint2D(x, y)
+    with Point3D[Double]
 
 class IntPoint3D(x: Int, y: Int, val z: Int) extends IntPoint2D(x, y) with Point3D[Int]
 
@@ -44,4 +45,3 @@ object Point3D {
 
   def apply(x: Double, y: Double, z: Double) = new DoublePoint3D(x, y, z)
 }
-

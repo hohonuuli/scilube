@@ -3,20 +3,16 @@ package scilube
 import scala.reflect.ClassTag
 import scilube.probability.KDE
 import scala.math._
-import org.mbari.math.{ Matlib => JMatlib }
-import java.util.{ Arrays, Comparator }
-import java.lang.{ Integer => JInteger }
+import org.mbari.math.{Matlib => JMatlib}
+import java.util.{Arrays, Comparator}
+import java.lang.{Integer => JInteger}
 
 /**
  *
  * @author Brian Schlining
  * @since 2012-06-07
  */
-object Matlib
-    extends Mathematics
-    with Probabilities
-    with Statistics
-    with Trigonometry {
+object Matlib extends Mathematics with Probabilities with Statistics with Trigonometry {
 
   /**
    * Calculate the relative cumulative density between 2 sample sets. Internally the CDF is
@@ -67,13 +63,12 @@ object Matlib
    * @param y
    * @return
    */
-  def trapz(x: Array[Double], y: Array[Double]): Double = {
+  def trapz(x: Array[Double], y: Array[Double]): Double =
     //    val dx = diff(x)
     //    val dy = diff(y) / 2
     //    val yy = add(y.subset(0 until y.size - 1), dy)
     //    sum(multiply(dx, yy))
     JMatlib.trapz(x, y) // Java loops tend to be faster
-  }
 
   /**
    * Emperical cumulative density function. This makes no assumptions about the data
@@ -112,9 +107,8 @@ object Matlib
    * @tparam A The Type of the data array
    * @return An a subset of data (e.g. In Matlab
    */
-  def subset[A: ClassTag](data: Array[A], idx: Seq[Int]): Array[A] = {
+  def subset[A: ClassTag](data: Array[A], idx: Seq[Int]): Array[A] =
     (for (i <- 0 until idx.size) yield data(idx(i))).toArray
-  }
 
   def find[A](data: Array[A], predicate: A => Boolean): Seq[Int] =
     data.zipWithIndex.filter(i => predicate(i._1)).map(_._2)
@@ -123,7 +117,8 @@ object Matlib
   private def sortWith[T](x: Array[T], comparator: Comparator[T]): Seq[Int] = {
     val indices = (x.indices).map(i => i: JInteger).toArray
     val intComparator = new Comparator[JInteger] {
-      override def compare(i0: JInteger, i1: JInteger) = comparator.compare(x(i0), x(i1))
+      override def compare(i0: JInteger, i1: JInteger) =
+        comparator.compare(x(i0), x(i1))
     }
     Arrays.sort(indices, intComparator)
     indices.map(i => i: Int)

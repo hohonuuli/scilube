@@ -8,7 +8,8 @@ import scala.collection.mutable
  * @since 2012-03-07
  */
 class ToPointPairsFn[A: Ordering]
-    extends (((LabeledDoublePoint2D, LabeledDoublePoint2D) => A, Iterable[LabeledDoublePoint2D]) => Seq[PointPair[A]]) {
+    extends (((LabeledDoublePoint2D, LabeledDoublePoint2D) => A, Iterable[LabeledDoublePoint2D]) => Seq[
+        PointPair[A]]) {
 
   /**
    * Calculates some value between all possible   combinations of points
@@ -17,13 +18,17 @@ class ToPointPairsFn[A: Ordering]
    * @return A collection of pointpairs with the value from the ''valueCalculation'' function
    */
   def apply(
-    valueCalculation: (LabeledDoublePoint2D, LabeledDoublePoint2D) => A,
-    points: Iterable[LabeledDoublePoint2D]
+      valueCalculation: (LabeledDoublePoint2D, LabeledDoublePoint2D) => A,
+      points: Iterable[LabeledDoublePoint2D]
   ): Seq[PointPair[A]] = {
     val set = new mutable.HashSet[PointPair[A]]
     val pointMap = points.map(p => p.label -> p).toMap
 
-    for (key0 <- pointMap.keySet; key1 <- pointMap.keySet; if key0 < key1) {
+    for {
+      key0 <- pointMap.keySet
+      key1 <- pointMap.keySet
+      if key0 < key1
+    } {
       val p0 = pointMap(key0)
       val p1 = pointMap(key1)
       val value = valueCalculation(p0, p1)
