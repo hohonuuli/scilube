@@ -7,9 +7,9 @@ version in ThisBuild := "2.0.3"
 
 licenses in ThisBuild ++= Seq(("MIT", url("http://opensource.org/licenses/MIT")))
 
-scalaVersion in ThisBuild := "2.11.7"
+scalaVersion in ThisBuild := "2.12.0"
 
-crossScalaVersions in ThisBuild := Seq("2.11.7", "2.10.4")
+crossScalaVersions in ThisBuild := Seq("2.12.0", "2.11.9", "2.10.4")
 
 homepage := Some(url("https://hohonuuli.github.io/scilube/"))
 
@@ -88,6 +88,8 @@ shellPrompt in ThisBuild := { state =>
   val user = System.getProperty("user.name")
   "\n" + user + "@" + Project.extract(state).currentRef.project + "\nsbt> "
 }
+
+lazy val versionReport = TaskKey[String]("version-report")
 
 // Add this setting to your project to generate a version report (See ExtendedBuild.scala too.)
 // Use as 'sbt versionReport' or 'sbt version-report'
