@@ -4,8 +4,10 @@ import spire.math.Complex
 import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
-import org.mbari.math.{ DoubleMath, Matlib => JMatlib, Statlib }
-import scala.math.{ floor, sqrt }
+import org.apache.commons.math3.analysis.interpolation.LinearInterpolator
+import org.mbari.math.{DoubleMath, Statlib, Matlib => JMatlib}
+
+import scala.math.{floor, sqrt}
 
 /**
  * Math functions.
@@ -162,6 +164,32 @@ protected trait Mathematics {
    */
   def interp1(x: Array[Double], y: Array[Double], xi: Array[Double]): Array[Double] =
     JMatlib.interpolate(x, y, xi)
+
+  /**
+    * Linear Extrapolation. Recipe is from
+    *
+    * @param x array of x values
+    * @param y array of y values
+    * @param xi array of x values to interpolate to
+    * @return array of y values at xi
+    *
+    * @see https://stackoverflow.com/questions/32076041/extrapolation-in-java
+    */
+  def extrap1(x: Array[Double], y: Array[Double], xi: Array[Double]): Array[Double] = {
+    val fn = new LinearInterpolator().interpolate(x, y)
+    val splines = fn.getPolynomials
+    val pf0 = splines.head
+    val pfn = splines.last
+    val knots = fn.getKnots
+    val k0 = knots.head
+    val ko = knots(knots.length - 2)
+    val kn = knots.last
+    xi.map(a => {
+      if (a > kn) pfn.value(a - ko)
+      else if (a < k0) pf0.value(a - k0)
+      else fn.value(a)
+    })
+  }
 
   /**
    * @return true if the number is a prime number. False otherwise
