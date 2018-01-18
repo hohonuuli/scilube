@@ -28,7 +28,7 @@ import scilube.Matlib.HALF_PI
  */
 
 class Camera(
-  val height: Double,
+    val height: Double,
     val alpha: Double,
     val beta: Double,
     val theta: Double,
