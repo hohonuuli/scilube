@@ -9,40 +9,40 @@ import spire.implicits._
 import spire.math.Complex
 
 /**
- * Kernel Density Estimator for one-dimensional data. This is a port of kde.m at
- * http://mathworks.us/matlabcentral/fileexchange/authors/27236. The output of this matches
- * kde.m exactly. Help from kde.m:
- *
- * "Gaussian kernel is assumed and the bandwidth is chosen automatically;
- *    Unlike many other implementations, this one is immune to problems
- *    caused by multimodal densities with widely separated modes (see example). The
- *    estimation does not deteriorate for multimodal densities, because we never assume
- *    a parametric model for the data."
- *
- * '''Reference''':
- *   Z. I. Botev, J. F. Grotowski, and D. P. Kroese (2010)
- *   Annals of Statistics, Volume 38, Number 5, pages 2916-2957.
- *
- * @author Brian Schlining
- * @since 2012-06-07
- */
+  * Kernel Density Estimator for one-dimensional data. This is a port of kde.m at
+  * http://mathworks.us/matlabcentral/fileexchange/authors/27236. The output of this matches
+  * kde.m exactly. Help from kde.m:
+  *
+  * "Gaussian kernel is assumed and the bandwidth is chosen automatically;
+  *    Unlike many other implementations, this one is immune to problems
+  *    caused by multimodal densities with widely separated modes (see example). The
+  *    estimation does not deteriorate for multimodal densities, because we never assume
+  *    a parametric model for the data."
+  *
+  * '''Reference''':
+  *   Z. I. Botev, J. F. Grotowski, and D. P. Kroese (2010)
+  *   Annals of Statistics, Volume 38, Number 5, pages 2916-2957.
+  *
+  * @author Brian Schlining
+  * @since 2012-06-07
+  */
 object KDE {
 
   /**
-   * Apply the kernel density estimator. Uses a default n of pow(2, 14)
-   * @param data An array of data used to construct the density estimate
-   * @return The results
-   */
+    * Apply the kernel density estimator. Uses a default n of pow(2, 14)
+    * @param data An array of data used to construct the density estimate
+    * @return The results
+    */
   def apply(data: Array[Double]): KDEResult = apply(data, pow(2, 14).toInt)
 
   /**
-   * Apply the kernel density estimator
-   * @param data An array of data used to construct the density estimate
-   * @param n The number of points used in the uniform disretization of the interval (where
-   *          interval is data.max and data.min). '''n''' should be a power of 2. If it's not
-   *          then n is rounded up to the next power of 2.
-   * @return
-   */
+    * Apply the kernel density estimator
+    * @param data An array of data used to construct the density estimate
+    * @param n The number of points used in the uniform disretization of the interval (where
+    *          interval is data.max and data.min). '''n''' should be a power of 2. If it's not
+    *          then n is rounded up to the next power of 2.
+    * @return
+    */
   def apply(data: Array[Double], n: Int): KDEResult = {
     val min = data.min
     val max = data.max
@@ -51,22 +51,32 @@ object KDE {
   }
 
   /**
-   * Apply the kernel density estimator
-   * @param data An array of data used to construct the density estimate
-   * @param n The number of points used in the uniform disretization of the interval (where
-   *          interval is data.max and data.min). '''n''' should be a power of 2. If it's not
-   *          then n is rounded up to the next power of 2.
-   * @param min defines the minimum of the interval on which the density estimate is constructed
-   * @param max defines the maximum of the interval on which the density estimate is constructed
-   * @return
-   */
-  def apply(data: Array[Double], n: Int, min: Double, max: Double): KDEResult = {
+    * Apply the kernel density estimator
+    * @param data An array of data used to construct the density estimate
+    * @param n The number of points used in the uniform disretization of the interval (where
+    *          interval is data.max and data.min). '''n''' should be a power of 2. If it's not
+    *          then n is rounded up to the next power of 2.
+    * @param min defines the minimum of the interval on which the density estimate is constructed
+    * @param max defines the maximum of the interval on which the density estimate is constructed
+    * @return
+    */
+  def apply(
+      data: Array[Double],
+      n: Int,
+      min: Double,
+      max: Double
+  ): KDEResult = {
 
     // Set up the grid over which the density estimate is computed
     val R = max - min
-    val dx = R / (n - 1)
+    val dx = R / (n.toDouble - 1)
 
-    val xmesh = (0D to R by dx).map(_ + min).toArray
+    val xmesh = Range
+      .BigDecimal(0d, R, dx)
+      .map(_ + min)
+      .map(_.toDouble)
+      .toArray
+    //val xmesh = (0d to R by dx).map(_ + min).toArray
     val N = data.distinct.size
 
     // Bin the data uniformly using the grid defined above
@@ -75,13 +85,13 @@ object KDE {
     val initial_data = initial_data2.map(_ / initial_data_sum)
     val a = dct1d(initial_data)
     val I = (1 to (n - 1)).map(_.toDouble).map(pow(_, 2)).toArray
-    val a2 = a.tail.map(j => pow(j / 2D, 2))
+    val a2 = a.tail.map(j => pow(j / 2d, 2))
 
     // use  fzero to solve the equation t=zeta*gamma^[5](t)
     val t_star = try {
       Matlib.fzero(fixedPoint(_: Double, N, I, a2), 0)
     } catch {
-      case _: Exception => .28 * pow(N, -2 / 5D)
+      case _: Exception => .28 * pow(N, -2 / 5d)
     }
 
     // smooth the discrete cosine transform of initial data using t_star
@@ -97,7 +107,7 @@ object KDE {
         I(i) * a2(i) * exp(-I(i) * pow(Pi, 2) * t_star)
       }
       val f = 2 * pow(Pi, 2) * fa.sum
-      val t_cdf = pow(sqrt(Pi) * f * N, -2D / 3)
+      val t_cdf = pow(sqrt(Pi) * f * N, -2d / 3)
       val a_cdf = (for (i: Int <- 0 to (n - 1)) yield {
         a(i) * exp(-pow(i, 2) * pow(Pi, 2) * t_cdf / 2)
       }).toArray
@@ -109,16 +119,18 @@ object KDE {
   }
 
   /**
-   * this implements the function t-zeta*gamma**[l](t)
-   * @param t
-   * @param N
-   * @param I
-   * @param a2
-   */
-  protected[probability] def fixedPoint(t: Double,
-                                        N: Double,
-                                        I: Array[Double],
-                                        a2: Array[Double]) = {
+    * this implements the function t-zeta*gamma**[l](t)
+    * @param t
+    * @param N
+    * @param I
+    * @param a2
+    */
+  protected[probability] def fixedPoint(
+      t: Double,
+      N: Double,
+      I: Array[Double],
+      a2: Array[Double]
+  ) = {
     require(I.size == a2.size)
 
     // *** 2012-06-13 Brian Schlining - validated this method against kde.m. Matches exactly ***
@@ -142,10 +154,10 @@ object KDE {
         Matlib.prod(a) / sqrt(2 * Pi)
       }
       // MATLAB: const=(1+(1/2)^(s+1/2))/3;
-      val const = (1 + pow(1 / 2D, s + 1 / 2D)) / 3
+      val const = (1 + pow(1 / 2d, s + 1 / 2d)) / 3
 
       // MATLAB: time=(2*const*K0/N/f)^(2/(3+2*s));
-      val time = pow(2 * const * K0 / N / f, 2 / (3D + 2 * s))
+      val time = pow(2 * const * K0 / N / f, 2 / (3d + 2 * s))
 
       // MATLAB: f=2*pi^(2*s)*sum(I.^s.*a2.*exp(-I*pi^2*time));
       f = {
@@ -158,7 +170,7 @@ object KDE {
     }
 
     // MATLAB: out=t-(2*N*sqrt(pi)*f)^(-2/5);
-    t - pow(2 * N * sqrt(Pi) * f, -2 / 5D)
+    t - pow(2 * N * sqrt(Pi) * f, -2 / 5d)
 
   }
 
@@ -204,9 +216,9 @@ object KDE {
   }
 
   /**
-   * Discrete cosine transform
-   * @param data
-   */
+    * Discrete cosine transform
+    * @param data
+    */
   protected[probability] def dct1d(data: Array[Double]): Array[Double] = {
 
     // *** 2012-06-12 Brian Schlining - validated this method against kde.m. Matches exactly ***
@@ -216,7 +228,7 @@ object KDE {
     // Compute weights to multiply DFT coefficients
     // MATLAB: weight = [1;2*(exp(-i*(1:nrows-1)*pi/(2*nrows))).'];
     val weight = Complex[Double](1, 0) +: (for (j <- 1 until nrows) yield {
-      2D * ComplexLib.exp(Complex[Double](0, -j) * Pi / (2 * nrows))
+      2d * ComplexLib.exp(Complex[Double](0, -j) * Pi / (2 * nrows))
     })
 
     // Re-order the elements of the columns of x

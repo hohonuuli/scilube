@@ -8,23 +8,25 @@ import scala.Double
 import scilube.Matlib
 
 /**
- *
- * @author Brian Schlining
- * @since 2012-08-29
- */
-class HaxbyPaintScale(@BeanProperty val lowerBound: Double,
-                      @BeanProperty val upperBound: Double,
-                      m: Int = 64)
-    extends PaintScale {
+  *
+  * @author Brian Schlining
+  * @since 2012-08-29
+  */
+class HaxbyPaintScale(
+    @BeanProperty val lowerBound: Double,
+    @BeanProperty val upperBound: Double,
+    m: Int = 64
+) extends PaintScale {
 
   require(
-      lowerBound < upperBound,
-      "Requires lowerBound (" + lowerBound + ") < upperBound (" +
-        upperBound + ")")
+    lowerBound < upperBound,
+    "Requires lowerBound (" + lowerBound + ") < upperBound (" +
+      upperBound + ")"
+  )
 
   private[this] val emptyColor = new Color(255, 255, 255)
 
-  private[this] val ncolors = 11D
+  private[this] val ncolors = 11d
   private[this] val c1 =
     Array[Double](37, 40, 50, 106, 138, 205, 240, 255, 255, 255, 255)
   private[this] val c2 =
@@ -33,8 +35,16 @@ class HaxbyPaintScale(@BeanProperty val lowerBound: Double,
     Array[Double](175, 251, 255, 255, 174, 162, 121, 87, 68, 133, 255)
 
   val colors = {
-    val pp = (1D to m.toDouble by ((m - 1) / (ncolors - 1))).toArray
-    val mm = (1D to m.toDouble by 1D).toArray
+    val pp = Range
+      .BigDecimal(1d, m.toDouble, (m - 1) / (ncolors - 1))
+      .map(_.toDouble)
+      .toArray
+    //val pp = (1D to m.toDouble by ((m - 1) / (ncolors - 1))).toArray
+    // val mm = (1d to m.toDouble by 1d).toArray
+    val mm = Range
+      .BigDecimal(1d, m.toDouble, 1d)
+      .map(_.toDouble)
+      .toArray
     val r = Matlib.interp1(pp, c1, mm)
     val g = Matlib.interp1(pp, c2, mm)
     val b = Matlib.interp1(pp, c3, mm)
@@ -48,8 +58,7 @@ class HaxbyPaintScale(@BeanProperty val lowerBound: Double,
   def getPaint(value: Double): Paint = {
     val color = if (value.isNaN) {
       emptyColor
-    }
-    else {
+    } else {
       colors(getIndex(value))
     }
 
