@@ -2,7 +2,6 @@ package scilube.net
 
 import java.io.{BufferedInputStream, File, FileInputStream, FileOutputStream}
 import java.util.zip.{ZipEntry, ZipOutputStream}
-import org.mbari.io.IOUtilities
 
 object Zip {
   def apply(out: File, files: Iterable[String]) = {

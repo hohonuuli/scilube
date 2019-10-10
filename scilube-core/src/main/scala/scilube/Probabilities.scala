@@ -1,6 +1,6 @@
 package scilube
 
-import org.mbari.math.Statlib
+import mbarix4j.math.Statlib
 import math._
 import probability.KDE
 import scala.util.Random

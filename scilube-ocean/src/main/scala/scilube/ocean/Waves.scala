@@ -1,7 +1,7 @@
 package scilube.ocean
 
 import scala.math._
-import org.mbari.ocean.{Waves => JWaves}
+import mbarix4j.ocean.{Waves => JWaves}
 
 /**
  *

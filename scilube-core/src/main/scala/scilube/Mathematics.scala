@@ -5,14 +5,14 @@ import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
 import org.apache.commons.math3.analysis.interpolation.LinearInterpolator
-import org.mbari.math.{DoubleMath, Matlib => JMatlib, Statlib}
+import mbarix4j.math.{DoubleMath, Matlib => JMatlib, Statlib}
 import scala.math.{floor, sqrt}
 
 /**
   * Math functions.
   *
   * These are factored out into a trait just for modularity. Everyone should use these from the
-  * [[org.mbari.math.Matlib]] object
+  * [[mbarix4j.math.Matlib]] object
   * @author Brian Schlining
   * @since 2012-06-08
   */

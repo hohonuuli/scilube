@@ -1,6 +1,6 @@
 package scilube
 
-import org.mbari.math.DoubleMath
+import mbarix4j.math.DoubleMath
 import scala.math._
 
 /**

@@ -3,7 +3,7 @@ package scilube
 import scala.reflect.ClassTag
 import scilube.probability.KDE
 import scala.math._
-import org.mbari.math.{Matlib => JMatlib}
+import mbarix4j.math.{Matlib => JMatlib}
 import java.util.{Arrays, Comparator}
 import java.lang.{Integer => JInteger}
 

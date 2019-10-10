@@ -5,7 +5,7 @@ import java.awt.{Color, Paint}
 import java.lang.{Double => JDouble}
 import scala.math._
 import org.jfree.chart.renderer.PaintScale
-import org.mbari.math.Matlib
+import mbarix4j.math.Matlib
 
 /**
   * Reference http://grepcode.com/file/repo1.maven.org/maven2/jfree/jfreechart/1.0.11/org/jfree/chart/renderer/GrayPaintScale.java#GrayPaintScale

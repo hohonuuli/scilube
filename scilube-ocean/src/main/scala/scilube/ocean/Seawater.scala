@@ -1,6 +1,6 @@
 package scilube.ocean
 
-import org.mbari.ocean.{Seawater => JSeawater}
+import mbarix4j.ocean.{Seawater => JSeawater}
 
 /**
  *

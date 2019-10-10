@@ -5,8 +5,8 @@ name := "scilube-jfreechart"
 // DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 libraryDependencies ++= Seq(
-    "org.jfree" % "jfreechart" % "1.0.19",
-    "org.jfree" % "jcommon" % "1.0.23"
+    "org.jfree" % "jfreechart" % "1.5.0",
+    "org.jfree" % "jcommon" % "1.0.24"
 )
 
 

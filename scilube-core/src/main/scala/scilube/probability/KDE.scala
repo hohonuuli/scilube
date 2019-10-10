@@ -1,7 +1,7 @@
 package scilube.probability
 
 import edu.emory.mathcs.jtransforms.dct.DoubleDCT_1D
-import org.mbari.math.Statlib
+import mbarix4j.math.Statlib
 import scala.math._
 import scilube.Matlib
 import scilube.spirelib.ComplexLib

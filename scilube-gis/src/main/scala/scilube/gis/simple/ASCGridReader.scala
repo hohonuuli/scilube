@@ -1,10 +1,12 @@
 package scilube.gis.simple
 
 import java.net.URL
-import org.mbari.util.{StringUtilities}
 import java.util.StringTokenizer
+
 import scilube.grid.{ArrayGrid, MutableGrid}
 import java.io.{BufferedReader, File, InputStreamReader}
+
+import mbarix4j.util.StringUtilities
 import scilube.Matlib
 
 object ASCGridReader {

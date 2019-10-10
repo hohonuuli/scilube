@@ -2,7 +2,7 @@ package scilube.ocean
 
 import java.util.Date
 import java.util.GregorianCalendar
-import org.mbari.solar.{SolarPosition => JSolarPosition}
+import mbarix4j.solar.{SolarPosition => JSolarPosition}
 import scilube.Matlib
 
 trait Time {

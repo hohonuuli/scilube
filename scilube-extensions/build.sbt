@@ -5,7 +5,7 @@ name := "scilube-extensions"
 // DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 libraryDependencies ++= Seq(
-    "org.mbari" % "mbarix4j" % "1.10.0",
+    "org.mbari" % "mbarix4j" % "2.0.4.jre11",
     "org.apache.commons" % "commons-email" % "1.4"
 )
 

@@ -1,13 +1,9 @@
 package scilube.ocean
 
-import java.util.Date
 import org.junit.runner.RunWith
-import org.mbari.util.GmtCalendar
 import org.scalatest.FunSpec
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.Matchers
-import org.threeten.bp._  
-import scala.math._
 
 @RunWith(classOf[JUnitRunner])
 class TimeTest extends FunSpec with Matchers {
