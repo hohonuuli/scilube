@@ -6,6 +6,7 @@ syntax: glob
 *.bak
 #*.off
 *.old
+*.orig
 
 # eclipse conf file
 .settings
@@ -17,6 +18,11 @@ syntax: glob
 # idea
 .idea
 *.iml
+
+# vscode
+.bloop/
+.metals/
+.vscode/
 
 # building
 target
