@@ -1,14 +1,14 @@
 lazy val junitVersion = "4.12"
 lazy val logbackVersion = "1.2.3"
 lazy val scalatestVersion = "3.0.8"
-lazy val slf4jVersion = "1.7.26"
+lazy val slf4jVersion = "1.7.29"
 
 lazy val buildSettings = Seq(
   //ensimeIgnoreScalaMismatch in ThisBuild := true,
   organization := "scilube",
   scalaVersion := "2.13.1",
   crossScalaVersions := Seq("2.13.1"),
-  version := "2.0.6"
+  version := "2.0.7.jre11"
 )
 
 lazy val consoleSettings = Seq(
