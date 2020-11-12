@@ -1,7 +1,7 @@
-lazy val junitVersion = "4.12"
+lazy val junitVersion = "4.13"
 lazy val logbackVersion = "1.2.3"
 lazy val scalatestVersion = "3.0.8"
-lazy val slf4jVersion = "1.7.29"
+lazy val slf4jVersion = "1.7.30"
 
 lazy val buildSettings = Seq(
   //ensimeIgnoreScalaMismatch in ThisBuild := true,
@@ -25,13 +25,13 @@ lazy val consoleSettings = Seq(
 
 lazy val dependencySettings = Seq(
   libraryDependencies ++= Seq(
-    "ch.qos.logback" % "logback-classic" % logbackVersion,
-    "ch.qos.logback" % "logback-core" % logbackVersion,
-    "com.novocode" % "junit-interface" % "0.11" % "test",
-    "junit" % "junit" % junitVersion % "test",
-    "org.scalatest" %% "scalatest" % scalatestVersion % "test",
-    "org.slf4j" % "log4j-over-slf4j" % slf4jVersion,
-    "org.slf4j" % "slf4j-api" % slf4jVersion
+    "ch.qos.logback" % "logback-classic"  % logbackVersion,
+    "ch.qos.logback" % "logback-core"     % logbackVersion,
+    "com.novocode"   % "junit-interface"  % "0.11" % "test",
+    "junit"          % "junit"            % junitVersion % "test",
+    "org.scalatest"  %% "scalatest"       % scalatestVersion % "test",
+    "org.slf4j"      % "log4j-over-slf4j" % slf4jVersion,
+    "org.slf4j"      % "slf4j-api"        % slf4jVersion
   ),
   resolvers ++= Seq(
     Resolver.mavenLocal,
@@ -93,25 +93,16 @@ lazy val root = project
   .aggregate(core, extensions, ocean, jfreechart, gis)
   .dependsOn(core, extensions, ocean)
 
-lazy val core = (project in file("scilube-core"))
-  .settings(appSettings)
+lazy val core = (project in file("scilube-core")).settings(appSettings)
 
-lazy val extensions = (project in file("scilube-extensions"))
-  .settings(appSettings)
-  .dependsOn(core)
+lazy val extensions = (project in file("scilube-extensions")).settings(appSettings).dependsOn(core)
 
-lazy val ocean = (project
-  .in(file("scilube-ocean")))
-  .settings(appSettings)
-  .dependsOn(core)
+lazy val ocean = (project.in(file("scilube-ocean"))).settings(appSettings).dependsOn(core)
 
-lazy val jfreechart = (project in file("scilube-jfreechart"))
-  .settings(appSettings)
-  .dependsOn(core, extensions)
+lazy val jfreechart =
+  (project in file("scilube-jfreechart")).settings(appSettings).dependsOn(core, extensions)
 
-lazy val gis = (project in file("scilube-gis"))
-  .settings(appSettings)
-  .dependsOn(core, extensions)
+lazy val gis = (project in file("scilube-gis")).settings(appSettings).dependsOn(core, extensions)
 
 // Aliases
 addCommandAlias("cleanall", ";clean;clean-files")
