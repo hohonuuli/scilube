@@ -11,7 +11,7 @@ libraryDependencies += "scilube" %% "scilube-core" % "2.0.7.jre11"
 
 ## Array extension methods
 
-`scilibe.RichArray` extension methods allow array operations:
+### `scilibe.RichArray` extension methods allow array operations:
 
 ```
 import scilibe.RichArray // add implict element-by-element math functions to arrays
@@ -43,7 +43,7 @@ x.findIdx(_ < 3)
 // res: Array[Int] = Array(0, 1)
 ```
 
-`scilibe.RichArray` extension methods allow scalar operations on arrays:
+### `scilibe.RichArray` extension methods allow scalar operations on arrays:
 
 ```
 import scilibe.RichArray // add implict element-by-element math functions to arrays
@@ -66,7 +66,7 @@ x - 10
 
 ```
 
-MATLAB-like DSL ... `Matlib`
+## MATLAB-like DSL ... `Matlib`
 
 ```
 import scilibe.RichArray // add implict element-by-element math functions to arrays
