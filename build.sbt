@@ -1,13 +1,13 @@
-lazy val junitVersion = "4.13"
+lazy val junitVersion = "4.13.1"
 lazy val logbackVersion = "1.2.3"
-lazy val scalatestVersion = "3.0.8"
+lazy val scalatestVersion = "3.2.3"
 lazy val slf4jVersion = "1.7.30"
 
 lazy val buildSettings = Seq(
   //ensimeIgnoreScalaMismatch in ThisBuild := true,
   organization := "scilube",
-  scalaVersion := "2.13.1",
-  crossScalaVersions := Seq("2.13.1"),
+  // scalaVersion := "2.13.1",
+  crossScalaVersions := Seq("2.13.3", "3.0.0-M1"),
   version := "2.0.7.jre11"
 )
 
@@ -37,11 +37,11 @@ lazy val dependencySettings = Seq(
     Resolver.mavenLocal,
     Resolver.sonatypeRepo("releases"),
     Resolver.bintrayRepo("hohonuuli", "maven"),
-    "com.springsource.repository.bundles.external" at "http://repository.springsource.com/maven/bundles/external",
-    "imagej.snapshots" at "http://maven.imagej.net/content/repositories/snapshots",
-    "imagej.releases" at "http://maven.imagej.net/content/repositories/releases",
-    "geotoolkit.releases" at "http://maven.geotoolkit.org/",
-    "netcdf.releases" at "http://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/"
+    "com.springsource.repository.bundles.external" at "https://repository.springsource.com/maven/bundles/external",
+    "imagej.snapshots" at "https://maven.imagej.net/content/repositories/snapshots",
+    "imagej.releases" at "https://maven.imagej.net/content/repositories/releases",
+    "geotoolkit.releases" at "https://maven.geotoolkit.org/",
+    "netcdf.releases" at "https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/"
   )
 )
 
