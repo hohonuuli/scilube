@@ -17,8 +17,9 @@ lazy val root = (project in file(".")).settings(
     scalaTest % Test,
     spire
   ),
+  publishTo := Some(Resolver.githubPackages("mbari-org", "maven")),
   resolvers ++= Seq(
-    Resolver.githubPackages("mbari-org")
+    Resolver.githubPackages("mbari-org", "maven")
   )
 )
 

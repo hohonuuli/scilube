@@ -4,17 +4,25 @@ A simple MATLAB-like DSL for working with numeric arrays.
 
 ## Adding to an SBT project
 
+project/plugins.sbt:
+
 ```
-resolvers += Resolver.bintrayRepo("hohonuuli", "maven")
-libraryDependencies += "scilube" %% "scilube-core" % "2.0.7.jre11"
+addSbtPlugin("com.codecommit" %% "sbt-github-packages" % "0.5.2")
+```
+
+Get a GitHub personal access token with `read:packages` scope. Set it to the `GITHUB_TOKEN` env variable. 
+
+```
+resolvers += Resolver.githubPackages("mbari-org", "maven")
+libraryDependencies += "org.mbari.scilube" %% "scilube" % "3.0.0"
 ```
 
 ## Array extension methods
 
-### `scilibe.RichArray` extension methods allow array operations:
+### `RichArray` extension methods allow array operations:
 
 ```
-import scilibe.RichArray // add implict element-by-element math functions to arrays
+import org.mbari.scilibe3.RichArray // add implict element-by-element math functions to arrays
 
 val x = (1 to 10).map(_.toDouble).toArray
 // x: Array[Double] = Array(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0)
@@ -43,10 +51,10 @@ x.findIdx(_ < 3)
 // res: Array[Int] = Array(0, 1)
 ```
 
-### `scilibe.RichArray` extension methods allow scalar operations on arrays:
+### `RichArray` extension methods allow scalar operations on arrays:
 
 ```
-import scilibe.RichArray // add implict element-by-element math functions to arrays
+import org.mbari.scilibe3.RichArray // add implict element-by-element math functions to arrays
 
 val x = (1 to 10).map(_.toDouble).toArray
 // x: Array[Double] = Array(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0)
@@ -69,8 +77,8 @@ x - 10
 ## MATLAB-like DSL ... `Matlib`
 
 ```
-import scilibe.RichArray // add implict element-by-element math functions to arrays
-import scilube.Matlib._  // Matlab-like DSL
+import org.mbari.scilibe3.RichArray// add implict element-by-element math functions to arrays
+import org.mbari.scilube3.Matlib._  // Matlab-like DSL
 
 val x = (1 to 10).map(_.toDouble).toArray
 // x: Array[Double] = Array(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0)
