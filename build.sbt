@@ -4,12 +4,17 @@ lazy val logbackVersion = "1.2.1"
 lazy val scalatestVersion = "3.0.1"
 lazy val slf4jVersion = "1.7.24"
 
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
 lazy val buildSettings = Seq(
     //ensimeIgnoreScalaMismatch in ThisBuild := true,
     organization := "scilube",
-    scalaVersion := "2.12.4",
+    scalaVersion := "2.12.14",
     crossScalaVersions := Seq("2.12.4", "2.11.7"),
-    version := "2.0.5-SNAPSHOT"
+    version := "2.0.5-SNAPSHOT",
+    githubOwner := "mbari-org",
+    githubRepository := "maven",
+    githubTokenSource := TokenSource.Environment("GITHUB_TOKEN")
 )
 
 lazy val consoleSettings = Seq(
@@ -32,17 +37,18 @@ lazy val dependencySettings = Seq(
           "junit"          % "junit"            % junitVersion % "test",
           "org.scalatest"  %% "scalatest"       % scalatestVersion % "test",
           "org.slf4j"      % "log4j-over-slf4j" % slf4jVersion,
-          "org.slf4j"      % "slf4j-api"        % slf4jVersion
+          "org.slf4j"      % "slf4j-api"        % slf4jVersion,
+          "org.scala-lang.modules" %% "scala-xml" % "2.0.1" % "test"
     ),
     resolvers ++= Seq(
         Resolver.mavenLocal,
         Resolver.sonatypeRepo("releases"),
-        Resolver.bintrayRepo("hohonuuli", "maven"),
-        "com.springsource.repository.bundles.external" at "http://repository.springsource.com/maven/bundles/external",
-        "imagej.snapshots" at "http://maven.imagej.net/content/repositories/snapshots",
-        "imagej.releases" at "http://maven.imagej.net/content/repositories/releases",
-        "geotoolkit.releases" at "http://maven.geotoolkit.org/", 
-        "netcdf.releases" at "http://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/"
+        // Resolver.bintrayRepo("hohonuuli", "maven"),
+        "com.springsource.repository.bundles.external" at "https://repository.springsource.com/maven/bundles/external",
+        "imagej.snapshots" at "https://maven.imagej.net/content/repositories/snapshots",
+        "imagej.releases" at "https://maven.imagej.net/content/repositories/releases",
+        "geotoolkit.releases" at "https://maven.geotoolkit.org/", 
+        "netcdf.releases" at "https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/"
     )
   )
 
