@@ -11,10 +11,11 @@ lazy val buildSettings = Seq(
     organization := "scilube",
     scalaVersion := "2.12.14",
     crossScalaVersions := Seq("2.12.4", "2.11.7"),
-    version := "2.0.5_1.jre11",
+    version := "2.0.5_2.jre11",
     githubOwner := "mbari-org",
     githubRepository := "maven",
-    githubTokenSource := TokenSource.Environment("GITHUB_TOKEN")
+    githubTokenSource := TokenSource.Environment("GITHUB_TOKEN"),
+    publishConfiguration := publishConfiguration.value.withOverwrite(true)
 )
 
 lazy val consoleSettings = Seq(
