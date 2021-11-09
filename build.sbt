@@ -1,7 +1,13 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.13.5"
-ThisBuild / version := "3.0.0"
+lazy val scala3 = "3.1.0"
+lazy val scala213 = "2.13.7"
+
+lazy val supportedScalaVersions = List(scala3, scala213)
+
+
+ThisBuild / scalaVersion := scala3
+ThisBuild / version := "3.0.1"
 ThisBuild / organization := "org.mbari.scilube"
 ThisBuild / organizationName := "MBARI"
 
@@ -9,6 +15,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 lazy val root = (project in file(".")).settings(
   name := "scilube",
+  crossScalaVersions := supportedScalaVersions,
   libraryDependencies ++= Seq(
     commonsMail,
     commonsMath,

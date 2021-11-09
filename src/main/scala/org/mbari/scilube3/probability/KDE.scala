@@ -5,7 +5,7 @@ import mbarix4j.math.Statlib
 import scala.math._
 import org.mbari.scilube3.Matlib
 import org.mbari.scilube3.spire.ComplexUtil
-import spire.implicits._
+// import spire.implicits._
 import spire.math.Complex
 
 /** Kernel Density Estimator for one-dimensional data. This is a port of kde.m at
@@ -31,7 +31,7 @@ object KDE {
     * @param data An array of data used to construct the density estimate
     * @return The results
     */
-  def apply(data: Array[Double]): KDEResult = apply(data, pow(2, 14).toInt)
+  def apply(data: Array[Double]): KDEResult = apply(data, scala.math.pow(2, 14).toInt)
 
   /** Apply the kernel density estimator
     * @param data An array of data used to construct the density estimate
@@ -212,6 +212,8 @@ object KDE {
     * @param data
     */
   protected[probability] def dct1d(data: Array[Double]): Array[Double] = {
+
+    import spire.implicits._
 
     // *** 2012-06-12 Brian Schlining - validated this method against kde.m. Matches exactly ***
 

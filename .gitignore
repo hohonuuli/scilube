@@ -7,6 +7,7 @@ syntax: glob
 #*.off
 *.old
 *.orig
+.DS_Store
 
 # eclipse conf file
 .settings
@@ -21,8 +22,12 @@ syntax: glob
 
 # vscode
 .bloop/
+.bsp/
+.history/
 .metals/
 .vscode/
+project/metals.sbt
+project/project/
 
 # building
 target
